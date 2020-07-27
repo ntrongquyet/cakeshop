@@ -10,19 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CakeShop.UserControl
+namespace CakeShop
 {
     /// <summary>
-    /// Interaction logic for StatisticsUC.xaml
+    /// Interaction logic for PlashScreen.xaml
     /// </summary>
-    //public partial class StatisticsUC : UserControl
-    //{
-    //    public StatisticsUC()
-    //    {
-    //        InitializeComponent();
-    //    }
-    //}
+    public partial class PlashScreen : Window
+    {
+        public PlashScreen()
+        {
+            InitializeComponent();
+        }
+    }
 }

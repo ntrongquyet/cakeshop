@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CakeShop.UserControl
 {
     /// <summary>
-    /// Interaction logic for StatisticsUC.xaml
+    /// Interaction logic for HomeUC.xaml
     /// </summary>
-    //public partial class StatisticsUC : UserControl
+    //public partial class HomeUC : UserControl
     //{
-    //    public StatisticsUC()
+    //    public HomeUC()
     //    {
     //        InitializeComponent();
     //    }

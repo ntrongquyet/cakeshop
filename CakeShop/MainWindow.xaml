@@ -4,9 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CakeShop"
+        Foreground="#570101"
+        RenderOptions.BitmapScalingMode="HighQuality"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="900">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Image Source="/Image/PlashScreen/Logo.png" 
+                       Margin="10"/>
+                <DockPanel Grid.Row="1">
+                    
+                    <TextBlock Text="Trang chủ"  
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="25"
+                           FontFamily="Font/#SVN-BEAR"/>
+                </DockPanel>
+            </Grid>
+        </StackPanel>
+        <Border Grid.Column="1"
+                Background="#FEDEB4"/>
     </Grid>
 </Window>
