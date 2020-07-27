@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dialog="clr-namespace:CakeShop.UserControl"
         xmlns:local="clr-namespace:CakeShop"
         Foreground="#570101"
         RenderOptions.BitmapScalingMode="HighQuality"
@@ -26,17 +27,71 @@
                 </Grid.RowDefinitions>
                 <Image Source="/Image/PlashScreen/Logo.png" 
                        Margin="10"/>
-                <DockPanel Grid.Row="1">
-                    
-                    <TextBlock Text="Trang chủ"  
-                           HorizontalAlignment="Center"
+                <DockPanel Grid.Row="1"
+                           Margin="0 0 0 10">
+                    <Image Source="/Image/Icon/home.png"
                            VerticalAlignment="Center"
-                           FontSize="25"
+                           Width="30"  
+                           Margin="25 0 10 0"/>
+                    <TextBlock Text="Trang chủ"
+                           FontSize="30"
+                           FontFamily="Font/#SVN-BEAR"/>
+                </DockPanel>
+                <DockPanel Grid.Row="2"
+                           Margin="0 0 0 10">
+                    <Image Source="/Image/Icon/Bill.png" 
+                           VerticalAlignment="Center"
+                           Width="30"  
+                           Margin="25 0 10 0"/>
+                    <TextBlock Text="Đơn hàng"
+                           FontSize="30"
+                           FontFamily="Font/#SVN-BEAR"/>
+                </DockPanel>
+                <DockPanel Grid.Row="3"
+                           Margin="0 0 0 10">
+                    <Image Source="/Image/Icon/Plus.png" 
+                           VerticalAlignment="Center"
+                           Width="30"  
+                           Margin="25 0 10 0"/>
+                    <TextBlock Text="Món mới"
+                           FontSize="30"
+                           FontFamily="Font/#SVN-BEAR"/>
+                </DockPanel>
+                <DockPanel Grid.Row="4"
+                           Margin="0 0 0 10">
+                    <Image Source="/Image/Icon/update.png" 
+                           VerticalAlignment="Center"
+                           Width="30"  
+                           Margin="25 0 10 0"/>
+                    <TextBlock Text="Cập nhật"
+                           FontSize="30"
+                           FontFamily="Font/#SVN-BEAR"/>
+                </DockPanel>
+                <DockPanel Grid.Row="5"
+                           Margin="0 0 0 10">
+                    <Image Source="/Image/Icon/revenue.png" 
+                           VerticalAlignment="Center"
+                           Width="30"  
+                           Margin="25 0 10 0"/>
+                    <TextBlock Text="Doanh thu"
+                           FontSize="30"
+                           FontFamily="Font/#SVN-BEAR"/>
+                </DockPanel>
+                <DockPanel Grid.Row="6"
+                           Margin="0 0 0 10">
+                    <Image Source="/Image/Icon/infomation.png"
+                           VerticalAlignment="Center"
+                           Width="30"  
+                           Margin="25 0 10 0"/>
+                    <TextBlock Text="Thông tin"
+                           FontSize="30"
                            FontFamily="Font/#SVN-BEAR"/>
                 </DockPanel>
             </Grid>
         </StackPanel>
         <Border Grid.Column="1"
-                Background="#FEDEB4"/>
+                Background="#FEDEB4">
+            <ContentControl Content="{Binding}"/>
+        </Border>
     </Grid>
 </Window>

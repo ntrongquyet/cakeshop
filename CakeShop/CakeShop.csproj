@@ -116,9 +116,26 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\Icon\home.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\PlashScreen\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icon\Bill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icon\Plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icon\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icon\revenue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icon\infomation.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
