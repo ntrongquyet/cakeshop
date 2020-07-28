@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CakeShop.User_Control"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
     <Grid>
@@ -14,5 +13,19 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" 
+                   Margin="0 0 30 0">
+            <TextBlock Text="Trang chủ"
+                       HorizontalAlignment="Left"
+                       FontFamily="/Font/#SVN-HEMI HEAD"
+                       FontSize="50"/>
+            <DockPanel HorizontalAlignment="Right">
+                <Image Source="/Image/Icon/search.png" 
+                       Width="40"/>
+                <Image Source="/Image/Icon/Market.png"
+                       MouseLeftButtonDown="order_button"
+                       Width="40"/>
+            </DockPanel>
+        </DockPanel>
     </Grid>
 </UserControl>

@@ -24,5 +24,11 @@ namespace CakeShop.User_Control
         {
             InitializeComponent();
         }
+
+        private void order_button(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new BillUC();
+            this.Content = new BillUC();
+        }
     }
 }
