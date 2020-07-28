@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:dialog="clr-namespace:CakeShop.UserControl"
+        xmlns:dialog="clr-namespace:CakeShop.User_Control"
         xmlns:local="clr-namespace:CakeShop"
         Foreground="#570101"
+        Loaded="Window_Loaded"
         RenderOptions.BitmapScalingMode="HighQuality"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="900">
@@ -14,7 +15,7 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel>
+        <StackPanel Grid.Column="0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="3*"/>
@@ -28,12 +29,14 @@
                 <Image Source="/Image/PlashScreen/Logo.png" 
                        Margin="10"/>
                 <DockPanel Grid.Row="1"
+                           
                            Margin="0 0 0 10">
                     <Image Source="/Image/Icon/home.png"
                            VerticalAlignment="Center"
                            Width="30"  
                            Margin="25 0 10 0"/>
                     <TextBlock Text="Trang chủ"
+                               MouseLeftButtonDown="Home_Button"
                            FontSize="30"
                            FontFamily="Font/#SVN-BEAR"/>
                 </DockPanel>
@@ -44,6 +47,7 @@
                            Width="30"  
                            Margin="25 0 10 0"/>
                     <TextBlock Text="Đơn hàng"
+                               MouseLeftButtonDown="Bill_Button"
                            FontSize="30"
                            FontFamily="Font/#SVN-BEAR"/>
                 </DockPanel>
@@ -54,6 +58,7 @@
                            Width="30"  
                            Margin="25 0 10 0"/>
                     <TextBlock Text="Món mới"
+                               MouseLeftButtonDown="New_Button"
                            FontSize="30"
                            FontFamily="Font/#SVN-BEAR"/>
                 </DockPanel>
@@ -64,6 +69,7 @@
                            Width="30"  
                            Margin="25 0 10 0"/>
                     <TextBlock Text="Cập nhật"
+                               MouseLeftButtonDown="Update_Button"
                            FontSize="30"
                            FontFamily="Font/#SVN-BEAR"/>
                 </DockPanel>
@@ -74,6 +80,7 @@
                            Width="30"  
                            Margin="25 0 10 0"/>
                     <TextBlock Text="Doanh thu"
+                               MouseLeftButtonDown="Static_Button"
                            FontSize="30"
                            FontFamily="Font/#SVN-BEAR"/>
                 </DockPanel>
@@ -84,6 +91,7 @@
                            Width="30"  
                            Margin="25 0 10 0"/>
                     <TextBlock Text="Thông tin"
+                               MouseLeftButtonDown="Info_Button"
                            FontSize="30"
                            FontFamily="Font/#SVN-BEAR"/>
                 </DockPanel>

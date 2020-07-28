@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CakeShop.User_Control;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,40 @@ namespace CakeShop
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void Home_Button(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new HomeUC();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = new HomeUC();
+        }
+
+        private void Bill_Button(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new BillUC();
+        }
+
+        private void New_Button(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new NewUC();
+        }
+
+        private void Update_Button(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UpdateUC();
+        }
+
+        private void Static_Button(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new StatisticsUC();
+        }
+
+        private void Info_Button(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new InfoUC();
         }
     }
 }

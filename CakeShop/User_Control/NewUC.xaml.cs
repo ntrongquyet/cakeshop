@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CakeShop.UserControl
+namespace CakeShop.User_Control
 {
     /// <summary>
-    /// Interaction logic for HomeUC.xaml
+    /// Interaction logic for NewUC.xaml
     /// </summary>
-    //public partial class HomeUC : UserControl
-    //{
-    //    public HomeUC()
-    //    {
-    //        InitializeComponent();
-    //    }
-    //}
+    public partial class NewUC : UserControl
+    {
+        public NewUC()
+        {
+            InitializeComponent();
+        }
+    }
 }

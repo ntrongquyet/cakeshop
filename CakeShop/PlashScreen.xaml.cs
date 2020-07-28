@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CakeShop
 {
@@ -19,9 +20,20 @@ namespace CakeShop
     /// </summary>
     public partial class PlashScreen : Window
     {
+        DispatcherTimer dt = new DispatcherTimer();
         public PlashScreen()
         {
             InitializeComponent();
+            dt.Tick += new EventHandler(dT_Tick);
+            dt.Interval = new TimeSpan(0, 0, 3);
+            dt.Start();
+        }
+        private void dT_Tick(object sender, EventArgs e)
+        {
+            MainWindow hr = new MainWindow();
+            hr.Show();
+            dt.Stop();
+            this.Close();
         }
     }
 }
