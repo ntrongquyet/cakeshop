@@ -171,5 +171,17 @@
     <Resource Include="Image\Icon\search.png" />
     <Resource Include="Image\Icon\Market.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Home\BiscuitCake.png" />
+    <Resource Include="Image\Home\CreamCake.png" />
+    <Resource Include="Image\Home\IceCream.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Home\Cupcake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Icon\Next.png" />
+    <Resource Include="Image\Icon\Prev.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:dialog="clr-namespace:CakeShop.User_Control"
         xmlns:local="clr-namespace:CakeShop"
+        WindowStartupLocation="CenterScreen"
         Foreground="#570101"
         Loaded="Window_Loaded"
         RenderOptions.BitmapScalingMode="HighQuality"

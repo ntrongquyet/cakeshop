@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CakeShop.User_Control"
+             RenderOptions.BitmapScalingMode="HighQuality"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
     <Grid>
@@ -26,6 +27,32 @@
                        MouseLeftButtonDown="order_button"
                        Width="40"/>
             </DockPanel>
+        </DockPanel>
+        <DockPanel Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <Image Source="/Image/Home/Cupcake.png"
+                   Width="110"
+                   Margin="20 0 20 0"/>
+            <Image Source="/Image/Home/CreamCake.png"
+                   Width="110"
+                   Margin="20 0 20 0"/>
+            <Image Source="/Image/Home/BiscuitCake.png" 
+                   Width="110"
+                   Margin="20 0 20 0"/>
+            <Image Source="/Image/Home/IceCream.png" 
+                   Width="110"
+                   Margin="20 0 20 0"/>
+        </DockPanel>
+        <DockPanel Grid.Row="3" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <Image Source="/Image/Icon/Prev.png"
+                   Width="80" 
+                   Margin="0 0 50 0"/>
+            <Image Source="/Image/Icon/Next.png" 
+                   Width="80"
+                   Margin="50 0 0 0"/>
         </DockPanel>
     </Grid>
 </UserControl>
