@@ -7,7 +7,52 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="BILL" 
-                      FontSize="50"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <DockPanel>
+
+                <DockPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBox Height="60" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"
+                 Margin="20"/>
+                    <Button Content="Tìm" Width="60" Margin="20"/>
+                </DockPanel>
+            </DockPanel>
+            <ListView Grid.Row="1" Margin="20" BorderThickness="0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <DataGrid CanUserAddRows="False" IsReadOnly="True" Name="listCash" Margin="20"
+                      Background="White" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                      AutoGenerateColumns="False" BorderThickness="0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="STT"  Foreground="#0133CD"
+                                        Binding="{Binding  TENTV}"/>
+                    <DataGridTextColumn Header="Tên món"  Foreground="#0133CD"
+                                        Binding="{Binding  TENTV}"/>
+                    <DataGridTextColumn Header="Số lượng" Foreground="#0133CD"
+                                        Binding="{Binding  TENTV}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Grid.Row="1" Margin="100 5" Content="Thanh Toán"
+                        Background="#FFF"></Button>
+        </Grid>
     </Grid>
 </UserControl>
