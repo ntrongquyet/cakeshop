@@ -36,5 +36,20 @@ namespace CakeShop.User_Control
         {
             Listbox_Cake.ItemsSource = DataProvider.Ins.DB.BANHs.ToList();
         }
+
+        private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Hover_Image(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void UserControl_Loaded(object sender, EventArgs e)
+        {
+
+        }
     }
 }
