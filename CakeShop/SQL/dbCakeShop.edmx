@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbCakeShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BANH">
+          <Key>
+            <PropertyRef Name="MABANH" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MABANH" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENBANH" Type="nvarchar(max)" />
+          <Property Name="DVT" Type="nvarchar" MaxLength="20" />
+          <Property Name="SL_TON" Type="float" />
+          <Property Name="DONGIA" Type="float" />
+          <Property Name="HA_BANH" Type="nvarchar" MaxLength="100" />
+          <Property Name="THONGTIN" Type="nvarchar(max)" />
+          <Property Name="LOAIBANH" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CT_DONHANG">
+          <Key>
+            <PropertyRef Name="STT" />
+            <PropertyRef Name="MABANH" />
+            <PropertyRef Name="MA_DONHANG" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STT" Type="int" Nullable="false" />
+          <Property Name="MABANH" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MA_DONHANG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SL_MUA" Type="int" />
+        </EntityType>
+        <EntityType Name="DONHANG">
+          <Key>
+            <PropertyRef Name="MA_DONHANG" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MA_DONHANG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NG_DATHANG" Type="datetime" />
+          <Property Name="TONG_GTDH" Type="float" />
+        </EntityType>
+        <EntityType Name="LOAIBANH">
+          <Key>
+            <PropertyRef Name="MALOAI" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MALOAI" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENLOAI" Type="nvarchar(max)" />
+          <Property Name="HA_LOAIBANH" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_BANH_LOAIBANH">
+          <End Role="LOAIBANH" Type="Self.LOAIBANH" Multiplicity="0..1" />
+          <End Role="BANH" Type="Self.BANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIBANH">
+              <PropertyRef Name="MALOAI" />
+            </Principal>
+            <Dependent Role="BANH">
+              <PropertyRef Name="LOAIBANH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_BANH">
+          <End Role="BANH" Type="Self.BANH" Multiplicity="1" />
+          <End Role="CT_DONHANG" Type="Self.CT_DONHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANH">
+              <PropertyRef Name="MABANH" />
+            </Principal>
+            <Dependent Role="CT_DONHANG">
+              <PropertyRef Name="MABANH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_DH">
+          <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="1" />
+          <End Role="CT_DONHANG" Type="Self.CT_DONHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONHANG">
+              <PropertyRef Name="MA_DONHANG" />
+            </Principal>
+            <Dependent Role="CT_DONHANG">
+              <PropertyRef Name="MA_DONHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbCakeShopModelStoreContainer">
+          <EntitySet Name="BANH" EntityType="Self.BANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CT_DONHANG" EntityType="Self.CT_DONHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DONHANG" EntityType="Self.DONHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAIBANH" EntityType="Self.LOAIBANH" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BANH_LOAIBANH" Association="Self.FK_BANH_LOAIBANH">
+            <End Role="LOAIBANH" EntitySet="LOAIBANH" />
+            <End Role="BANH" EntitySet="BANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_BANH" Association="Self.FK_CTHD_BANH">
+            <End Role="BANH" EntitySet="BANH" />
+            <End Role="CT_DONHANG" EntitySet="CT_DONHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_DH" Association="Self.FK_CTHD_DH">
+            <End Role="DONHANG" EntitySet="DONHANG" />
+            <End Role="CT_DONHANG" EntitySet="CT_DONHANG" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbCakeShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BANH">
+          <Key>
+            <PropertyRef Name="MABANH" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MABANH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENBANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DVT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SL_TON" Type="Double" />
+          <Property Name="DONGIA" Type="Double" />
+          <Property Name="HA_BANH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="THONGTIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LOAIBANH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LOAIBANH1" Relationship="Self.FK_BANH_LOAIBANH" FromRole="BANH" ToRole="LOAIBANH" />
+          <NavigationProperty Name="CT_DONHANG" Relationship="Self.FK_CTHD_BANH" FromRole="BANH" ToRole="CT_DONHANG" />
+        </EntityType>
+        <EntityType Name="CT_DONHANG">
+          <Key>
+            <PropertyRef Name="STT" />
+            <PropertyRef Name="MABANH" />
+            <PropertyRef Name="MA_DONHANG" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STT" Type="Int32" Nullable="false" />
+          <Property Name="MABANH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MA_DONHANG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SL_MUA" Type="Int32" />
+          <NavigationProperty Name="BANH" Relationship="Self.FK_CTHD_BANH" FromRole="CT_DONHANG" ToRole="BANH" />
+          <NavigationProperty Name="DONHANG" Relationship="Self.FK_CTHD_DH" FromRole="CT_DONHANG" ToRole="DONHANG" />
+        </EntityType>
+        <EntityType Name="DONHANG">
+          <Key>
+            <PropertyRef Name="MA_DONHANG" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MA_DONHANG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NG_DATHANG" Type="DateTime" Precision="3" />
+          <Property Name="TONG_GTDH" Type="Double" />
+          <NavigationProperty Name="CT_DONHANG" Relationship="Self.FK_CTHD_DH" FromRole="DONHANG" ToRole="CT_DONHANG" />
+        </EntityType>
+        <EntityType Name="LOAIBANH">
+          <Key>
+            <PropertyRef Name="MALOAI" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MALOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENLOAI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HA_LOAIBANH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BANHs" Relationship="Self.FK_BANH_LOAIBANH" FromRole="LOAIBANH" ToRole="BANH" />
+        </EntityType>
+        <Association Name="FK_BANH_LOAIBANH">
+          <End Role="LOAIBANH" Type="Self.LOAIBANH" Multiplicity="0..1" />
+          <End Role="BANH" Type="Self.BANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIBANH">
+              <PropertyRef Name="MALOAI" />
+            </Principal>
+            <Dependent Role="BANH">
+              <PropertyRef Name="LOAIBANH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_BANH">
+          <End Role="BANH" Type="Self.BANH" Multiplicity="1" />
+          <End Role="CT_DONHANG" Type="Self.CT_DONHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANH">
+              <PropertyRef Name="MABANH" />
+            </Principal>
+            <Dependent Role="CT_DONHANG">
+              <PropertyRef Name="MABANH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_DH">
+          <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="1" />
+          <End Role="CT_DONHANG" Type="Self.CT_DONHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONHANG">
+              <PropertyRef Name="MA_DONHANG" />
+            </Principal>
+            <Dependent Role="CT_DONHANG">
+              <PropertyRef Name="MA_DONHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbCakeShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BANHs" EntityType="Self.BANH" />
+          <EntitySet Name="CT_DONHANG" EntityType="Self.CT_DONHANG" />
+          <EntitySet Name="DONHANGs" EntityType="Self.DONHANG" />
+          <EntitySet Name="LOAIBANHs" EntityType="Self.LOAIBANH" />
+          <AssociationSet Name="FK_BANH_LOAIBANH" Association="Self.FK_BANH_LOAIBANH">
+            <End Role="LOAIBANH" EntitySet="LOAIBANHs" />
+            <End Role="BANH" EntitySet="BANHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_BANH" Association="Self.FK_CTHD_BANH">
+            <End Role="BANH" EntitySet="BANHs" />
+            <End Role="CT_DONHANG" EntitySet="CT_DONHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_DH" Association="Self.FK_CTHD_DH">
+            <End Role="DONHANG" EntitySet="DONHANGs" />
+            <End Role="CT_DONHANG" EntitySet="CT_DONHANG" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbCakeShopModelStoreContainer" CdmEntityContainer="dbCakeShopEntities">
+          <EntitySetMapping Name="BANHs">
+            <EntityTypeMapping TypeName="dbCakeShopModel.BANH">
+              <MappingFragment StoreEntitySet="BANH">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MABANH" ColumnName="MABANH" />
+                <ScalarProperty Name="TENBANH" ColumnName="TENBANH" />
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
+                <ScalarProperty Name="SL_TON" ColumnName="SL_TON" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="HA_BANH" ColumnName="HA_BANH" />
+                <ScalarProperty Name="THONGTIN" ColumnName="THONGTIN" />
+                <ScalarProperty Name="LOAIBANH" ColumnName="LOAIBANH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CT_DONHANG">
+            <EntityTypeMapping TypeName="dbCakeShopModel.CT_DONHANG">
+              <MappingFragment StoreEntitySet="CT_DONHANG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="MABANH" ColumnName="MABANH" />
+                <ScalarProperty Name="MA_DONHANG" ColumnName="MA_DONHANG" />
+                <ScalarProperty Name="SL_MUA" ColumnName="SL_MUA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DONHANGs">
+            <EntityTypeMapping TypeName="dbCakeShopModel.DONHANG">
+              <MappingFragment StoreEntitySet="DONHANG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MA_DONHANG" ColumnName="MA_DONHANG" />
+                <ScalarProperty Name="NG_DATHANG" ColumnName="NG_DATHANG" />
+                <ScalarProperty Name="TONG_GTDH" ColumnName="TONG_GTDH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAIBANHs">
+            <EntityTypeMapping TypeName="dbCakeShopModel.LOAIBANH">
+              <MappingFragment StoreEntitySet="LOAIBANH">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
+                <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+                <ScalarProperty Name="HA_LOAIBANH" ColumnName="HA_LOAIBANH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
