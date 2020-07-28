@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:CakeShop.User_Control"
              RenderOptions.BitmapScalingMode="HighQuality"
              mc:Ignorable="d" 
+             Initialized="UserControl_Loaded"
              d:DesignHeight="450" d:DesignWidth="600">
     <Grid>
         <Grid.RowDefinitions>
@@ -48,13 +49,50 @@
                    Width="110"
                    Margin="20 0 20 0"/>
         </DockPanel>
-        <ListView Grid.Row="2" Margin="20 0 20 0">
-            <ListView.ItemTemplate>
+        <ListBox Name ="Listbox_Cake" 
+                 Grid.Row="1"
+                 BorderThickness="0" 
+                 Margin="0 10 0 10"
+                 MouseDoubleClick="DockPanel_MouseDown">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="2" Columns="4"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
                 <DataTemplate>
-                    
+                    <StackPanel MouseMove="Hover_Image" x:Name="_food">
+                        <Grid>
+                        </Grid>
+                        <StackPanel VerticalAlignment="Center" Orientation="Vertical" Margin="20 0 0 0">
+                            <TextBlock  Margin="0 10 0 0"
+                                                    Text= "{Binding TENBANH}" 
+                                                    FontWeight="Light"
+                                                    Foreground="#AA381F" 
+                                                    FontSize="15"
+                                                    HorizontalAlignment="Center"/>
+                            <DockPanel>
+                                <TextBlock Text="Cách nấu: " 
+                                                       Margin="0 0 10 0"
+                                                       FontSize="10"
+                                                       FontWeight="Bold"/>
+                                <TextBlock Text="{Binding THONGTIN}" 
+                                                       FontSize="10"
+                                                       FontWeight="Light"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock Text="Nguyên liệu: " 
+                                                       FontSize="10"
+                                                       FontWeight="Bold"/>
+                                <TextBlock Text="{Binding LOAIBANH}"
+                                                       FontSize="10"
+                                                       FontWeight="Light"/>
+                            </DockPanel>
+                        </StackPanel>
+                    </StackPanel>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <DockPanel Grid.Row="3" 
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center">
