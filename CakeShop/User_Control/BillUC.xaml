@@ -15,9 +15,16 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <TextBlock Text="Đặt món"
+                       Margin="10 0 0 0"
+                       HorizontalAlignment="Left"
+                       FontFamily="/Font/#SVN-HEMI HEAD"
+                       FontSize="50"/>
             <materialDesign:ColorZone Mode="Standard"  
+                                      Grid.Row="1"
                                       CornerRadius="20"
                                       Width="300"
                                       Padding="8 4 8 4" 

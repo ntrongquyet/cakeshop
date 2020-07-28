@@ -9,18 +9,22 @@
              d:DesignHeight="450" d:DesignWidth="600">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.3*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" 
+                   VerticalAlignment="Top"
                    Margin="0 0 30 0">
             <TextBlock Text="Trang chủ"
+                       VerticalAlignment="Center"
+                       Margin="10 0 10 0"
                        HorizontalAlignment="Left"
                        FontFamily="/Font/#SVN-HEMI HEAD"
                        FontSize="50"/>
-            <DockPanel HorizontalAlignment="Right">
+            <DockPanel HorizontalAlignment="Right"
+                       VerticalAlignment="Center">
                 <Image Source="/Image/Icon/search.png" 
                        Width="40"/>
                 <Image Source="/Image/Icon/Market.png"
@@ -30,7 +34,7 @@
         </DockPanel>
         <DockPanel Grid.Row="1"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center">
+                   VerticalAlignment="Top">
             <Image Source="/Image/Home/Cupcake.png"
                    Width="110"
                    Margin="20 0 20 0"/>
@@ -44,6 +48,13 @@
                    Width="110"
                    Margin="20 0 20 0"/>
         </DockPanel>
+        <ListView Grid.Row="2" Margin="20 0 20 0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <DockPanel Grid.Row="3" 
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center">

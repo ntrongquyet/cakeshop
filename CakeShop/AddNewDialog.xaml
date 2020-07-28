@@ -1,0 +1,66 @@
+﻿<Window x:Class="CakeShop.AddNewDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CakeShop"
+        RenderOptions.BitmapScalingMode="HighQuality"
+        mc:Ignorable="d"
+        Foreground="#570101"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Title="AddNewDialog" Height="600" Width="450">
+    <Grid Background="#FEDEB4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Thêm món"
+                       VerticalAlignment="Center"
+                       Margin="10 0 10 0"
+                       FontFamily="/Font/#SVN-HEMI HEAD"
+                       FontSize="50"/>
+        <StackPanel Grid.Row="1">
+            <Label FontWeight="Light"
+                   Content="Tên món"
+                   Margin="25 10 0 0"/>
+            <TextBox Name="name"
+                     TextWrapping="Wrap"
+                     BorderThickness="1"
+                     Margin="25 0 40 0"/>
+            <Label FontWeight="Light" 
+                   Content="Mô tả" 
+                   Margin="25 10 0 0"/>
+            <TextBox AcceptsReturn="True"
+                     BorderThickness="1" 
+                     Name="ingredients" 
+                     MinHeight="80"
+                     MaxHeight="120"
+                     TextWrapping="Wrap"
+                     Margin="25 0 40 0"
+                     VerticalScrollBarVisibility="Auto"/>
+            <Label FontWeight="Light" 
+                   Content="Hình ảnh" 
+                   Margin="25 10 0 0"/>
+            <Image Source="/Image/Icon/add.png" 
+                   Width="50"
+                   HorizontalAlignment="Left"
+                   Margin="20 0 0 0"/>
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <Button Content="Thoát"
+                Width="100"
+                Margin="10,0,0,10"
+                Click="Out_button"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left" Height="26"/>
+            <Button Content="Thêm"
+                Width="100"
+                Margin="0,0,10,10"
+                Click="Add_Button"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" Height="26"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -10,19 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CakeShop.User_Control
+namespace CakeShop
 {
     /// <summary>
-    /// Interaction logic for NewUC.xaml
+    /// Interaction logic for AddNewDialog.xaml
     /// </summary>
-    public partial class NewUC : UserControl
+    public partial class AddNewDialog : Window
     {
-        public NewUC()
+        public AddNewDialog()
         {
             InitializeComponent();
+        }
+
+        private void Out_button(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Add_Button(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

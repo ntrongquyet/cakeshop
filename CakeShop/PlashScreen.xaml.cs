@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,20 +21,52 @@ namespace CakeShop
     /// </summary>
     public partial class PlashScreen : Window
     {
-        DispatcherTimer dt = new DispatcherTimer();
+        DispatcherTimer timer = new DispatcherTimer();
+        private string dataFile;
         public PlashScreen()
         {
             InitializeComponent();
-            dt.Tick += new EventHandler(dT_Tick);
-            dt.Interval = new TimeSpan(0, 0, 3);
-            dt.Start();
+            string folder = AppDomain.CurrentDomain.BaseDirectory; // "C:\Users\dev\"
+            folder = folder.Remove(folder.IndexOf("bin"));
+            dataFile = $"{folder}Data\\Check.txt";
+            var isChecked = File.ReadAllText(dataFile);
+            if (isChecked == "true")
+            {
+                MainWindow hr = new MainWindow();
+                hr.Show();
+                this.Close();
+            }
+            else
+            {
+                timer.Tick += new EventHandler(timer_Tick);
+                timer.Interval = new TimeSpan(15000);
+                timer.Start();
+            }
+            
         }
-        private void dT_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
-            MainWindow hr = new MainWindow();
-            hr.Show();
-            dt.Stop();
-            this.Close();
+            rectangle2.Width += 3;
+            if (rectangle2.Width >= 700)
+            {
+                timer.Stop();
+                MainWindow main = new MainWindow();
+                main.Show();
+                this.Close();
+            }
+        }
+        private void Check(object sender, RoutedEventArgs e)
+        {
+            if (check.IsChecked == true)
+            {
+                string newData = "true";
+                File.WriteAllText(dataFile, newData);
+            }
+            else
+            {
+                string newData = "fasle";
+                File.WriteAllText(dataFile, newData);
+            }
         }
     }
 }
