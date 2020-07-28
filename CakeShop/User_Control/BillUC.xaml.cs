@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CakeShop.SQL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CakeShop.User_Control;
 
 namespace CakeShop.User_Control
 {
@@ -27,7 +29,14 @@ namespace CakeShop.User_Control
 
         private void Search_button(object sender, RoutedEventArgs e)
         {
+         
+        }
 
+        private void UC_Loaded(object sender, RoutedEventArgs e)
+        {
+            var list = (from d in DataProvider.Ins.DB.BANHs
+                        select new { d.TENBANH });
+            Select_Food.ItemsSource = list.ToList();
         }
     }
 }

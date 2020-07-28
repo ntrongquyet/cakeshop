@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:CakeShop.User_Control"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="UC_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -63,11 +64,13 @@
                              Grid.RowSpan="2"/>
                 </Grid>
             </materialDesign:ColorZone>
-            <ListView Grid.Row="1" Margin="20" BorderThickness="0">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+            <ListView Grid.Row="2" Margin="20" BorderThickness="0" 
+                      Name="Select_Food" Foreground="#000">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn  Header="Tên bánh" DisplayMemberBinding="{Binding TENBANH}"/>
+                    </GridView>
+                </ListView.View>
             </ListView>
         </Grid>
         <Grid Grid.Column="1">
