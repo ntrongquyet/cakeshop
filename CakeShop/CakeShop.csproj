@@ -87,6 +87,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddNewDialog.xaml.cs">
+      <DependentUpon>AddNewDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlashScreen.xaml.cs">
       <DependentUpon>PlashScreen.xaml</DependentUpon>
     </Compile>
@@ -127,9 +130,6 @@
     <Compile Include="User_Control\InfoUC.xaml.cs">
       <DependentUpon>InfoUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User_Control\NewUC.xaml.cs">
-      <DependentUpon>NewUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="User_Control\StatisticsUC.xaml.cs">
       <DependentUpon>StatisticsUC.xaml</DependentUpon>
     </Compile>
@@ -137,6 +137,10 @@
       <DependentUpon>UpdateUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="User_Control\usercontrol.cs" />
+    <Page Include="AddNewDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -162,10 +166,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="User_Control\InfoUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="User_Control\NewUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
