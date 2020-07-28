@@ -18,6 +18,13 @@
         </Grid.RowDefinitions>
         <Image Source="/Image/PlashScreen/Logo.png"
                Margin="15"/>
+        <ToggleButton VerticalAlignment="Top"
+                      Name="check"
+                      HorizontalAlignment="Right"
+                      Margin="5 "
+                      Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
+                      ToolTip="Tắt cửa này sổ vĩnh viễn!"
+                      IsChecked="False"/>
         <TextBlock Grid.Row="1" 
                    Text="CupCake Socola"
                    HorizontalAlignment="Center"
