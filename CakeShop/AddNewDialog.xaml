@@ -44,7 +44,8 @@
                    Content="Hình ảnh" 
                    Margin="25 10 0 0"/>
             <Image Source="/Image/Icon/add.png" 
-                   Width="50"
+                   Width="80"
+                   MouseLeftButtonDown="Image_Button"
                    HorizontalAlignment="Left"
                    Margin="20 0 0 0"/>
         </StackPanel>

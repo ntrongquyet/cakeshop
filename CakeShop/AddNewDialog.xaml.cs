@@ -33,5 +33,10 @@ namespace CakeShop
         {
 
         }
+
+        private void Image_Button(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Đã Click");
+        }
     }
 }

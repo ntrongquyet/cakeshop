@@ -30,7 +30,6 @@
                 <Image Source="/Image/PlashScreen/Logo.png" 
                        Margin="10"/>
                 <DockPanel Grid.Row="1"
-                           
                            Margin="0 0 0 10">
                     <Image Source="/Image/Icon/home.png"
                            VerticalAlignment="Center"
@@ -38,8 +37,8 @@
                            Margin="25 0 10 0"/>
                     <TextBlock Text="Trang chủ"
                                MouseLeftButtonDown="Home_Button"
-                           FontSize="30"
-                           FontFamily="Font/#SVN-BEAR"/>
+                               FontSize="30"
+                               FontFamily="Font/#SVN-BEAR"/>
                 </DockPanel>
                 <DockPanel Grid.Row="2"
                            Margin="0 0 0 10">

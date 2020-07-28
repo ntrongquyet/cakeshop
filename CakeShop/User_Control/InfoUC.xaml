@@ -5,9 +5,117 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CakeShop.User_Control"
              mc:Ignorable="d" 
+             Foreground="#570101"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="INFOMATION" 
-                      FontSize="50"/>
+        <Border Background="White" >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" Opacity=".1"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60*"/>
+                    <ColumnDefinition Width="40*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Fill="#0133CD"/>
+                <Rectangle Fill="#570101" Grid.Row="1"/>
+                <TextBlock Text="ĐỒ ÁN MÔN HỌC LẬP TRÌNH WINDOW" Grid.Row="1"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   FontSize="20"
+                   FontWeight="Bold" Foreground="#FFFFFF"/>
+                <Rectangle Fill="#FEDEB4" Grid.Row="2"/>
+                <Image Source="/Image/Icon/bn2_v4.jpg"
+               Grid.ColumnSpan="2"
+               Grid.RowSpan="3"
+               HorizontalAlignment="Right"
+               Panel.ZIndex="-1"
+               Stretch="Uniform"
+               RenderOptions.BitmapScalingMode="HighQuality"/>
+                <StackPanel Grid.Row="2">
+                    <DockPanel Margin="0 15 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Rectangle Fill="#570101" Width="3" Height="40"
+                       Margin="0 0 5 0"/>
+                        <StackPanel>
+                            <TextBlock Text="Tên đồ án: CakeShop App"
+                                       FontWeight="Bold" 
+                                       FontSize="17"/>
+                            <TextBlock Text="Lớp: 18CK2"
+                                       FontWeight="Bold" 
+                                       FontSize="17"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <StackPanel Width="350">
+                        <TextBlock Text="THÔNG TIN NHÓM"
+                                   Grid.Row="2" 
+                                   HorizontalAlignment="Center" 
+                                   Height="30"
+                                   Margin="0 20"
+                                   FontWeight="Bold" 
+                                   FontSize="20"/>
+                        <StackPanel>
+                            <DockPanel>
+                                <Label Content="18600011"
+                                       Background="#570101"
+                                       Foreground="White"
+                                       FontWeight="Bold"
+                                       FontSize="15"/>
+                                <Label Content="NGUYỄN TRỌNG QUYẾT"
+                                       BorderThickness="1"
+                                       BorderBrush="#570101"
+                                       FontWeight="Bold" 
+                                       Foreground="#570101"
+                                       FontSize="15"/>
+                            </DockPanel>
+                            <TextBlock Text="ntrongquyet37@gmail.com"
+                                       FontSize="15" 
+                                       FontWeight="Light" 
+                                       Margin="0 0 0 30"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <DockPanel>
+                                <Label Content="18600014" 
+                                       Background="#570101" 
+                                       Foreground="White"
+                                       FontWeight="Bold" 
+                                       FontSize="15"/>
+                                <Label Content="NGÔ TẤT TỐ"
+                                       BorderThickness="1" 
+                                       BorderBrush="#570101"
+                                       Foreground="#570101"
+                                       FontWeight="Bold" 
+                                       FontSize="15"/>
+                            </DockPanel>
+                            <TextBlock Text="tongo0209@gmail.com" 
+                                       FontSize="15"
+                                       FontWeight="Light" 
+                                       Margin="0 0 0 30"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <DockPanel>
+                                <Label Content="18600038" 
+                                       Background="#570101" 
+                                       Foreground="White"
+                                       FontWeight="Bold" 
+                                       FontSize="15"/>
+                                <Label Content="PHẠM PHONG PHÚ CƯỜNG"
+                                       BorderThickness="1"
+                                       Foreground="#570101"
+                                       BorderBrush="#570101"
+                                       FontWeight="Bold"
+                                       FontSize="15" />
+                            </DockPanel>
+                            <TextBlock Text="phamcuong2751@gmail.com"
+                                       FontSize="15" 
+                                       FontWeight="Light" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CakeShop.User_Control"
              RenderOptions.BitmapScalingMode="HighQuality"
              mc:Ignorable="d" 
-             Initialized="UserControl_Loaded"
+             Loaded="UserControl_Loaded"
              d:DesignHeight="450" d:DesignWidth="600">
     <Grid>
         <Grid.RowDefinitions>
@@ -37,58 +37,47 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top">
             <Image Source="/Image/Home/Cupcake.png"
+                   MouseLeftButtonDown="Button_CupCake"
                    Width="110"
                    Margin="20 0 20 0"/>
             <Image Source="/Image/Home/CreamCake.png"
+                   MouseLeftButtonDown="Button_CreamCake"
                    Width="110"
                    Margin="20 0 20 0"/>
             <Image Source="/Image/Home/BiscuitCake.png" 
                    Width="110"
+                   MouseLeftButtonDown="Button_BiscuitCake"
                    Margin="20 0 20 0"/>
             <Image Source="/Image/Home/IceCream.png" 
                    Width="110"
+                   MouseLeftButtonDown="Button_IceCream"
                    Margin="20 0 20 0"/>
         </DockPanel>
         <ListBox Name ="Listbox_Cake" 
-                 Grid.Row="1"
+                 Grid.Row="2"
                  BorderThickness="0" 
-                 Margin="0 10 0 10"
+                 HorizontalContentAlignment="Center"
+                 HorizontalAlignment="Center"
                  MouseDoubleClick="DockPanel_MouseDown">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Rows="2" Columns="4"/>
+                    <WrapPanel Margin="0"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel MouseMove="Hover_Image" x:Name="_food">
-                        <Grid>
-                        </Grid>
-                        <StackPanel VerticalAlignment="Center" Orientation="Vertical" Margin="20 0 0 0">
-                            <TextBlock  Margin="0 10 0 0"
-                                                    Text= "{Binding TENBANH}" 
-                                                    FontWeight="Light"
-                                                    Foreground="#AA381F" 
-                                                    FontSize="15"
-                                                    HorizontalAlignment="Center"/>
-                            <DockPanel>
-                                <TextBlock Text="Cách nấu: " 
-                                                       Margin="0 0 10 0"
-                                                       FontSize="10"
-                                                       FontWeight="Bold"/>
-                                <TextBlock Text="{Binding THONGTIN}" 
-                                                       FontSize="10"
-                                                       FontWeight="Light"/>
-                            </DockPanel>
-                            <DockPanel>
-                                <TextBlock Text="Nguyên liệu: " 
-                                                       FontSize="10"
-                                                       FontWeight="Bold"/>
-                                <TextBlock Text="{Binding LOAIBANH}"
-                                                       FontSize="10"
-                                                       FontWeight="Light"/>
-                            </DockPanel>
-                        </StackPanel>
+                    <StackPanel VerticalAlignment="Center"
+                                Orientation="Vertical"
+                                Width="175"
+                                Height="auto"
+                                HorizontalAlignment="Center">
+                        <Image Source="/Image/PlashScreen/Logo.png" Width="150" />
+                        <TextBlock Margin="0 10 0 0"
+                                   Text= "{Binding TENBANH}" 
+                                   FontWeight="Light"
+                                   Foreground="#AA381F" 
+                                   FontSize="15"
+                                   HorizontalAlignment="Center"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -36,5 +36,40 @@ namespace CakeShop.User_Control
         {
             Listbox_Cake.ItemsSource = DataProvider.Ins.DB.BANHs.ToList();
         }
+
+        private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var data = Listbox_Cake.SelectedItem as BANH;
+            if (data != null)
+            {
+                DetailCake dt = new DetailCake(data.MABANH);
+                dt.Show();
+            }    
+        }
+
+        private void Hover_Image(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Button_CupCake(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Đã chọn CupCake");
+        }
+
+        private void Button_CreamCake(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Đã chọn CreamCake");
+        }
+
+        private void Button_BiscuitCake(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Đã chọn BiscuitCake");
+        }
+
+        private void Button_IceCream(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Đã chọn IceCream");
+        }
     }
 }
