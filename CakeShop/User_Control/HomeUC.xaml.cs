@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CakeShop.SQL;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +31,10 @@ namespace CakeShop.User_Control
         {
             DataContext = new BillUC();
             this.Content = new BillUC();
+        }
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Listbox_Cake.ItemsSource = DataProvider.Ins.DB.BANHs.ToList();
         }
     }
 }
