@@ -24,5 +24,10 @@ namespace CakeShop.User_Control
         {
             InitializeComponent();
         }
+
+        private void Search_button(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
