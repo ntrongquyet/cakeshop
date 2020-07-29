@@ -268,9 +268,7 @@
     </Content>
     <Resource Include="Image\Cakes\Bánh-Mì-Hoa-Cúc-1-300x300.jpg" />
     <Resource Include="Image\Cakes\O1-.png" />
-    <None Include="Image\Icon\bn2_v4.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Resource Include="Image\Icon\Info.jpg" />
     <Content Include="SQL\dbCakeShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbCakeShop.Context.cs</LastGenOutput>

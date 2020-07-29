@@ -29,7 +29,7 @@
                    FontSize="20"
                    FontWeight="Bold" Foreground="#FFFFFF"/>
                 <Rectangle Fill="#FEDEB4" Grid.Row="2"/>
-                <Image Source="/Image/Icon/bn2_v4.jpg"
+                <Image Source="/Image/Icon/Info.jpg"
                Grid.ColumnSpan="2"
                Grid.RowSpan="3"
                HorizontalAlignment="Right"
