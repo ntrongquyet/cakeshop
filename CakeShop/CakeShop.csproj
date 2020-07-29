@@ -90,6 +90,9 @@
     <Compile Include="AddNewDialog.xaml.cs">
       <DependentUpon>AddNewDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DetailCake.xaml.cs">
+      <DependentUpon>DetailCake.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlashScreen.xaml.cs">
       <DependentUpon>PlashScreen.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
     </Compile>
     <Compile Include="User_Control\usercontrol.cs" />
     <Page Include="AddNewDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DetailCake.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,35 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CakeShop"
-        mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
+        Background="#FEDEB4"
         WindowStyle="None"
-        Loaded="Window_Loaded"
-        RenderOptions.BitmapScalingMode="HighQuality"
         Foreground="#570101"
-        Title="DetailCake" Height="400" Width="400">
-    <Grid Background="#FEDEB4">
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="DetailCake" Height="450" Width="450">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="9*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Image Source="/Image/PlashScreen/Logo.png" 
-                   Width="150"
-                   Height="auto"
-                   Margin="10"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"/>
-            <TextBlock Name="NameCake" HorizontalAlignment="Right"/>
-        </Grid>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="{Binding TENBANH}"
+                       FontSize="30"/>
+        </StackPanel>
         <DockPanel Grid.Row="1">
-            <Button Content="Thoát" 
-                    Width="80"
+            <Button Width="80"
+                    Content="Thoát"
                     Click="Out_Button"
                     HorizontalAlignment="Left"
                     Margin="10 0 0 0"/>
-            <Button Content="Thêm vào giỏ" 
-                    Width="150"
+            <Button Width="130"
+                    Content="Thêm vào giỏ"
                     HorizontalAlignment="Right"
                     Margin="0 0 10 0"/>
         </DockPanel>
