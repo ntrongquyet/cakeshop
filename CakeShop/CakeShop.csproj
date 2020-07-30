@@ -93,6 +93,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddNewDialog.xaml.cs">
+      <DependentUpon>AddNewDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DetailCake.xaml.cs">
+      <DependentUpon>DetailCake.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlashScreen.xaml.cs">
       <DependentUpon>PlashScreen.xaml</DependentUpon>
     </Compile>
@@ -133,9 +139,6 @@
     <Compile Include="User_Control\InfoUC.xaml.cs">
       <DependentUpon>InfoUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User_Control\NewUC.xaml.cs">
-      <DependentUpon>NewUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="User_Control\StatisticsUC.xaml.cs">
       <DependentUpon>StatisticsUC.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,14 @@
       <DependentUpon>UpdateUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="User_Control\usercontrol.cs" />
+    <Page Include="AddNewDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DetailCake.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -168,10 +179,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="User_Control\InfoUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="User_Control\NewUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -265,6 +272,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>dbCakeShop.mdf</DependentUpon>
     </Content>
+    <Resource Include="Image\Cakes\Bánh-Mì-Hoa-Cúc-1-300x300.jpg" />
+    <Resource Include="Image\Cakes\O1-.png" />
+    <Resource Include="Image\Icon\Info.jpg" />
     <Content Include="SQL\dbCakeShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbCakeShop.Context.cs</LastGenOutput>

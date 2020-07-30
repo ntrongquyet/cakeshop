@@ -42,7 +42,8 @@ namespace CakeShop
 
         private void New_Button(object sender, MouseButtonEventArgs e)
         {
-            DataContext = new NewUC();
+            AddNewDialog add = new AddNewDialog();
+            add.ShowDialog();
         }
 
         private void Update_Button(object sender, MouseButtonEventArgs e)

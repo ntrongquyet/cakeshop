@@ -6,21 +6,26 @@
              xmlns:local="clr-namespace:CakeShop.User_Control"
              RenderOptions.BitmapScalingMode="HighQuality"
              mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
              d:DesignHeight="450" d:DesignWidth="600">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.3*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" 
+                   VerticalAlignment="Top"
                    Margin="0 0 30 0">
             <TextBlock Text="Trang chủ"
+                       VerticalAlignment="Center"
+                       Margin="10 0 10 0"
                        HorizontalAlignment="Left"
                        FontFamily="/Font/#SVN-HEMI HEAD"
                        FontSize="50"/>
-            <DockPanel HorizontalAlignment="Right">
+            <DockPanel HorizontalAlignment="Right"
+                       VerticalAlignment="Center">
                 <Image Source="/Image/Icon/search.png" 
                        Width="40"/>
                 <Image Source="/Image/Icon/Market.png"
@@ -30,20 +35,53 @@
         </DockPanel>
         <DockPanel Grid.Row="1"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center">
+                   VerticalAlignment="Top">
             <Image Source="/Image/Home/Cupcake.png"
+                   MouseLeftButtonDown="Button_CupCake"
                    Width="110"
                    Margin="20 0 20 0"/>
             <Image Source="/Image/Home/CreamCake.png"
+                   MouseLeftButtonDown="Button_CreamCake"
                    Width="110"
                    Margin="20 0 20 0"/>
             <Image Source="/Image/Home/BiscuitCake.png" 
                    Width="110"
+                   MouseLeftButtonDown="Button_BiscuitCake"
                    Margin="20 0 20 0"/>
             <Image Source="/Image/Home/IceCream.png" 
                    Width="110"
+                   MouseLeftButtonDown="Button_IceCream"
                    Margin="20 0 20 0"/>
         </DockPanel>
+        <ListBox Name ="Listbox_Cake" 
+                 Grid.Row="2"
+                 BorderThickness="0" 
+                 HorizontalContentAlignment="Center"
+                 HorizontalAlignment="Center"
+                 MouseDoubleClick="DockPanel_MouseDown">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Margin="0"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel VerticalAlignment="Center"
+                                Orientation="Vertical"
+                                Width="175"
+                                Height="auto"
+                                HorizontalAlignment="Center">
+                        <Image Source="/Image/PlashScreen/Logo.png" Width="150" />
+                        <TextBlock Margin="0 10 0 0"
+                                   Text= "{Binding TENBANH}" 
+                                   FontWeight="Light"
+                                   Foreground="#AA381F" 
+                                   FontSize="15"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <DockPanel Grid.Row="3" 
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center">
