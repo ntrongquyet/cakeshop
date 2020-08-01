@@ -31,13 +31,7 @@ namespace CakeShop.User_Control
 
         public SeriesCollection SeriesCollection_MoneyPerMonth { get; set; }
         public List<string> Labels { get; set; } = new List<string>();
-        string yearDefault = "2020";
-        //public class TypeOfCake
-        //{
-        //    public string nameOfType;
-        //    public double moneyOfType;
-        //}
-        //List<TypeOfCake> totalMoney { get; set; } = new List<TypeOfCake>();
+
         public StatisticsUC()
         {
             InitializeComponent();
@@ -52,7 +46,7 @@ namespace CakeShop.User_Control
                 amount.Add(Convert.ToInt32(item.SL_TON));
                 PieSeries series = new PieSeries
                 {
-                    Values = amount, // show số lượng tồn                         
+                    Values = amount,                       
                     Title = item.TENBANH,
                 };
                 SeriesCollection_MoneyPerDay.Add(series);
@@ -83,7 +77,7 @@ namespace CakeShop.User_Control
                     series = new ColumnSeries
                     {
                         Title = $"Tháng {i + 1}",
-                        Values = moneyOfMonth// show số lượng tồn                         
+                        Values = moneyOfMonth                     
 
                     };
                     SeriesCollection_MoneyPerMonth.Add(series);
@@ -118,7 +112,7 @@ namespace CakeShop.User_Control
                 amount.Add(Convert.ToInt32(finalList[i].totalMoney));
                 PieSeries series = new PieSeries
                 {
-                    Values = amount, // show số lượng tồn                         
+                    Values = amount,                     
                     Title = finalList[i].Name,
                 };
                 SeriesCollection_TypeOfCake.Add(series);
@@ -136,9 +130,18 @@ namespace CakeShop.User_Control
                                       where dh.NG_DATHANG == dateTime
                                       select dh).Count();
             // Hiện thị số tiền trong 1 ngày
-            totalMoneyInDay.Content = (from dh in DataProvider.Ins.DB.DONHANGs
+            var total = (from dh in DataProvider.Ins.DB.DONHANGs
                                        where dh.NG_DATHANG == dateTime
                                        select dh.TONG_GTDH).Sum();
+            totalMoneyInDay.Text = $"{string.Format("{0:n0}", total)} VNĐ";
+            if (totalMoneyInDay.Text== null)
+            {
+                totalMoneyInDay.Text = $"{string.Format("{0:n0}", 0)} VNĐ";
+            }
+            // Hiện danh sách các loại bánh còn trong kho
+            table_Inventory.ItemsSource = (from banh in DataProvider.Ins.DB.BANHs
+                                where banh.SL_TON > 0
+                                select banh).ToList();
         }
     }
 }
