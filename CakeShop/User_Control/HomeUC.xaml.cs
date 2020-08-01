@@ -26,7 +26,7 @@ namespace CakeShop.User_Control
         {
             InitializeComponent();
         }
-
+        List<BANH> tempList = new List<BANH>();
         private void order_button(object sender, MouseButtonEventArgs e)
         {
             DataContext = new BillUC();
@@ -34,7 +34,8 @@ namespace CakeShop.User_Control
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Listbox_Cake.ItemsSource = DataProvider.Ins.DB.BANHs.ToList();
+            tempList = DataProvider.Ins.DB.BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
         }
 
         private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
@@ -49,22 +50,26 @@ namespace CakeShop.User_Control
 
         private void Button_CupCake(object sender, MouseButtonEventArgs e)
         {
-            Listbox_Cake.ItemsSource = DataProvider.Ins.DB.LOAIBANHs.Find("LB001").BANHs.ToList();
+            tempList = DataProvider.Ins.DB.LOAIBANHs.Find("LB001").BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
         }
 
         private void Button_CreamCake(object sender, MouseButtonEventArgs e)
         {
-            Listbox_Cake.ItemsSource = DataProvider.Ins.DB.LOAIBANHs.Find("LB002").BANHs.ToList();
+            tempList = DataProvider.Ins.DB.LOAIBANHs.Find("LB002").BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
         }
 
         private void Button_BiscuitCake(object sender, MouseButtonEventArgs e)
         {
-            Listbox_Cake.ItemsSource = DataProvider.Ins.DB.LOAIBANHs.Find("LB003").BANHs.ToList();
+            tempList = DataProvider.Ins.DB.LOAIBANHs.Find("LB003").BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
         }
 
         private void Button_IceCream(object sender, MouseButtonEventArgs e)
         {
-            Listbox_Cake.ItemsSource = DataProvider.Ins.DB.LOAIBANHs.Find("LB004").BANHs.ToList();
+            tempList = DataProvider.Ins.DB.LOAIBANHs.Find("LB004").BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
         }
 
         private void Click_Search(object sender, MouseButtonEventArgs e)
@@ -84,12 +89,17 @@ namespace CakeShop.User_Control
         private void Search_button(object sender, RoutedEventArgs e)
         {
             var text = Search.Text.Trim();
-
-            var dbBanh = DataProvider.Ins.DB.BANHs; // List sử dụng để lưu tạm các loại bánh
-            Listbox_Cake.ItemsSource = dbBanh.Where(q => (q.MABANH + q.TENBANH)
-                    .ToLower()
-                    .Contains(text.ToLower()))
-                    .ToList();
+            if (text == "")
+            {
+                Listbox_Cake.ItemsSource = DataProvider.Ins.DB.BANHs.ToList();
+            }
+            else
+            {
+                var dbBanh = DataProvider.Ins.DB.BANHs; // List sử dụng để lưu tạm các loại bánh
+                Listbox_Cake.ItemsSource = tempList.Where(q => (q.MABANH + q.TENBANH)
+                        .ToLower()
+                        .Contains(text.ToLower()));
+            }
         }
     }
 }
