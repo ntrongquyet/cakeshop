@@ -141,5 +141,10 @@ namespace CakeShop
         {
             
         }
+
+        private void Drag_Window(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

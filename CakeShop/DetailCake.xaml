@@ -7,7 +7,7 @@
         Background="#FEDEB4"
         WindowStyle="None"
         ResizeMode="NoResize"
-MouseLeftButtonDown="Drag_Window"
+        MouseLeftButtonDown="Drag_Window"
         Foreground="#570101"
         Loaded="Window_Loaded"
         RenderOptions.BitmapScalingMode="HighQuality"

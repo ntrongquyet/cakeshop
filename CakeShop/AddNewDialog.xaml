@@ -7,8 +7,10 @@
         RenderOptions.BitmapScalingMode="HighQuality"
         mc:Ignorable="d"
         Foreground="#570101"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen" 
         WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseLeftButtonDown="Drag_Window"
         Loaded="Window_Loaded"
         Closed="Window_Closed"
         Title="AddNewDialog" Height="600" Width="450">
@@ -24,32 +26,54 @@
             </BeginStoryboard>
         </EventTrigger>
     </Window.Triggers>
-    <Grid Background="#FEDEB4">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="0.5*"/>
-        </Grid.RowDefinitions>
-        <TextBlock Text="Thêm món"
+    <Border BorderBrush="#570101" BorderThickness="1">
+        <Grid Background="#FEDEB4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Thêm món"
                        VerticalAlignment="Center"
                        Margin="10 0 10 0"
                        FontFamily="/Font/#SVN-HEMI HEAD"
                        FontSize="50"/>
-        <StackPanel Grid.Row="1">
-            <DockPanel>
-                <Label FontWeight="DemiBold"
+            <StackPanel Grid.Row="1">
+                <DockPanel>
+                    <Label FontWeight="DemiBold"
                    Content="Loại"
                    Margin="25 10 0 0"/>
-                <ComboBox Name="listCombobox"
+                    <ComboBox Name="listCombobox"
                           Width="100"
                           HorizontalAlignment="Left">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding TENLOAI}"></TextBlock>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                    <ComboBox.Triggers>
-                        <EventTrigger RoutedEvent="ComboBox.SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TENLOAI}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        <ComboBox.Triggers>
+                            <EventTrigger RoutedEvent="ComboBox.SelectionChanged">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     From="1.0"
+                                                     To="0.4" 
+                                                     Duration="0:0:1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ComboBox.Triggers>
+                    </ComboBox>
+                </DockPanel>
+                <Label FontWeight="DemiBold"
+                   Content="Tên món"
+                   Margin="25 10 0 0"/>
+                <TextBox Name="name"
+                     TextWrapping="Wrap"
+                     BorderThickness="1"
+                     Margin="25 0 40 0">
+                    <TextBox.Triggers>
+                        <EventTrigger RoutedEvent="TextBox.TextChanged">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetProperty="Opacity"
@@ -59,33 +83,12 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                    </ComboBox.Triggers>
-                </ComboBox>
-            </DockPanel>
-            <Label FontWeight="DemiBold"
-                   Content="Tên món"
-                   Margin="25 10 0 0"/>
-            <TextBox Name="name"
-                     TextWrapping="Wrap"
-                     BorderThickness="1"
-                     Margin="25 0 40 0">
-                <TextBox.Triggers>
-                    <EventTrigger RoutedEvent="TextBox.TextChanged">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
-                                                     From="1.0"
-                                                     To="0.4" 
-                                                     Duration="0:0:1"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </TextBox.Triggers>
-            </TextBox>
-            <Label FontWeight="DemiBold" 
+                    </TextBox.Triggers>
+                </TextBox>
+                <Label FontWeight="DemiBold" 
                    Content="Mô tả" 
                    Margin="25 10 0 0"/>
-            <TextBox AcceptsReturn="True"
+                <TextBox AcceptsReturn="True"
                      BorderThickness="1" 
                      Name="ingredients" 
                      MinHeight="80"
@@ -93,116 +96,116 @@
                      TextWrapping="Wrap"
                      Margin="25 0 40 0"
                      VerticalScrollBarVisibility="Auto">
-                <TextBox.Triggers>
-                    <EventTrigger RoutedEvent="TextBox.TextChanged">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                    <TextBox.Triggers>
+                        <EventTrigger RoutedEvent="TextBox.TextChanged">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
                                                      From="1.0"
                                                      To="0.4" 
                                                      Duration="0:0:1"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </TextBox.Triggers>
-            </TextBox>
-            <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
-                <Label FontWeight="DemiBold"
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </TextBox.Triggers>
+                </TextBox>
+                <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
+                    <Label FontWeight="DemiBold"
                    Content="Số lượng"
                    Margin="25 0 0 0"/>
-                <TextBox Name="count"
+                    <TextBox Name="count"
                      Width="70"
                      HorizontalAlignment="Left"
                      BorderThickness="1"
                     >
-                    <TextBox.Triggers>
-                        <EventTrigger RoutedEvent="TextBox.TextChanged">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                        <TextBox.Triggers>
+                            <EventTrigger RoutedEvent="TextBox.TextChanged">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
                                                      From="1.0"
                                                      To="0.4" 
                                                      Duration="0:0:1"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </TextBox.Triggers>
-                </TextBox>
-                <Label FontWeight="DemiBold"
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBox.Triggers>
+                    </TextBox>
+                    <Label FontWeight="DemiBold"
                    Content="Giá tiền"
                   />
-                <TextBox Name="price"
+                    <TextBox Name="price"
                      Width="70"
                      HorizontalAlignment="Left"
                      BorderThickness="1"
                      >
-                    <TextBox.Triggers>
-                        <EventTrigger RoutedEvent="TextBox.TextChanged">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                        <TextBox.Triggers>
+                            <EventTrigger RoutedEvent="TextBox.TextChanged">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
                                                      From="1.0"
                                                      To="0.4" 
                                                      Duration="0:0:1"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </TextBox.Triggers>
-                </TextBox>
-                <Label FontWeight="DemiBold"
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBox.Triggers>
+                    </TextBox>
+                    <Label FontWeight="DemiBold"
                    Content="ĐVT"
                   />
-                <TextBox Name="unit"
+                    <TextBox Name="unit"
                      Width="70"
                      HorizontalAlignment="Left"
                      BorderThickness="1"
                      >
-                    <TextBox.Triggers>
-                        <EventTrigger RoutedEvent="TextBox.TextChanged">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                        <TextBox.Triggers>
+                            <EventTrigger RoutedEvent="TextBox.TextChanged">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
                                                      From="1.0"
                                                      To="0.4" 
                                                      Duration="0:0:1"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </TextBox.Triggers>
-                </TextBox>
-            </StackPanel>
-            
-            <Label FontWeight="DemiBold" 
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBox.Triggers>
+                    </TextBox>
+                </StackPanel>
+
+                <Label FontWeight="DemiBold" 
                    Content="Hình ảnh" 
                    Margin="25 10 0 0"/>
-            <Image Source="/Image/Icon/AddImage.png" 
+                <Image Source="/Image/Icon/AddImage.png" 
                    Width="80"
                    MouseLeftButtonDown="Image_Button"
                    HorizontalAlignment="Left"
                    Name="cakeImage"
                    Margin="20 0 0 0">
-                <Image.Triggers>
-                    <EventTrigger RoutedEvent="MouseDown">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="MouseDown">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
                                                  From="1.0"
                                                  To="0.3"
                                                  Duration="0:0:1"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </Image.Triggers>
-            </Image>
-        </StackPanel>
-        <Grid Grid.Row="2">
-            <Button Content="Thoát"
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <Button Content="Thoát"
                 Width="100"
                 Margin="10,0,0,10"
                 Click="Out_button"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Left" Height="26"/>
-            <Button Content="Thêm"
+                <Button Content="Thêm"
                     Width="100"
                     BorderBrush="Transparent"
                     Margin="0,0,10,10"
@@ -210,19 +213,20 @@
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Right"
                     Height="26">
-                <Button.Triggers>
-                    <EventTrigger RoutedEvent="Button.Click">
-                        <BeginStoryboard>
-                            <Storyboard AutoReverse="True">
-                                <ColorAnimation To="Green"
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard AutoReverse="True">
+                                    <ColorAnimation To="Green"
                                                 Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
                                                 FillBehavior="HoldEnd"
                                                 Duration="0:0:1"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </Button.Triggers>
-            </Button>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>
