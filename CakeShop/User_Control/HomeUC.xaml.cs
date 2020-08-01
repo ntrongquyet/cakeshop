@@ -66,5 +66,24 @@ namespace CakeShop.User_Control
         {
             MessageBox.Show("Đã click");
         }
+
+        private void Click_Search(object sender, MouseButtonEventArgs e)
+        {
+            if (Search_Food.Visibility == Visibility.Visible)
+            {
+                Search_Binding.Source = new BitmapImage(new Uri(String.Format("/Image/Icon/search.png"), UriKind.Relative));
+                Search_Food.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Search_Binding.Source = new BitmapImage(new Uri(String.Format("/Image/Icon/update.png"), UriKind.Relative));
+                Search_Food.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Search_button(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
