@@ -133,6 +133,9 @@
     <Compile Include="SQL\LOAIBANH.cs">
       <DependentUpon>dbCakeShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="UpdateCake.xaml.cs">
+      <DependentUpon>UpdateCake.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User_Control\BillUC.xaml.cs">
       <DependentUpon>BillUC.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,9 @@
     </Compile>
     <Compile Include="User_Control\StatisticsUC.xaml.cs">
       <DependentUpon>StatisticsUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\SumBillUC.xaml.cs">
+      <DependentUpon>SumBillUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="User_Control\UpdateUC.xaml.cs">
       <DependentUpon>UpdateUC.xaml</DependentUpon>
@@ -173,6 +179,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UpdateCake.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="User_Control\BillUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +196,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="User_Control\StatisticsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User_Control\SumBillUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
