@@ -58,14 +58,18 @@ namespace CakeShop
             this.DragMove();
         }
 
-        //Hàm ngăn không cho nhập các chữ cái "a, b, c"
+        //Hàm ngăn không cho nhập ký tự khác số nguyên "a, b, c,..."
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+            if (int.Parse(price.Text) == 0)
+            {
+                price.Text = "";
+            }
         }
 
-        //Giảm số lượng không cho giảm đến âm
+        //Button giảm số lượng
         private void div_quality(object sender, MouseButtonEventArgs e)
         {
             if(int.Parse(price.Text) <= 0)
@@ -78,11 +82,34 @@ namespace CakeShop
             }
         }
 
-        //Tăng số lượng
+        //Button tăng số lượng
         private void add_quality(object sender, MouseButtonEventArgs e)
         {
             NumValue++;
-          
+        }
+
+        // Tăng giảm số lượng từ bàn phím "lên, xuống"
+        private void Div_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Down)
+            {
+                if (int.Parse(price.Text) <= 0)
+                {
+                    NumValue = 0;
+                }
+                else 
+                {
+                    NumValue--;
+                }
+            }
+            else if (e.Key == Key.Up)
+            {
+                NumValue++;
+            }
+            else
+            {
+                NumValue = int.Parse(price.Text);
+            }
         }
 
         //Hàm cập nhật lại số lượng
@@ -96,5 +123,7 @@ namespace CakeShop
             if (!int.TryParse(price.Text, out _numValue))
                 price.Text = _numValue.ToString();
         }
+
+
     }
 }

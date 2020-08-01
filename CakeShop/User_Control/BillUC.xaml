@@ -77,25 +77,42 @@
                 </Grid>
             </materialDesign:ColorZone>
             <ListView Grid.Row="2" Margin="20" BorderThickness="0" 
-                      Name="Select_Food" Foreground="#000">
+                      Name="Select_Food" Foreground="#000"
+                      MouseDoubleClick="ShowQuality">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Mã bánh"  DisplayMemberBinding="{Binding MABANH}"/>
                         <GridViewColumn  Header="Tên bánh" DisplayMemberBinding="{Binding TENBANH}"/>
+                        <GridViewColumn  Header="Số lượng tồn" DisplayMemberBinding="{Binding SL_TON}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
                 <RowDefinition/>
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
-
+            <Label Content="HOÁ ĐƠN" Foreground="#570101"
+                   HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   FontSize="20" FontWeight="Bold"/>
+            <ListView Grid.Row="1" Margin="20" BorderThickness="0" 
+                      Name="Bill" Foreground="#000"
+                      MouseDoubleClick="ShowQuality">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Mã bánh"  DisplayMemberBinding="{Binding MABANH}"/>
+                    <GridViewColumn  Header="Tên bánh" DisplayMemberBinding="{Binding TENBANH}"/>
+                    <GridViewColumn  Header="Số lượng mua" DisplayMemberBinding="{Binding SL_TON}"/>
+                </GridView>
+            </ListView.View>
+            </ListView>
             <Button Content="Thanh toán"
                     Width="150"
                     Name="button_bill"
-                    Grid.Row="1"
+                    Grid.Row="2"
                     Background="#570101"
                     Click="bill_button"
                     BorderBrush="Transparent">

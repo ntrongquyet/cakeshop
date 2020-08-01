@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CakeShop.User_Control;
+using System.Data.Entity;
 
 namespace CakeShop.User_Control
 {
@@ -35,7 +36,7 @@ namespace CakeShop.User_Control
         private void UC_Loaded(object sender, RoutedEventArgs e)
         {
             var list = (from d in DataProvider.Ins.DB.BANHs
-                        select new { d.TENBANH, d.MABANH });
+                        select d);
             Select_Food.ItemsSource = list.ToList();
         }
 
@@ -44,5 +45,11 @@ namespace CakeShop.User_Control
 
         }
 
+        private void ShowQuality(object sender, MouseButtonEventArgs e)
+        {
+            var data = Select_Food.SelectedItem as  BANH;
+            DetailCake show_Detail = new DetailCake(data.MABANH);
+            show_Detail.ShowDialog();
+        }
     }
 }

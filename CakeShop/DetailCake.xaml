@@ -62,11 +62,11 @@ MouseLeftButtonDown="Drag_Window"
                 <DockPanel>
                     <Image Source="/Image/Home/div_btn.png" Height="25"
                            MouseLeftButtonDown="div_quality"/>
-                    <TextBox x:Name="price"
+                    <TextBox x:Name="price" AcceptsReturn="True"
                              Margin="10 0 10 0"
                              Width="70" PreviewTextInput="NumberValidationTextBox"
                              HorizontalAlignment="Left"
-                             BorderThickness="1"
+                             BorderThickness="1" KeyUp="Div_KeyUp"
                              TextChanged="txtNum_TextChanged"
                              HorizontalContentAlignment="Center"/>
 
