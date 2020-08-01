@@ -44,27 +44,27 @@ namespace CakeShop.User_Control
             {
                 DetailCake dt = new DetailCake(data.MABANH);
                 dt.Show();
-            }    
+            }
         }
 
         private void Button_CupCake(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Đã click");
+            Listbox_Cake.ItemsSource = DataProvider.Ins.DB.LOAIBANHs.Find("LB001").BANHs.ToList();
         }
 
         private void Button_CreamCake(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Đã click");
+            Listbox_Cake.ItemsSource = DataProvider.Ins.DB.LOAIBANHs.Find("LB002").BANHs.ToList();
         }
 
         private void Button_BiscuitCake(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Đã click");
+            Listbox_Cake.ItemsSource = DataProvider.Ins.DB.LOAIBANHs.Find("LB003").BANHs.ToList();
         }
 
         private void Button_IceCream(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Đã click");
+            Listbox_Cake.ItemsSource = DataProvider.Ins.DB.LOAIBANHs.Find("LB004").BANHs.ToList();
         }
 
         private void Click_Search(object sender, MouseButtonEventArgs e)
@@ -83,7 +83,13 @@ namespace CakeShop.User_Control
 
         private void Search_button(object sender, RoutedEventArgs e)
         {
+            var text = Search.Text.Trim();
 
+            var dbBanh = DataProvider.Ins.DB.BANHs; // List sử dụng để lưu tạm các loại bánh
+            Listbox_Cake.ItemsSource = dbBanh.Where(q => (q.MABANH + q.TENBANH)
+                    .ToLower()
+                    .Contains(text.ToLower()))
+                    .ToList();
         }
     }
 }
