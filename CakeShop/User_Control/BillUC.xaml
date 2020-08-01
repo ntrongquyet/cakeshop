@@ -80,6 +80,7 @@
                       Name="Select_Food" Foreground="#000">
                 <ListView.View>
                     <GridView>
+                        <GridViewColumn Header="Mã bánh"  DisplayMemberBinding="{Binding MABANH}"/>
                         <GridViewColumn  Header="Tên bánh" DisplayMemberBinding="{Binding TENBANH}"/>
                     </GridView>
                 </ListView.View>

@@ -35,7 +35,7 @@ namespace CakeShop.User_Control
         private void UC_Loaded(object sender, RoutedEventArgs e)
         {
             var list = (from d in DataProvider.Ins.DB.BANHs
-                        select new { d.TENBANH });
+                        select new { d.TENBANH, d.MABANH });
             Select_Food.ItemsSource = list.ToList();
         }
 
