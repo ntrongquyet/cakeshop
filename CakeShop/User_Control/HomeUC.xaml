@@ -89,7 +89,7 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        MouseLeftButtonDown="Click_Search"
-                       Width="30"/>
+                       Width="40"/>
                 <Image Source="/Image/Icon/Market.png"
                        MouseLeftButtonDown="order_button"
                        Width="40"/>
