@@ -280,6 +280,12 @@
     <Resource Include="Image\Home\Cupcake.png" />
     <Resource Include="Image\Home\IceCream.png" />
     <Resource Include="Image\Icon\Close.png" />
+    <Resource Include="Image\Home\add_btn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Home\div_btn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="SQL\dbCakeShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbCakeShop.Context.cs</LastGenOutput>

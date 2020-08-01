@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:CakeShop"
         Background="#FEDEB4"
         WindowStyle="None"
+        ResizeMode="NoResize"
+MouseLeftButtonDown="Drag_Window"
         Foreground="#570101"
         Loaded="Window_Loaded"
         RenderOptions.BitmapScalingMode="HighQuality"
@@ -24,6 +26,7 @@
             </BeginStoryboard>
         </EventTrigger>
     </Window.Triggers>
+    <Border BorderBrush="#570101" BorderThickness="1">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"/>
@@ -49,19 +52,28 @@
                        Margin="20 10 20 0"
                        TextWrapping="Wrap"/>
         </StackPanel>
-        <DockPanel HorizontalAlignment="Right"
+        <StackPanel HorizontalAlignment="Right"
                    Grid.Row="0"
-                   Margin="0 0 0 10"
+                   Margin="0 0 20 10"
                    VerticalAlignment="Bottom">
-            <TextBlock Text="Số lượng"
-                           FontSize="15"
+            <TextBlock Text="Số lượng" HorizontalAlignment="Center"
+                           FontSize="15" Margin="0 0 0 10"
                            FontWeight="DemiBold"/>
-            <TextBox x:Name="price"
-                         Margin="10 0 10 0"
-                         Width="70"
-                         HorizontalAlignment="Left"
-                         BorderThickness="1"/>
-        </DockPanel>
+                <DockPanel>
+                    <Image Source="/Image/Home/div_btn.png" Height="25"
+                           MouseLeftButtonDown="div_quality"/>
+                    <TextBox x:Name="price"
+                             Margin="10 0 10 0"
+                             Width="70" PreviewTextInput="NumberValidationTextBox"
+                             HorizontalAlignment="Left"
+                             BorderThickness="1"
+                             TextChanged="txtNum_TextChanged"
+                             HorizontalContentAlignment="Center"/>
+
+                    <Image Source="/Image/Home/add_btn.png" Height="25"
+                           MouseLeftButtonDown="add_quality"/>
+                </DockPanel>
+            </StackPanel>
         <DockPanel Grid.Row="1">
             <Button Width="80"
                     Content="Thoát"
@@ -74,4 +86,5 @@
                     Margin="0 0 10 0"/>
         </DockPanel>
     </Grid>
+    </Border>
 </Window>
