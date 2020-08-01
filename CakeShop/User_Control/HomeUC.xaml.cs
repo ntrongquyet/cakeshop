@@ -47,34 +47,24 @@ namespace CakeShop.User_Control
             }    
         }
 
-        private void Hover_Image(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void Button_CupCake(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Đã chọn CupCake");
+            MessageBox.Show("Đã click");
         }
 
         private void Button_CreamCake(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Đã chọn CreamCake");
+            MessageBox.Show("Đã click");
         }
 
         private void Button_BiscuitCake(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Đã chọn BiscuitCake");
+            MessageBox.Show("Đã click");
         }
 
         private void Button_IceCream(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Đã chọn IceCream");
-        }
-
-        internal static void LoadedEvent()
-        {
-            throw new NotImplementedException();
+            MessageBox.Show("Đã click");
         }
     }
 }
