@@ -8,6 +8,7 @@
         WindowStyle="None"
         Foreground="#570101"
         Loaded="Window_Loaded"
+        RenderOptions.BitmapScalingMode="HighQuality"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="DetailCake" Height="450" Width="450">
@@ -29,9 +30,38 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <TextBlock Text="{Binding TENBANH}"
-                       FontSize="30"/>
+            <DockPanel>
+                <Image Source="/Image/PlashScreen/Logo.png"
+                       Width="150"
+                       Margin="20 20 0 0"/>
+                <TextBlock Text="{Binding TENBANH}"
+                           FontSize="30"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center" 
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center"
+                           Margin="0 20 0 0"/>
+            </DockPanel>
+            <TextBlock Text="{Binding THONGTIN}"
+                       FontSize="15"
+                       FontWeight="Light"
+                       TextAlignment="Justify"
+                       Margin="20 10 20 0"
+                       TextWrapping="Wrap"/>
         </StackPanel>
+        <DockPanel HorizontalAlignment="Right"
+                   Grid.Row="0"
+                   Margin="0 0 0 10"
+                   VerticalAlignment="Bottom">
+            <TextBlock Text="Số lượng"
+                           FontSize="15"
+                           FontWeight="DemiBold"/>
+            <TextBox x:Name="price"
+                         Margin="10 0 10 0"
+                         Width="70"
+                         HorizontalAlignment="Left"
+                         BorderThickness="1"/>
+        </DockPanel>
         <DockPanel Grid.Row="1">
             <Button Width="80"
                     Content="Thoát"
