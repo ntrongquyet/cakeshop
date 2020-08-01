@@ -38,5 +38,10 @@ namespace CakeShop.User_Control
                         select new { d.TENBANH });
             Select_Food.ItemsSource = list.ToList();
         }
+
+        private void bill_button(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

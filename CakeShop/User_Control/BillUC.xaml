@@ -8,6 +8,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Loaded="UC_Loaded">
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation From="0" To="1"
+                                     Duration="0:0:0.6"
+                                     Storyboard.TargetProperty="Opacity"
+                                     FillBehavior="HoldEnd"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -78,12 +90,26 @@
                 <RowDefinition/>
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
-            
+
             <Button Content="Thanh toán"
                     Width="150"
+                    Name="button_bill"
                     Grid.Row="1"
                     Background="#570101"
-                    BorderBrush="#570101"/>
+                    Click="bill_button"
+                    BorderBrush="Transparent">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard AutoReverse="True">
+                                <ColorAnimation To="Green"
+                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

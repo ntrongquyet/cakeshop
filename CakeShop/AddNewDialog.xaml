@@ -10,6 +10,18 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Title="AddNewDialog" Height="600" Width="450">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation From="0" To="1"
+                                     Duration="0:0:0.6"
+                                     Storyboard.TargetProperty="Opacity"
+                                     FillBehavior="HoldEnd"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid Background="#FEDEB4">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -23,21 +35,35 @@
                        FontSize="50"/>
         <StackPanel Grid.Row="1">
             <DockPanel>
-                <Label FontWeight="Light"
+                <Label FontWeight="DemiBold"
                    Content="Loại"
                    Margin="25 10 0 0"/>
                 <ComboBox Name="listCombobox"
-                          Width="100">
+                          Width="100"
+                          HorizontalAlignment="Left">
                 </ComboBox>
             </DockPanel>
-            <Label FontWeight="Light"
+            <Label FontWeight="DemiBold"
                    Content="Tên món"
                    Margin="25 10 0 0"/>
             <TextBox Name="name"
                      TextWrapping="Wrap"
                      BorderThickness="1"
-                     Margin="25 0 40 0"/>
-            <Label FontWeight="Light" 
+                     Margin="25 0 40 0">
+                <TextBox.Triggers>
+                    <EventTrigger RoutedEvent="TextBox.TextChanged">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     From="1.0"
+                                                     To="0.4" 
+                                                     Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBox.Triggers>
+            </TextBox>
+            <Label FontWeight="DemiBold" 
                    Content="Mô tả" 
                    Margin="25 10 0 0"/>
             <TextBox AcceptsReturn="True"
@@ -47,23 +73,62 @@
                      MaxHeight="120"
                      TextWrapping="Wrap"
                      Margin="25 0 40 0"
-                     VerticalScrollBarVisibility="Auto"/>
-            <Label FontWeight="Light" 
+                     VerticalScrollBarVisibility="Auto">
+                <TextBox.Triggers>
+                    <EventTrigger RoutedEvent="TextBox.TextChanged">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     From="1.0"
+                                                     To="0.4" 
+                                                     Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBox.Triggers>
+            </TextBox>
+            <Label FontWeight="DemiBold" 
                    Content="Hình ảnh" 
                    Margin="25 10 0 0"/>
             <Image Source="/Image/Icon/AddImage.png" 
                    Width="80"
                    MouseLeftButtonDown="Image_Button"
                    HorizontalAlignment="Left"
-                   Margin="20 0 0 0"/>
-            <Label FontWeight="Light"
+                   Margin="20 0 0 0">
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="MouseDown">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                 From="1.0"
+                                                 To="0.3"
+                                                 Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
+            </Image>
+            <Label FontWeight="DemiBold"
                    Content="Số lượng"
                    Margin="25 10 0 0"/>
             <TextBox Name="count"
                      Width="100"
                      HorizontalAlignment="Left"
                      BorderThickness="1"
-                     Margin="25 0 40 0"/>
+                     Margin="25 0 40 0">
+                <TextBox.Triggers>
+                    <EventTrigger RoutedEvent="TextBox.TextChanged">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     From="1.0"
+                                                     To="0.4" 
+                                                     Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBox.Triggers>
+            </TextBox>
         </StackPanel>
         <Grid Grid.Row="2">
             <Button Content="Thoát"
@@ -73,11 +138,26 @@
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Left" Height="26"/>
             <Button Content="Thêm"
-                Width="100"
-                Margin="0,0,10,10"
-                Click="Add_Button"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Right" Height="26"/>
+                    Width="100"
+                    BorderBrush="Transparent"
+                    Margin="0,0,10,10"
+                    Click="Add_Button"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right"
+                    Height="26">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard AutoReverse="True">
+                                <ColorAnimation To="Green"
+                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                FillBehavior="HoldEnd"
+                                                Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
         </Grid>
     </Grid>
 </Window>

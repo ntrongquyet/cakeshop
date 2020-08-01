@@ -26,7 +26,7 @@ namespace CakeShop
 
         private void Out_button(object sender, RoutedEventArgs e)
         {
-            this.Close();
+              this.Close();
         }
 
         private void Add_Button(object sender, RoutedEventArgs e)

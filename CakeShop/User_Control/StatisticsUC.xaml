@@ -8,6 +8,18 @@
              mc:Ignorable="d"
              Initialized="UserControl_Initialized"
              d:DesignHeight="450" d:DesignWidth="700">
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation From="0" To="1"
+                                     Duration="0:0:0.6"
+                                     Storyboard.TargetProperty="Opacity"
+                                     FillBehavior="HoldEnd"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

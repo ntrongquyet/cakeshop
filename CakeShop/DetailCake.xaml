@@ -11,6 +11,18 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="DetailCake" Height="450" Width="450">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation From="0" To="1"
+                                     Duration="0:0:0.6"
+                                     Storyboard.TargetProperty="Opacity"
+                                     FillBehavior="HoldEnd"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"/>

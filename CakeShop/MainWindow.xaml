@@ -11,6 +11,18 @@
         RenderOptions.BitmapScalingMode="HighQuality"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="900">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation From="0" To="1"
+                                     Duration="0:0:0.6"
+                                     Storyboard.TargetProperty="Opacity"
+                                     FillBehavior="HoldEnd"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>

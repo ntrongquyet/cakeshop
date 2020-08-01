@@ -101,6 +101,7 @@
     <Compile Include="DetailCake.xaml.cs">
       <DependentUpon>DetailCake.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogResult.cs" />
     <Compile Include="PlashScreen.xaml.cs">
       <DependentUpon>PlashScreen.xaml</DependentUpon>
     </Compile>
