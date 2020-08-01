@@ -133,6 +133,9 @@
     <Compile Include="SQL\LOAIBANH.cs">
       <DependentUpon>dbCakeShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="UpdateCake.xaml.cs">
+      <DependentUpon>UpdateCake.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User_Control\BillUC.xaml.cs">
       <DependentUpon>BillUC.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PlashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateCake.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
