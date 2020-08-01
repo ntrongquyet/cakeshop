@@ -35,9 +35,7 @@ namespace CakeShop
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var listcake = (from cake in DataProvider.Ins.DB.BANHs
-                            where cake.MABANH == mABANH
-                            select cake);
+            DataContext = DataProvider.Ins.DB.BANHs.Find(mABANH);
         }
     }
 }
