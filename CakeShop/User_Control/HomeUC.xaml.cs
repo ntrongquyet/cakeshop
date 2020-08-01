@@ -71,5 +71,10 @@ namespace CakeShop.User_Control
         {
             MessageBox.Show("Đã chọn IceCream");
         }
+
+        internal static void LoadedEvent()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

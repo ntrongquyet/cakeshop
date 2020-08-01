@@ -256,27 +256,39 @@
     <Resource Include="Image\Icon\Market.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\Home\BiscuitCake.png" />
-    <Resource Include="Image\Home\CreamCake.png" />
-    <Resource Include="Image\Home\IceCream.png" />
+    <None Include="Image\Home\BiscuitCake.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Image\Home\CreamCake.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Image\Home\IceCream.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\Home\Cupcake.png" />
+    <None Include="Image\Home\Cupcake.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Icon\Next.png" />
     <Resource Include="Image\Icon\Prev.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dbCakeShop.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="dbCakeShop.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="dbCakeShop_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>dbCakeShop.mdf</DependentUpon>
     </Content>
-    <Resource Include="Image\Cakes\Bánh-Mì-Hoa-Cúc-1-300x300.jpg" />
-    <Resource Include="Image\Cakes\O1-.png" />
+    <None Include="Image\Cakes\Bánh-Mì-Hoa-Cúc-1-300x300.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Image\Cakes\O1-.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Resource Include="Image\Icon\Info.jpg" />
     <Resource Include="Image\Icon\AddImage.png" />
     <Content Include="SQL\dbCakeShop.Context.tt">

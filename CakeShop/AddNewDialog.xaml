@@ -9,6 +9,8 @@
         Foreground="#570101"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
         Title="AddNewDialog" Height="600" Width="450">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -41,6 +43,11 @@
                 <ComboBox Name="listCombobox"
                           Width="100"
                           HorizontalAlignment="Left">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding TENLOAI}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
                 </ComboBox>
             </DockPanel>
             <Label FontWeight="DemiBold"
@@ -87,6 +94,72 @@
                     </EventTrigger>
                 </TextBox.Triggers>
             </TextBox>
+            <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
+                <Label FontWeight="DemiBold"
+                   Content="Số lượng"
+                   Margin="25 0 0 0"/>
+                <TextBox Name="count"
+                     Width="70"
+                     HorizontalAlignment="Left"
+                     BorderThickness="1"
+                    >
+                    <TextBox.Triggers>
+                        <EventTrigger RoutedEvent="TextBox.TextChanged">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     From="1.0"
+                                                     To="0.4" 
+                                                     Duration="0:0:1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </TextBox.Triggers>
+                </TextBox>
+                <Label FontWeight="DemiBold"
+                   Content="Giá tiền"
+                  />
+                <TextBox Name="price"
+                     Width="70"
+                     HorizontalAlignment="Left"
+                     BorderThickness="1"
+                     >
+                    <TextBox.Triggers>
+                        <EventTrigger RoutedEvent="TextBox.TextChanged">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     From="1.0"
+                                                     To="0.4" 
+                                                     Duration="0:0:1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </TextBox.Triggers>
+                </TextBox>
+                <Label FontWeight="DemiBold"
+                   Content="ĐVT"
+                  />
+                <TextBox Name="unit"
+                     Width="70"
+                     HorizontalAlignment="Left"
+                     BorderThickness="1"
+                     >
+                    <TextBox.Triggers>
+                        <EventTrigger RoutedEvent="TextBox.TextChanged">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     From="1.0"
+                                                     To="0.4" 
+                                                     Duration="0:0:1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </TextBox.Triggers>
+                </TextBox>
+            </StackPanel>
+            
             <Label FontWeight="DemiBold" 
                    Content="Hình ảnh" 
                    Margin="25 10 0 0"/>
@@ -94,6 +167,7 @@
                    Width="80"
                    MouseLeftButtonDown="Image_Button"
                    HorizontalAlignment="Left"
+                   Name="cakeImage"
                    Margin="20 0 0 0">
                 <Image.Triggers>
                     <EventTrigger RoutedEvent="MouseDown">
@@ -108,27 +182,6 @@
                     </EventTrigger>
                 </Image.Triggers>
             </Image>
-            <Label FontWeight="DemiBold"
-                   Content="Số lượng"
-                   Margin="25 10 0 0"/>
-            <TextBox Name="count"
-                     Width="100"
-                     HorizontalAlignment="Left"
-                     BorderThickness="1"
-                     Margin="25 0 40 0">
-                <TextBox.Triggers>
-                    <EventTrigger RoutedEvent="TextBox.TextChanged">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
-                                                     From="1.0"
-                                                     To="0.4" 
-                                                     Duration="0:0:1"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </TextBox.Triggers>
-            </TextBox>
         </StackPanel>
         <Grid Grid.Row="2">
             <Button Content="Thoát"
