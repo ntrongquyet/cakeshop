@@ -279,6 +279,7 @@
     <Resource Include="Image\Home\CreamCake.png" />
     <Resource Include="Image\Home\Cupcake.png" />
     <Resource Include="Image\Home\IceCream.png" />
+    <Resource Include="Image\Icon\Close.png" />
     <Content Include="SQL\dbCakeShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbCakeShop.Context.cs</LastGenOutput>

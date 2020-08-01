@@ -76,7 +76,7 @@ namespace CakeShop.User_Control
             }
             else
             {
-                Search_Binding.Source = new BitmapImage(new Uri(String.Format("/Image/Icon/update.png"), UriKind.Relative));
+                Search_Binding.Source = new BitmapImage(new Uri(String.Format("/Image/Icon/Close.png"), UriKind.Relative));
                 Search_Food.Visibility = Visibility.Visible;
             }
         }

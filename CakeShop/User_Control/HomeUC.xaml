@@ -85,10 +85,11 @@
                 </DockPanel>
                 <Image Source="/Image/Icon/search.png" 
                        Name="Search_Binding"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           MouseLeftButtonDown="Click_Search"
-                           Width="30"/>
+                       Margin="10 0 0 0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       MouseLeftButtonDown="Click_Search"
+                       Width="30"/>
                 <Image Source="/Image/Icon/Market.png"
                        MouseLeftButtonDown="order_button"
                        Width="40"/>
