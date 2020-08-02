@@ -26,6 +26,9 @@
             </BeginStoryboard>
         </EventTrigger>
     </Window.Triggers>
+    <Window.Resources>
+        <local:CurrencyConveter x:Key="Currency"/>
+    </Window.Resources>
     <Border BorderBrush="#570101" BorderThickness="1">
     <Grid>
         <Grid.RowDefinitions>
@@ -61,7 +64,7 @@
                            FontSize="20"
                            FontWeight="DemiBold"
                            />
-                <TextBlock Text="{Binding DONGIA}"
+                <TextBlock Text="{Binding DONGIA, Converter={StaticResource Currency}}"
                            FontSize="20"
                            FontWeight="DemiBold"/>
             </DockPanel>

@@ -111,6 +111,7 @@
     <Compile Include="SQL\CT_DONHANG.cs">
       <DependentUpon>dbCakeShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="CurrencyConveter.cs" />
     <Compile Include="SQL\DataProvider.cs" />
     <Compile Include="SQL\dbCakeShop.Context.cs">
       <AutoGen>True</AutoGen>
