@@ -39,6 +39,7 @@
                        Margin="20 20 0 0"/>
                 <TextBlock Text="{Binding TENBANH}"
                            FontSize="30"
+                           FontWeight="DemiBold"
                            VerticalAlignment="Center"
                            TextAlignment="Center" 
                            TextWrapping="Wrap"
@@ -52,6 +53,18 @@
                        Margin="20 10 20 0"
                        TextWrapping="Wrap"/>
         </StackPanel>
+            <DockPanel Grid.Row="0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom">
+                <TextBlock Text="Giá: "
+                           Margin="15 0 0 0"
+                           FontSize="20"
+                           FontWeight="DemiBold"
+                           />
+                <TextBlock Text="{Binding DONGIA}"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+            </DockPanel>
         <StackPanel HorizontalAlignment="Right"
                    Grid.Row="0"
                    Margin="0 0 20 10"
