@@ -13,16 +13,16 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <!-- primary -->
-            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#570101"/>
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#261D56"/>
             <!--Background and Hover Border-->
             <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#FFFFFF"/>
             <!--Text-->
-            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#570101"/>
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#261D56"/>
             <!--Hover and Click-->
             <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="Pink"/>
             <!-- accent -->
             <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#FEDEB4"/>
-            <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#570101"/>
+            <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#261D56"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
