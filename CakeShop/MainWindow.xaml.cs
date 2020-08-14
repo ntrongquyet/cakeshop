@@ -53,7 +53,7 @@ namespace CakeShop
 
         private void Static_Button(object sender, MouseButtonEventArgs e)
         {
-            DataContext = new StatisticsUC();
+            DataContext = new StatisticsUCVers2();
         }
 
         private void Info_Button(object sender, MouseButtonEventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace CakeShop.User_Control
 {
-    public class usercontrol
+    public class Usercontrol
     {
     }
 }

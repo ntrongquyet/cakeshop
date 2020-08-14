@@ -24,124 +24,131 @@ namespace CakeShop.User_Control
     /// <summary>
     /// Interaction logic for StatisticsUC.xaml
     /// </summary>
-    public partial class StatisticsUC : UserControl
+    public partial class statisticsuc : Usercontrol
     {
-        public SeriesCollection SeriesCollection_MoneyPerDay { get; }
-        public SeriesCollection SeriesCollection_TypeOfCake { get; set; }
+        //public seriescollection seriescollection_moneyperday { get; }
+        //public seriescollection seriescollection_typeofcake { get; set; }
 
-        public SeriesCollection SeriesCollection_MoneyPerMonth { get; set; }
-        public List<string> Labels { get; set; } = new List<string>();
+        //public seriescollection seriescollection_moneypermonth { get; set; }
+        //public list<string> labels { get; set; } = new list<string>();
 
-        public StatisticsUC()
+        public statisticsuc()
         {
-            InitializeComponent();
-            // Xuất biểu đồ số loại bánh còn tồn kho
-            SeriesCollection_MoneyPerDay = new SeriesCollection();
-            var listInventory = from banh in DataProvider.Ins.DB.BANHs
-                                where banh.SL_TON > 0
-                                select banh;
-            foreach (BANH item in listInventory)
-            {
-                ChartValues<int> amount = new ChartValues<int>();
-                amount.Add(Convert.ToInt32(item.SL_TON));
-                PieSeries series = new PieSeries
-                {
-                    Values = amount,                       
-                    Title = item.TENBANH,
-                };
-                SeriesCollection_MoneyPerDay.Add(series);
-            }
-            // Hiện thị biểu đồ doanh thu tháng
-            var listOfMonth = DataProvider.Ins.DB.DONHANGs.ToList(); // Danh sách tất cả các đơn hàng
-            double[] sum = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            // Tính tổng số tiền thu được theo từng tháng
-            foreach (DONHANG item in listOfMonth)
-            {
-                var getMonth = item.NG_DATHANG.Value.ToString("MM");
-                var yearDefault = "2020";
-                var getYear = item.NG_DATHANG.Value.ToString("yyyy");
-                if (getYear == yearDefault)
-                {
-                    sum[Convert.ToInt32(getMonth) - 1] += Convert.ToDouble(item.TONG_GTDH);
+            Initializecomponent();
+            // xuất biểu đồ số loại bánh còn tồn kho
+            //seriescollection_moneyperday = new seriescollection();
+            //var listinventory = from banh in dataprovider.ins.db.banhs
+            //                    where banh.sl_ton > 0
+            //                    select banh;
+            //foreach (banh item in listinventory)
+            //{
+            //    chartvalues<int> amount = new chartvalues<int>();
+            //    amount.add(convert.toint32(item.sl_ton));
+            //    pieseries series = new pieseries
+            //    {
+            //        values = amount,
+            //        title = item.tenbanh,
+            //    };
+            //    seriescollection_moneyperday.add(series);
+            //}
+            //// hiện thị biểu đồ doanh thu tháng
+            //var listofmonth = dataprovider.ins.db.donhangs.tolist(); // danh sách tất cả các đơn hàng
+            //double[] sum = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            //// tính tổng số tiền thu được theo từng tháng
+            //foreach (donhang item in listofmonth)
+            //{
+            //    var getmonth = item.ng_dathang.value.tostring("mm");
+            //    var yeardefault = "2020";
+            //    var getyear = item.ng_dathang.value.tostring("yyyy");
+            //    if (getyear == yeardefault)
+            //    {
+            //        sum[convert.toint32(getmonth) - 1] += convert.todouble(item.tong_gtdh);
 
-                }
-            }
-            SeriesCollection_MoneyPerMonth = new SeriesCollection();
-            for (int i = 0; i < sum.Length; i++)
-            {
-                ColumnSeries series;
-                if (sum[i] > 0)
-                {
-                    ChartValues<double> moneyOfMonth = new ChartValues<double>();
-                    moneyOfMonth.Add(sum[i]);
-                    series = new ColumnSeries
-                    {
-                        Title = $"Tháng {i + 1}",
-                        Values = moneyOfMonth                     
+            //    }
+            //}
+            //seriescollection_moneypermonth = new seriescollection();
+            //for (int i = 0; i < sum.length; i++)
+            //{
+            //    columnseries series;
+            //    if (sum[i] > 0)
+            //    {
+            //        chartvalues<double> moneyofmonth = new chartvalues<double>();
+            //        moneyofmonth.add(sum[i]);
+            //        series = new columnseries
+            //        {
+            //            title = $"tháng {i + 1}",
+            //            values = moneyofmonth
 
-                    };
-                    SeriesCollection_MoneyPerMonth.Add(series);
-                    Labels.Add("2020");
-                }
+            //        };
+            //        seriescollection_moneypermonth.add(series);
+            //        labels.add("2020");
+            //    }
 
-            }
-            Chart();
+            //}
+            //chart();
         }
-        public void Chart()
+
+        private void Initializecomponent()
         {
-            SeriesCollection_TypeOfCake = new SeriesCollection();
-
-            var db = DataProvider.Ins.DB;
-
-            var list = (from ctdh in db.CT_DONHANG
-                        join banh in db.BANHs on ctdh.MABANH equals banh.MABANH
-                        select new { banh.LOAIBANH, total = ctdh.SL_MUA * banh.DONGIA });
-            var result = (from l in list
-                          join lb in db.LOAIBANHs on l.LOAIBANH equals lb.MALOAI
-                          select new { lb.TENLOAI, l.total });
-            var finalList = (from rs in result
-                             group rs by rs.TENLOAI into rsGroup
-                             select new
-                             {
-                                 Name = rsGroup.Key,
-                                 totalMoney = rsGroup.Sum(x => x.total)
-                             }).ToList();
-            for (int i = 0; i < finalList.Count; i++)
-            {
-                ChartValues<int> amount = new ChartValues<int>();
-                amount.Add(Convert.ToInt32(finalList[i].totalMoney));
-                PieSeries series = new PieSeries
-                {
-                    Values = amount,                     
-                    Title = finalList[i].Name,
-                };
-                SeriesCollection_TypeOfCake.Add(series);
-            }
+            throw new NotImplementedException();
         }
-        /// <summary>
-        /// Khởi động usercontrol
-        /// </summary>
-        public void UserControl_Initialized(object sender, EventArgs e)
-        {
-            // Hiện thị đơn hàng bán được trong ngày
-            var dateNow = DateTime.Now.ToString("d");
-            DateTime dateTime = Convert.ToDateTime(dateNow);
-            totalBillInDay.Content = (from dh in DataProvider.Ins.DB.DONHANGs
-                                      where dh.NG_DATHANG == dateTime
-                                      select dh).Count();
-            // Hiện thị số tiền trong 1 ngày
-            var total = (from dh in DataProvider.Ins.DB.DONHANGs
-                                       where dh.NG_DATHANG == dateTime
-                                       select dh.TONG_GTDH).Sum();
-            totalMoneyInDay.Text = $"{string.Format("{0:n0}", total)} VNĐ";
-            if (totalMoneyInDay.Text== null)
-            {
-                totalMoneyInDay.Text = $"{string.Format("{0:n0}", 0)} VNĐ";
-            }
-            // Hiện danh sách các loại bánh còn trong kho
-            table_Inventory.ItemsSource = (from banh in DataProvider.Ins.DB.BANHs
-                                where banh.SL_TON > 0
-                                select banh).ToList();
-        }
+
+
+        //public void chart()
+        //{
+        //    seriescollection_typeofcake = new seriescollection();
+
+        //    var db = dataprovider.ins.db;
+
+        //    var list = (from ctdh in db.ct_donhang
+        //                join banh in db.banhs on ctdh.mabanh equals banh.mabanh
+        //                select new { banh.loaibanh, total = ctdh.sl_mua * banh.dongia });
+        //    var result = (from l in list
+        //                  join lb in db.loaibanhs on l.loaibanh equals lb.maloai
+        //                  select new { lb.tenloai, l.total });
+        //    var finallist = (from rs in result
+        //                     group rs by rs.tenloai into rsgroup
+        //                     select new
+        //                     {
+        //                         name = rsgroup.key,
+        //                         totalmoney = rsgroup.sum(x => x.total)
+        //                     }).tolist();
+        //    for (int i = 0; i < finallist.count; i++)
+        //    {
+        //        chartvalues<int> amount = new chartvalues<int>();
+        //        amount.add(convert.toint32(finallist[i].totalmoney));
+        //        pieseries series = new pieseries
+        //        {
+        //            values = amount,
+        //            title = finallist[i].name,
+        //        };
+        //        seriescollection_typeofcake.add(series);
+        //    }
+        //}
+        ///// <summary>
+        ///// khởi động usercontrol
+        ///// </summary>
+        //public void usercontrol_initialized(object sender, eventargs e)
+        //{
+        //    // hiện thị đơn hàng bán được trong ngày
+        //    var datenow = datetime.now.tostring("d");
+        //    datetime datetime = convert.todatetime(datenow);
+        //    totalbillinday.content = (from dh in dataprovider.ins.db.donhangs
+        //                              where dh.ng_dathang == datetime
+        //                              select dh).count();
+        //    // hiện thị số tiền trong 1 ngày
+        //    var total = (from dh in dataprovider.ins.db.donhangs
+        //                 where dh.ng_dathang == datetime
+        //                 select dh.tong_gtdh).sum();
+        //    totalmoneyinday.text = $"{string.format("{0:n0}", total)} vnđ";
+        //    if (totalmoneyinday.text == null)
+        //    {
+        //        totalmoneyinday.text = $"{string.format("{0:n0}", 0)} vnđ";
+        //    }
+        //    // hiện danh sách các loại bánh còn trong kho
+        //    table_inventory.itemssource = (from banh in dataprovider.ins.db.banhs
+        //                                   where banh.sl_ton > 0
+        //                                   select banh).tolist();
+        //}
     }
 }

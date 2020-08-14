@@ -155,7 +155,7 @@
                    MouseLeftButtonDown="Image_Button"
                    HorizontalAlignment="Left"
                    Name="cakeImage"
-                   Margin="20 0 0 0">
+                   Margin="25 0 0 0">
                     <Image.Triggers>
                         <EventTrigger RoutedEvent="MouseDown">
                             <BeginStoryboard>

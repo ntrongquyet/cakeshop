@@ -6,7 +6,7 @@
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:local="clr-namespace:CakeShop.User_Control"
              mc:Ignorable="d"
-             Initialized="UserControl_Initialized"
+             Foreground="#261D56"
              d:DesignHeight="450" d:DesignWidth="700">
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -20,105 +20,79 @@
             </BeginStoryboard>
         </EventTrigger>
     </UserControl.Triggers>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+    <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" 
-                   Grid.Column="0"
-                   Grid.ColumnSpan="2"
-                   Text="Thống kê"
+        <TextBlock Text="DOANH THU"
+                   FontSize="45"
+                   HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Margin="10 0 0 0"
-                   HorizontalAlignment="Left"
-                   FontFamily="/Font/#SVN-HEMI HEAD"
-                   FontSize="50"/>
-        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Border
-                Margin="5 10 0 10"
-                Background="#FCB9B2"
-                CornerRadius="15"
-                Grid.Column="0">
-                <DockPanel  VerticalAlignment="Center" LastChildFill="True">
-                    <Label Name="totalBillInDay" DockPanel.Dock="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="50" Content="50"/>
-                    <Label Name="title_Bill" FontSize="15" HorizontalContentAlignment="Center" Content="Đơn hàng trong ngày"/>
-                </DockPanel>
-            </Border>
-            <Border
-                Margin="5 10 10 10"
-                Grid.Column="2"
-                BorderThickness="1"
-                BorderBrush="Black">
-                <DockPanel LastChildFill="True">
-                    <Label FontWeight="Bold" DockPanel.Dock="Bottom" HorizontalContentAlignment="Center" Content="Các loại bánh còn trong kho"></Label>
-                    <ListView HorizontalAlignment="Center" Grid.Row="2"
-                              FontSize="12"
-                              Name="table_Inventory"
-                          Foreground="#0133CD" MaxHeight="300">
-                        <ListView.View>
-                            <GridView >
-                                <GridViewColumn Header="Tên bánh" DisplayMemberBinding="{Binding TENBANH}"/>
-                                <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SL_TON}"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </DockPanel>
-
-            </Border>
-            <Border
-                Margin="5 10 0 10"
-                Background="#FCB9B2"
-                CornerRadius="15"
-                Grid.Column="1">
-                <DockPanel  VerticalAlignment="Center" LastChildFill="True">
-                    <TextBlock DockPanel.Dock="Top" FontSize="35" TextWrapping="Wrap" TextAlignment="Center" Name="totalMoneyInDay"></TextBlock>
-                    <!--<Label Name="totalMoneyInDay" DockPanel.Dock="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" Content="0"/>-->
-                    <Label Name="title_Money" FontSize="15" HorizontalContentAlignment="Center" Content="Tiền thu trong ngày"/>
-                </DockPanel>
-
-            </Border>
-
+                   FontWeight="DemiBold"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Background="#EDEFF4"
+                        Margin="10"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        CornerRadius="15">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0"
+                                          BlurRadius="5"/>
+                    </Border.Effect>
+                </Border>
+                <Border Background="#EDEFF4"
+                        Margin="10"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        CornerRadius="15">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0"
+                                          BlurRadius="5"/>
+                    </Border.Effect>
+                </Border>
+                <Border Background="#EDEFF4"
+                        Margin="10"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="2"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        CornerRadius="15">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0"
+                                          BlurRadius="5"/>
+                    </Border.Effect>
+                </Border>
+                <StackPanel Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Background="AliceBlue">
+                    <DockPanel>
+                        <TextBlock Text="Doanh thu theo: "
+                                   FontSize="15"
+                                   FontWeight="DemiBold"/>
+                        <DatePicker Width="150"
+                                    HorizontalAlignment="Left"/>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
         </Grid>
-        <StackPanel Grid.Row="2" Grid.Column="0">
-            <lvc:CartesianChart LegendLocation="Bottom" 
-                                MinHeight="250"
-                                MinWidth="200"
-                                Foreground="Black"
-                                Margin="10 10 10 0 "
-                                VerticalAlignment="Center" 
-                                Series="{Binding SeriesCollection_MoneyPerMonth, RelativeSource={RelativeSource AncestorType=UserControl}}">
-                <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Doanh thu từng tháng trong năm 2020" 
-                              FontSize="15"
-                              Labels="{Binding Labels}"></lvc:Axis>
-                </lvc:CartesianChart.AxisX>
-            </lvc:CartesianChart>
-        </StackPanel>
-        <DockPanel Grid.Row="2" Grid.Column="1"
-                   Margin="10">
-            <Label DockPanel.Dock="Bottom"
-                   HorizontalAlignment="Center" 
-                   FontWeight="Bold"
-                   Content="Doanh thu của từng loại bánh bán được"
-                   FontSize="16"/>
-            <lvc:PieChart MinWidth="170"
-                          MinHeight="170"
-                          Margin="10" 
-                          VerticalAlignment="Center" 
-                          Series="{Binding SeriesCollection_TypeOfCake, RelativeSource={RelativeSource AncestorType=UserControl}}">
-            </lvc:PieChart>
-        </DockPanel>
-
     </Grid>
 </UserControl>

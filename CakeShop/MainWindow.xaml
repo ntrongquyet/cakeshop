@@ -110,7 +110,7 @@
             </Grid>
         </StackPanel>
         <Border Grid.Column="1"
-                Background="#FEDEB4">
+                Background="#DEE8FF">
             <ContentControl Content="{Binding}"/>
         </Border>
     </Grid>

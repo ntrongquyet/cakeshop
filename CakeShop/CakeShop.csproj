@@ -149,6 +149,9 @@
     <Compile Include="User_Control\StatisticsUC.xaml.cs">
       <DependentUpon>StatisticsUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User_Control\StatisticsUCVers2.xaml.cs">
+      <DependentUpon>StatisticsUCVers2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User_Control\SumBillUC.xaml.cs">
       <DependentUpon>SumBillUC.xaml</DependentUpon>
     </Compile>
@@ -197,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="User_Control\StatisticsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User_Control\StatisticsUCVers2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
