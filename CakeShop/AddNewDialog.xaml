@@ -11,7 +11,7 @@
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None"
         ResizeMode="NoResize"
-        MouseLeftButtonDown="Drag_Window"
+        Loaded="Window_Loaded"
         Title="AddNewDialog" Height="600" Width="450">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -39,21 +39,25 @@
                        FontWeight="Bold"
                        FontSize="50"/>
             <StackPanel Grid.Row="1">
-                <DockPanel HorizontalAlignment="Center">
-                    <RadioButton Content="CupCake"
-                                 FontWeight="DemiBold"
-                                 Margin="10 0 10 0"/>
-                    <RadioButton Content="CreamCake"
-                                 FontWeight="DemiBold"
-                                 Margin="10 0 10 0"/>
-                    <RadioButton Content="BiscuitCake"
-                                 FontWeight="DemiBold"
-                                 Margin="10 0 10 0"/>
-                    <RadioButton Content="IceCream"
-                                 FontWeight="DemiBold"
-                                 Margin="10 0 10 0"/>
-                </DockPanel>
+                <ListBox Name="listCombobox">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <DockPanel HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate >
+                        <DataTemplate>
+                                <RadioButton
+                                   Checked="RadioButton_Checked"
+                                    Margin="10 0 0 0"
+                                    FontWeight="DemiBold"
+                                    GroupName="typeCake" Content="{Binding TENLOAI}">
+                                </RadioButton>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
                 <TextBox materialDesign:HintAssist.Hint="Tên món"
+                         Name="name"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                          Margin="25 0 25 0">
                     <TextBox.Triggers>
@@ -95,6 +99,7 @@
                 </TextBox>
                 <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
                     <TextBox materialDesign:HintAssist.Hint="Số lượng"
+                             Name="count"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                              Width="100"
                              Margin="25 0 0 0 ">
@@ -112,6 +117,7 @@
                         </TextBox.Triggers>
                     </TextBox>
                     <TextBox materialDesign:HintAssist.Hint="Đơn giá"
+                             Name="price"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                              Width="100"
                              Margin="25 0 0 0 ">
@@ -129,6 +135,7 @@
                         </TextBox.Triggers>
                     </TextBox>
                     <TextBox materialDesign:HintAssist.Hint="Đơn vị tính"
+                             Name="unit"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                              Width="100"
                              Margin="25 0 0 0 ">

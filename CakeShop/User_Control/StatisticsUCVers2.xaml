@@ -7,6 +7,7 @@
              xmlns:local="clr-namespace:CakeShop.User_Control"
              mc:Ignorable="d"
              Foreground="#261D56"
+             Initialized="UserControl_Initialized"
              d:DesignHeight="450" d:DesignWidth="700">
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -59,6 +60,7 @@
                                    FontSize="15"
                                    FontWeight="DemiBold"/>
                         <TextBlock Text="5"
+                                   Name ="totalBillInDay"
                                    FontSize="35"
                                    HorizontalAlignment="Center"
                                    FontWeight="Bold"
@@ -84,7 +86,7 @@
                                    Margin="0 10 0 0"
                                    FontSize="15"
                                    FontWeight="DemiBold"/>
-                        <TextBlock Text="1.205.000"
+                        <TextBlock Name="totalMoneyInDay"
                                    FontSize="35"
                                    HorizontalAlignment="Center"
                                    FontWeight="Bold"
@@ -106,46 +108,15 @@
                     <DockPanel>
                         <StackPanel HorizontalAlignment="Left"
                                     Margin="10 0 10 0">
-                            <TextBlock Text="Tên món"
-                                       Margin="0 5 0 0"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Top"
-                                       FontSize="13"
-                                       FontWeight="DemiBold"/>
-                            <TextBlock Text="Chocolate Muffin"
-                                       Margin="0 5"/>
-                            <TextBlock Text="Wedding White Cake"
-                                       Margin="0 5"/>
-                            <TextBlock Text="Milk Muffin"
-                                       Margin="0 5"/>
-                            <TextBlock Text="Chocolate Muffin"
-                                       Margin="0 5"/>
-                            <TextBlock Text="Chocolate Muffin"
-                                       Margin="0 5"/>
-                        </StackPanel>
-                        <StackPanel HorizontalAlignment="Right"
-                                    Margin="0 0 10 0">
-                            <TextBlock Text="Số lượng"
-                                       VerticalAlignment="Top"
-                                       Margin="0 5 0 0"
-                                       HorizontalAlignment="Center"
-                                       FontSize="13"
-                                       FontWeight="DemiBold"/>
-                            <TextBlock Text="10"
-                                       Margin="0 5"
-                                       HorizontalAlignment="Center"/>
-                            <TextBlock Text="7"
-                                       Margin="0 5"
-                                       HorizontalAlignment="Center"/>
-                            <TextBlock Text="9"
-                                       Margin="0 5"
-                                       HorizontalAlignment="Center"/>
-                            <TextBlock Text="6"
-                                       Margin="0 5"
-                                       HorizontalAlignment="Center"/>
-                            <TextBlock Text="3"
-                                       Margin="0 5"
-                                       HorizontalAlignment="Center"/>
+                            <ListView HorizontalAlignment="Center" Grid.Row="2" Name="table_Inventory"
+                          Foreground="#0133CD" MaxHeight="300">
+                                <ListView.View>
+                                    <GridView >
+                                        <GridViewColumn Header="Tên bánh" DisplayMemberBinding="{Binding TENBANH}"/>
+                                        <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SL_TON}"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
                         </StackPanel>
                     </DockPanel>
                     <Border.Effect>
@@ -159,42 +130,7 @@
                             HorizontalAlignment="Left"
                             Margin="25 0 0 0"
                             VerticalAlignment="Center">
-                    <DockPanel>
-                        <TextBlock Text="Doanh thu theo: "
-                                   FontSize="15"
-                                   Margin="0 0 10 0"
-                                   FontWeight="DemiBold"
-                                   VerticalAlignment="Center"/>
-                        <ComboBox VerticalAlignment="Center"
-                                  Width="90"
-                                  Margin="0 0 10 0">
-                            <ComboBoxItem Content="Tháng 1"/>
-                            <ComboBoxItem Content="Tháng 2"/>
-                            <ComboBoxItem Content="Tháng 3"/>
-                            <ComboBoxItem Content="Tháng 4"/>
-                            <ComboBoxItem Content="Tháng 5"/>
-                            <ComboBoxItem Content="Tháng 6"/>
-                            <ComboBoxItem Content="Tháng 7"/>
-                            <ComboBoxItem Content="Tháng 8"/>
-                            <ComboBoxItem Content="Tháng 9"/>
-                            <ComboBoxItem Content="Tháng 10"/>
-                            <ComboBoxItem Content="Tháng 11"/>
-                            <ComboBoxItem Content="Tháng 12"/>
-                        </ComboBox>
-                        <ComboBox VerticalAlignment="Center"
-                                  Width="90">
-                            <ComboBoxItem Content="Năm 2019"/>
-                            <ComboBoxItem Content="Năm 2020"/>
-                            <ComboBoxItem Content="Năm 2021"/>
-                        </ComboBox>
-                    </DockPanel>
-                    <DockPanel>
-                        <TextBlock Text="Tùy chọn: "
-                                   FontSize="15"
-                                   FontWeight="DemiBold"/>
-                        <DatePicker Width="150"
-                                    HorizontalAlignment="Left"/>
-                    </DockPanel>
+
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
@@ -203,10 +139,15 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <lvc:CartesianChart></lvc:CartesianChart>
+                    <lvc:CartesianChart LegendLocation="Left" MinHeight="220" VerticalAlignment="Center" Series="{Binding SeriesCollection_MoneyPerMonth, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Title="Doanh thu từng tháng trong năm 2020" Labels="{Binding Labels}"></lvc:Axis>
+                        </lvc:CartesianChart.AxisX>
+                    </lvc:CartesianChart>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <lvc:PieChart></lvc:PieChart>
+                    <lvc:PieChart Width="220" Height="200" VerticalAlignment="Center" Series="{Binding SeriesCollection_TypeOfCake, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                    </lvc:PieChart>
                 </Grid>
             </Grid>
         </Grid>
