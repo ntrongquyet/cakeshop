@@ -98,6 +98,7 @@
     <Compile Include="AddNewDialog.xaml.cs">
       <DependentUpon>AddNewDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConverterColorItemEven.cs" />
     <Compile Include="DetailCake.xaml.cs">
       <DependentUpon>DetailCake.xaml</DependentUpon>
     </Compile>
@@ -282,7 +283,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>dbCakeShop.mdf</DependentUpon>
     </Content>
-    <None Include="Image\Cakes\Bánh-Mì-Hoa-Cúc-1-300x300.jpg">
+    <None Include="Image\Cakes\Bread.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Image\Cakes\O1-.png">
@@ -301,6 +302,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\Icon\AddImage.png" />
+    <Resource Include="Image\Home\add_cakes.png" />
+    <Resource Include="Image\Home\home.png" />
+    <Resource Include="Image\Home\info.png" />
+    <Resource Include="Image\Home\invoice.png" />
+    <Resource Include="Image\Home\revenue.png" />
+    <Resource Include="Image\Home\update.png" />
+    <Resource Include="Image\Home\Item_bg01.png" />
+    <Resource Include="Image\Home\Item_bg02.png" />
+    <Resource Include="Image\Home\cart.png" />
+    <Resource Include="Image\Home\cookie.png" />
+    <Resource Include="Image\Home\muffin.png" />
+    <Resource Include="Image\Icon\back_home.png" />
     <Content Include="SQL\dbCakeShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbCakeShop.Context.cs</LastGenOutput>

@@ -72,20 +72,11 @@ namespace CakeShop.User_Control
             Listbox_Cake.ItemsSource = tempList;
         }
 
-        private void Click_Search(object sender, MouseButtonEventArgs e)
+        private void Button_ShowAllCake(object sender, MouseButtonEventArgs e)
         {
-            if (Search_Food.Visibility == Visibility.Visible)
-            {
-                Search_Binding.Source = new BitmapImage(new Uri(String.Format("/Image/Icon/search.png"), UriKind.Relative));
-                Search_Food.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                Search_Binding.Source = new BitmapImage(new Uri(String.Format("/Image/Icon/Close.png"), UriKind.Relative));
-                Search_Food.Visibility = Visibility.Visible;
-            }
+            tempList = DataProvider.Ins.DB.BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
         }
-
         private void Search_button(object sender, RoutedEventArgs e)
         {
             var text = Search.Text.Trim();
@@ -101,5 +92,7 @@ namespace CakeShop.User_Control
                         .Contains(text.ToLower()));
             }
         }
+
+      
     }
 }
