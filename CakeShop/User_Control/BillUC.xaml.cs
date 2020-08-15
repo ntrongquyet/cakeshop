@@ -76,14 +76,21 @@ namespace CakeShop.User_Control
                         Thanhtien = amount * (double)cake.DONGIA,
                         Tenbanh = cake.TENBANH,
                     };
-                    cart.Items.Add(temp);
-                    listCake.Add(temp);
-                    total += temp.Thanhtien;
-                    totalMoney.Text = $"{total}";
+                    if (checkCakeExsit(temp.Mabanh))
+                    {
+                        cart.Items.Add(temp);
+                        listCake.Add(temp);
+                        total += temp.Thanhtien;
+                        totalMoney.Text = $"{total}";
+                    }
+                    
                 }
             }
         }
-
+        bool checkCakeExsit(string idCake)
+        {
+            return !(listCake.Any(x => x.Mabanh == idCake));
+        }
         private void Button_CupCake(object sender, MouseButtonEventArgs e)
         {
             tempList = DataProvider.Ins.DB.LOAIBANHs.Find("LB001").BANHs.ToList();
@@ -133,6 +140,20 @@ namespace CakeShop.User_Control
         {
             DataContext = new HomeUC();
             this.Content = new HomeUC();
+        }
+
+        private void payClick(object sender, RoutedEventArgs e)
+        {
+            foreach(tempDetailCake item in listCake)
+            {
+                CT_DONHANG cT = new CT_DONHANG()
+                {
+                    ID = DataProvider.Ins.DB.CT_DONHANG.Count() + 1,
+                    SL_MUA = item.Soluong,
+                    MABANH = item.Mabanh,
+                    MA_DONHANG = $"LB{DataProvider.Ins.DB.CT_DONHANG.Count()+1.ToString()}",
+                };
+            }
         }
     }
 }

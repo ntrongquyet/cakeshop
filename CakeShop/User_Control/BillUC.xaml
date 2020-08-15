@@ -267,7 +267,7 @@
                     Width="200" Background="#261D56"
                     CornerRadius="25">
                 <Button Content="Thanh toán" Margin="10"
-                        
+                        Click="payClick"
                         FontWeight="Light" FontSize="20" VerticalContentAlignment="Center"
                         materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
             </Border>
