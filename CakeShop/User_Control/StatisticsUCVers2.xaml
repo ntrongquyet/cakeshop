@@ -105,20 +105,16 @@
                         BorderBrush="Transparent"
                         BorderThickness="0"
                         CornerRadius="15">
-                    <DockPanel>
-                        <StackPanel HorizontalAlignment="Left"
-                                    Margin="10 0 10 0">
-                            <ListView HorizontalAlignment="Center" Grid.Row="2" Name="table_Inventory"
+                    <ListView HorizontalAlignment="Center" Grid.Row="2" Name="table_Inventory"
                           Foreground="#0133CD" MaxHeight="300">
-                                <ListView.View>
-                                    <GridView >
-                                        <GridViewColumn Header="Tên bánh" DisplayMemberBinding="{Binding TENBANH}"/>
-                                        <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SL_TON}"/>
-                                    </GridView>
-                                </ListView.View>
-                            </ListView>
-                        </StackPanel>
-                    </DockPanel>
+                        <ListView.View>
+                            <GridView >
+                                <GridViewColumn Header="Tên bánh" DisplayMemberBinding="{Binding TENBANH}"/>
+                                <GridViewColumn Header="Số lượng"
+                                                DisplayMemberBinding="{Binding SL_TON}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="0"
                                           BlurRadius="5"/>

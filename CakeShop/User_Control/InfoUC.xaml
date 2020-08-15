@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CakeShop.User_Control"
              mc:Ignorable="d" 
-             Foreground="#570101"
+             Foreground="#261D56"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -34,13 +34,13 @@
                     <ColumnDefinition Width="60*"/>
                     <ColumnDefinition Width="40*"/>
                 </Grid.ColumnDefinitions>
-                <Rectangle Fill="#0133CD"/>
-                <Rectangle Fill="#570101" Grid.Row="1"/>
+                <Rectangle Fill="#261D56"/>
+                <Rectangle Fill="#261D56" Grid.Row="1"/>
                 <TextBlock Text="ĐỒ ÁN MÔN HỌC LẬP TRÌNH WINDOW" Grid.Row="1"
                    VerticalAlignment="Center" HorizontalAlignment="Center"
                    FontSize="20"
                    FontWeight="Bold" Foreground="#FFFFFF"/>
-                <Rectangle Fill="#FEDEB4" Grid.Row="2"/>
+                <Rectangle Fill="#DEE8FF" Grid.Row="2"/>
                 <Image Source="/Image/Icon/Info.jpg"
                Grid.ColumnSpan="2"
                Grid.RowSpan="3"
@@ -50,7 +50,7 @@
                RenderOptions.BitmapScalingMode="HighQuality"/>
                 <StackPanel Grid.Row="2">
                     <DockPanel Margin="0 15 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
-                        <Rectangle Fill="#570101" Width="3" Height="40"
+                        <Rectangle Fill="#261D56" Width="3" Height="40"
                        Margin="0 0 5 0"/>
                         <StackPanel>
                             <TextBlock Text="Tên đồ án: CakeShop App"
@@ -72,15 +72,15 @@
                         <StackPanel>
                             <DockPanel>
                                 <Label Content="18600011"
-                                       Background="#570101"
+                                       Background="#261D56"
                                        Foreground="White"
                                        FontWeight="Bold"
                                        FontSize="15"/>
                                 <Label Content="NGUYỄN TRỌNG QUYẾT"
                                        BorderThickness="1"
-                                       BorderBrush="#570101"
+                                       BorderBrush="#261D56"
                                        FontWeight="Bold" 
-                                       Foreground="#570101"
+                                       Foreground="#261D56"
                                        FontSize="15"/>
                             </DockPanel>
                             <TextBlock Text="ntrongquyet37@gmail.com"
@@ -91,14 +91,14 @@
                         <StackPanel>
                             <DockPanel>
                                 <Label Content="18600014" 
-                                       Background="#570101" 
+                                       Background="#261D56" 
                                        Foreground="White"
                                        FontWeight="Bold" 
                                        FontSize="15"/>
                                 <Label Content="NGÔ TẤT TỐ"
                                        BorderThickness="1" 
-                                       BorderBrush="#570101"
-                                       Foreground="#570101"
+                                       BorderBrush="#261D56"
+                                       Foreground="#261D56"
                                        FontWeight="Bold" 
                                        FontSize="15"/>
                             </DockPanel>
@@ -110,14 +110,14 @@
                         <StackPanel>
                             <DockPanel>
                                 <Label Content="18600038" 
-                                       Background="#570101" 
+                                       Background="#261D56" 
                                        Foreground="White"
                                        FontWeight="Bold" 
                                        FontSize="15"/>
                                 <Label Content="PHẠM PHONG PHÚ CƯỜNG"
                                        BorderThickness="1"
-                                       Foreground="#570101"
-                                       BorderBrush="#570101"
+                                       Foreground="#261D56"
+                                       BorderBrush="#261D56"
                                        FontWeight="Bold"
                                        FontSize="15" />
                             </DockPanel>
