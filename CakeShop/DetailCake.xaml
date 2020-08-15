@@ -96,10 +96,12 @@
                     Click="Out_Button"
                     HorizontalAlignment="Left"
                     Margin="10 0 0 0"/>
-            <Button Width="130"
-                    Content="Thêm vào giỏ"
-                    HorizontalAlignment="Right"
-                    Margin="0 0 10 0"/>
+            <Button
+                Click="addToCart_Click"
+                Width="130"
+                Content="Thêm vào giỏ"
+                HorizontalAlignment="Right"
+                Margin="0 0 10 0"/>
         </DockPanel>
     </Grid>
     </Border>

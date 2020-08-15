@@ -223,42 +223,30 @@
                         </DockPanel>
 
                         <StackPanel Margin="0 10 0 20">
-                            <DockPanel Margin="0 5">
-                                <Ellipse Width="30" Height="30" Fill="#F9C8BD"
+                            <ListBox Name="cart">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <DockPanel>
+                                            <Ellipse Width="30" Height="30" Fill="#F9C8BD"
                                          VerticalAlignment="Center" HorizontalAlignment="Left"
                                          Margin="10 0 0 0"/>
-                                <Label Content="Tên bánh Binding" Foreground="#261D56"
+                                            <Label Content="{Binding Tenbanh}" Foreground="#261D56"
                                        VerticalContentAlignment="Center"
                                        FontWeight="Bold" FontSize="10"/>
-                                <Label Content="x" Foreground="#261D56"
+                                            <Label Content="x" Foreground="#261D56"
                                        VerticalContentAlignment="Center"
                                        FontWeight="Bold" FontSize="10"/>
-                                <Label Content="1" Foreground="#261D56"
+                                            <Label Content="{Binding Soluong}" Foreground="#261D56"
                                        VerticalContentAlignment="Center"
                                        FontWeight="Bold" FontSize="10"/>
-                                <Label Content="25.000 VNĐ" Foreground="#261D56"
+                                            <Label Content="{Binding Thanhtien}" Foreground="#261D56"
                                        VerticalContentAlignment="Center"
                                        FontWeight="Light" FontSize="10"
                                        HorizontalAlignment="Right"/>
-                            </DockPanel>
-                            <DockPanel Margin="0 5">
-                                <Ellipse Width="30" Height="30" Fill="#F9C8BD"
-                                         VerticalAlignment="Center" HorizontalAlignment="Left"
-                                         Margin="10 0 0 0"/>
-                                <Label Content="Tên bánh Binding" Foreground="#261D56"
-                                       VerticalContentAlignment="Center"
-                                       FontWeight="Bold" FontSize="10"/>
-                                <Label Content="x" Foreground="#261D56"
-                                       VerticalContentAlignment="Center"
-                                       FontWeight="Bold" FontSize="10"/>
-                                <Label Content="1" Foreground="#261D56"
-                                       VerticalContentAlignment="Center"
-                                       FontWeight="Bold" FontSize="10"/>
-                                <Label Content="25.000 VNĐ" Foreground="#261D56"
-                                       VerticalContentAlignment="Center"
-                                       FontWeight="Light" FontSize="10"
-                                       HorizontalAlignment="Right"/>
-                            </DockPanel>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -267,7 +255,8 @@
                     <TextBlock Text="Tổng cộng" VerticalAlignment="Top"
                                Foreground="#261D56"
                                Margin="12 10 0 0"/>
-                    <TextBlock Text="50.000 VNĐ"  Foreground="#261D56"
+                    <TextBlock Name="totalMoney"
+                               Text="0"  Foreground="#261D56"
                                VerticalAlignment="Top" HorizontalAlignment="Right"
                                Margin="12 10 12 0"/>
                 </DockPanel>
@@ -278,6 +267,7 @@
                     Width="200" Background="#261D56"
                     CornerRadius="25">
                 <Button Content="Thanh toán" Margin="10"
+                        
                         FontWeight="Light" FontSize="20" VerticalContentAlignment="Center"
                         materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
             </Border>

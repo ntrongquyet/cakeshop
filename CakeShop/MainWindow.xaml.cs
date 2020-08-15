@@ -37,7 +37,7 @@ namespace CakeShop
 
         private void Bill_Button(object sender, MouseButtonEventArgs e)
         {
-            DataContext = new SumBillUC();
+            DataContext = new BillUC();
         }
 
         private void New_Button(object sender, MouseButtonEventArgs e)

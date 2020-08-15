@@ -23,6 +23,19 @@ namespace CakeShop.User_Control
     /// </summary>
     public partial class BillUC : UserControl
     {
+        public class tempDetailCake
+        {
+            private string tenbanh;
+            private string mabanh;
+            private int soluong;
+            private double thanhtien;
+
+            public string Tenbanh { get => tenbanh; set => tenbanh = value; }
+            public string Mabanh { get => mabanh; set => mabanh = value; }
+            public int Soluong { get => soluong; set => soluong = value; }
+            public double Thanhtien { get => thanhtien; set => thanhtien = value; }
+        }
+        List<tempDetailCake> listCake = new List<tempDetailCake>();
         public BillUC()
         {
             InitializeComponent();
@@ -38,14 +51,36 @@ namespace CakeShop.User_Control
             tempList = DataProvider.Ins.DB.BANHs.ToList();
             Listbox_Cake.ItemsSource = tempList;
         }
-
+        int amount = 0;
+        double total = 0;
         private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
+
             var data = Listbox_Cake.SelectedItem as BANH;
             if (data != null)
             {
                 DetailCake dt = new DetailCake(data.MABANH);
-                dt.Show();
+                if (dt.ShowDialog() == true)
+                {
+                    amount = dt.amount;
+
+                }
+                if (amount > 0)
+                {
+                    BANH cake = DataProvider.Ins.DB.BANHs.ToList().Find(x => x.MABANH == data.MABANH);
+                    tempDetailCake temp = new tempDetailCake()
+                    {
+
+                        Mabanh = cake.MABANH,
+                        Soluong = amount,
+                        Thanhtien = amount * (double)cake.DONGIA,
+                        Tenbanh = cake.TENBANH,
+                    };
+                    cart.Items.Add(temp);
+                    listCake.Add(temp);
+                    total += temp.Thanhtien;
+                    totalMoney.Text = $"{total}";
+                }
             }
         }
 

@@ -35,6 +35,8 @@ namespace CakeShop
             }
         }
 
+        public int amount { get => _numValue; set => _numValue = value; }
+
         public DetailCake(string mABANH)
         {
             InitializeComponent();
@@ -124,6 +126,9 @@ namespace CakeShop
                 price.Text = _numValue.ToString();
         }
 
-
+        private void addToCart_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }
