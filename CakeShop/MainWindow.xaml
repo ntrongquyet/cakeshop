@@ -24,93 +24,57 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="60"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Image Source="/Image/PlashScreen/Logo.png" 
-                       Margin="10"/>
-                <DockPanel Grid.Row="1"
-                           Margin="0 0 0 10">
-                    <Image Source="/Image/Icon/home.png"
+        <!--Background Menu-->
+        <Rectangle Fill="#261D56" Margin="0,0,0,-0.334" Grid.RowSpan="2"/>
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,45,0,44.666" Grid.RowSpan="2">
+            <!--Home Button-->
+            <Image Source="/Image/Home/home.png"
                            VerticalAlignment="Center"
-                           Width="30"  
-                           Margin="25 0 10 0"/>
-                    <TextBlock Text="Trang chủ"
-                               MouseLeftButtonDown="Home_Button"
-                               FontSize="30"
-                               FontFamily="Font/#SVN-BEAR"/>
-                </DockPanel>
-                <DockPanel Grid.Row="2"
-                           Margin="0 0 0 10">
-                    <Image Source="/Image/Icon/Bill.png" 
+                           Width="40"  MouseLeftButtonDown="Home_Button"
+                           Margin="0 15"/>
+            <!--Order Button-->
+            <Image Source="/Image/Home/invoice.png" 
                            VerticalAlignment="Center"
-                           Width="30"  
-                           Margin="25 0 10 0"/>
-                    <TextBlock Text="Đơn hàng"
-                               MouseLeftButtonDown="Bill_Button"
-                           FontSize="30"
-                           FontFamily="Font/#SVN-BEAR"/>
-                </DockPanel>
-                <DockPanel Grid.Row="3"
-                           Margin="0 0 0 10">
-                    <Image Source="/Image/Icon/Plus.png" 
+                           Width="30"  MouseLeftButtonDown="Bill_Button"
+                           Margin="0 15"/>
+            <!--Add Cakes Button-->
+            <Image Source="/Image/Home/add_cakes.png" 
                            VerticalAlignment="Center"
-                           Width="30"  
-                           Margin="25 0 10 0"/>
-                    <TextBlock Text="Món mới"
-                               MouseLeftButtonDown="New_Button"
-                           FontSize="30"
-                           FontFamily="Font/#SVN-BEAR"/>
-                </DockPanel>
-                <DockPanel Grid.Row="4"
-                           Margin="0 0 0 10">
-                    <Image Source="/Image/Icon/update.png" 
+                           Width="40"  MouseLeftButtonDown="New_Button"
+                           Margin="0 15"/>
+            <!--Update Button-->
+            <Image Source="/Image/Home/update.png" 
                            VerticalAlignment="Center"
-                           Width="30"  
-                           Margin="25 0 10 0"/>
-                    <TextBlock Text="Cập nhật"
-                               MouseLeftButtonDown="Update_Button"
-                           FontSize="30"
-                           FontFamily="Font/#SVN-BEAR"/>
-                </DockPanel>
-                <DockPanel Grid.Row="5"
-                           Margin="0 0 0 10">
-                    <Image Source="/Image/Icon/revenue.png" 
+                           Width="40"   MouseLeftButtonDown="Update_Button"
+                           Margin="0 15"/>
+            <!--Revenue Button-->
+            <Image Source="/Image/Home/revenue.png" 
                            VerticalAlignment="Center"
-                           Width="30"  
-                           Margin="25 0 10 0"/>
-                    <TextBlock Text="Doanh thu"
-                               MouseLeftButtonDown="Static_Button"
-                           FontSize="30"
-                           FontFamily="Font/#SVN-BEAR"/>
-                </DockPanel>
-                <DockPanel Grid.Row="6"
-                           Margin="0 0 0 10">
-                    <Image Source="/Image/Icon/infomation.png"
+                           Width="40" MouseLeftButtonDown="Static_Button" 
+                           Margin="0 15"/>
+            <!--Information Button-->
+            <Image Source="/Image/Home/info.png"
                            VerticalAlignment="Center"
-                           Width="30"  
-                           Margin="25 0 10 0"/>
-                    <TextBlock Text="Thông tin"
-                               MouseLeftButtonDown="Info_Button"
-                           FontSize="30"
-                           FontFamily="Font/#SVN-BEAR"/>
-                </DockPanel>
-            </Grid>
+                           Width="40"  MouseLeftButtonDown="Info_Button"
+                           Margin="0 15"/>
         </StackPanel>
-        <Border Grid.Column="1"
-                Background="#DEE8FF">
+        <Grid Grid.Column="1">
+            <Grid.Background>
+                <SolidColorBrush Color="#DEE8FF"/>
+            </Grid.Background>
+            <Image Source="/Image/Home/Item_bg01.png" 
+                   VerticalAlignment="Top" HorizontalAlignment="Left"
+                   MaxHeight="150" MinHeight="50" Margin="0 0 0 300"/>
+            <Image Source="/Image/Home/Item_bg02.png" 
+                   VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                   MaxHeight="300" Margin="0 100 0 0"/>
+        </Grid>
+        <Border Grid.Column="1">
             <ContentControl Content="{Binding}"/>
         </Border>
     </Grid>

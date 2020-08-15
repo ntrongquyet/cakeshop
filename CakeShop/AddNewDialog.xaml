@@ -25,7 +25,7 @@
             </BeginStoryboard>
         </EventTrigger>
     </Window.Triggers>
-    <Border BorderBrush="#570101" BorderThickness="1">
+    <Border BorderBrush="#261D56" BorderThickness="1">
         <Grid Background="#DEE8FF">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>

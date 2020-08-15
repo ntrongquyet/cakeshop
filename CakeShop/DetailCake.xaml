@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CakeShop"
-        Background="#FEDEB4"
+        Background="#DEE8FF"
         WindowStyle="None"
         ResizeMode="NoResize"
         MouseLeftButtonDown="Drag_Window"
-        Foreground="#570101"
+        Foreground="#261D56"
         Loaded="Window_Loaded"
         RenderOptions.BitmapScalingMode="HighQuality"
         WindowStartupLocation="CenterScreen"
@@ -29,7 +29,7 @@
     <Window.Resources>
         <local:CurrencyConveter x:Key="Currency"/>
     </Window.Resources>
-    <Border BorderBrush="#570101" BorderThickness="1">
+    <Border BorderBrush="#261D56" BorderThickness="1">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"/>

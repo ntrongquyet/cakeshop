@@ -27,29 +27,77 @@ namespace CakeShop.User_Control
         {
             InitializeComponent();
         }
-
-        private void Search_button(object sender, RoutedEventArgs e)
+        List<BANH> tempList = new List<BANH>();
+        private void order_button(object sender, MouseButtonEventArgs e)
         {
-         
+            DataContext = new BillUC();
+            this.Content = new BillUC();
         }
-
         private void UC_Loaded(object sender, RoutedEventArgs e)
         {
-            var list = (from d in DataProvider.Ins.DB.BANHs
-                        select d);
-            Select_Food.ItemsSource = list.ToList();
+            tempList = DataProvider.Ins.DB.BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
         }
 
-        private void bill_button(object sender, RoutedEventArgs e)
+        private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            var data = Listbox_Cake.SelectedItem as BANH;
+            if (data != null)
+            {
+                DetailCake dt = new DetailCake(data.MABANH);
+                dt.Show();
+            }
         }
 
-        private void ShowQuality(object sender, MouseButtonEventArgs e)
+        private void Button_CupCake(object sender, MouseButtonEventArgs e)
         {
-            var data = Select_Food.SelectedItem as  BANH;
-            DetailCake show_Detail = new DetailCake(data.MABANH);
-            show_Detail.ShowDialog();
+            tempList = DataProvider.Ins.DB.LOAIBANHs.Find("LB001").BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
+        }
+
+        private void Button_CreamCake(object sender, MouseButtonEventArgs e)
+        {
+            tempList = DataProvider.Ins.DB.LOAIBANHs.Find("LB002").BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
+        }
+
+        private void Button_BiscuitCake(object sender, MouseButtonEventArgs e)
+        {
+            tempList = DataProvider.Ins.DB.LOAIBANHs.Find("LB003").BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
+        }
+
+        private void Button_IceCream(object sender, MouseButtonEventArgs e)
+        {
+            tempList = DataProvider.Ins.DB.LOAIBANHs.Find("LB004").BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
+        }
+
+        private void Button_ShowAllCake(object sender, MouseButtonEventArgs e)
+        {
+            tempList = DataProvider.Ins.DB.BANHs.ToList();
+            Listbox_Cake.ItemsSource = tempList;
+        }
+        private void Search_button(object sender, RoutedEventArgs e)
+        {
+            var text = Search.Text.Trim();
+            if (text == "")
+            {
+                Listbox_Cake.ItemsSource = DataProvider.Ins.DB.BANHs.ToList();
+            }
+            else
+            {
+                var dbBanh = DataProvider.Ins.DB.BANHs; // List sử dụng để lưu tạm các loại bánh
+                Listbox_Cake.ItemsSource = tempList.Where(q => (q.MABANH + q.TENBANH)
+                        .ToLower()
+                        .Contains(text.ToLower()));
+            }
+        }
+
+        private void Botton_BackHome(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new HomeUC();
+            this.Content = new HomeUC();
         }
     }
 }
