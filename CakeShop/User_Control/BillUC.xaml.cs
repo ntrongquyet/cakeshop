@@ -36,7 +36,6 @@ namespace CakeShop.User_Control
             public double Thanhtien { get => thanhtien; set => thanhtien = value; }
         }
         List<tempDetailCake> listCake = new List<tempDetailCake>();
-        private string maDonHang = $"DH{DataProvider.Ins.DB.DONHANGs.Count()+1}";
         public BillUC()
         {
             InitializeComponent();
@@ -121,7 +120,7 @@ namespace CakeShop.User_Control
                     }
                 }
             }
-            
+
         }
         // Tính tổng tiền và hiện thị số tiền
         void displayMoney(List<tempDetailCake> ls)
@@ -133,7 +132,7 @@ namespace CakeShop.User_Control
         tempDetailCake checkCakeExsit(string idCake)
         {
             bool exsit = listCake.Any(x => x.Mabanh == idCake);
-            if(exsit == true)
+            if (exsit == true)
             {
                 return listCake.Find(x => x.Mabanh == idCake);
             }
@@ -192,6 +191,8 @@ namespace CakeShop.User_Control
 
         private void payClick(object sender, RoutedEventArgs e)
         {
+            string maDonHang = $"DH{DataProvider.Ins.DB.DONHANGs.Count() + 1}";
+
             //Tạo đơn hàng
             DONHANG dh = new DONHANG()
             {
@@ -199,8 +200,8 @@ namespace CakeShop.User_Control
                 MA_DONHANG = maDonHang,
                 NG_DATHANG = DateTime.Now,
                 TONG_GTDH = total,
-               
-               
+
+
             };
             int i = 0;
             foreach (tempDetailCake item in listCake)
@@ -217,11 +218,11 @@ namespace CakeShop.User_Control
                     STT = i,
                     DONHANG = dh,
                     BANH = banh,
-                    
+
                 };
                 dh.CT_DONHANG.Add(cT);
             }
-            
+
             DataProvider.Ins.DB.DONHANGs.Add(dh);
             DataProvider.Ins.DB.SaveChanges();
             MessageBox.Show($"Thanh toán thành công đơn hàng {dh.MA_DONHANG} với tổng đơn hàng là {dh.TONG_GTDH}", "Thành công", MessageBoxButton.OK, MessageBoxImage.Exclamation);
