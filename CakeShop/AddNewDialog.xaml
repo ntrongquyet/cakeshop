@@ -185,7 +185,8 @@
                            MouseLeftButtonDown="out_button"
                            FontWeight="DemiBold"
                            VerticalAlignment="Bottom"
-                           HorizontalAlignment="Left" Height="26"/>
+                           HorizontalAlignment="Left" Height="26">
+                </TextBlock>
                 <Button Content="Thêm"
                         Width="100"
                         Name="add"
