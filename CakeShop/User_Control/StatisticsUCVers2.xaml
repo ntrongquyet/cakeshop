@@ -50,7 +50,7 @@
                         Margin="10"
                         BorderBrush="Transparent"
                         BorderThickness="0"
-                        CornerRadius="15">
+                        CornerRadius="15" MouseLeftButtonDown="Show_SumBill">
                     <StackPanel HorizontalAlignment="Center"
                                 VerticalAlignment="Center">
                         <TextBlock Text="Số hóa đơn"

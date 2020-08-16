@@ -45,7 +45,7 @@
                      Margin="25 0 40 10"/>
             <DockPanel>
                 <DockPanel HorizontalAlignment="Left">
-                    <Image Source="/Image/PlashScreen/Logo.png"
+                    <Image Source="/Image/Icon/LOGO-QTC.ico"
                        Width="130"
                        Margin="25 0 0 0"
                        VerticalAlignment="Center"

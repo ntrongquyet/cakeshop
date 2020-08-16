@@ -153,5 +153,11 @@ namespace CakeShop.User_Control
                                            where banh.SL_TON > 0
                                            select banh).ToList();
         }
+
+        private void Show_SumBill(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new SumBillUC();
+            this.Content = new SumBillUC();
+        }
     }
 }

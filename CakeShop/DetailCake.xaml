@@ -37,7 +37,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <DockPanel>
-                <Image Source="/Image/PlashScreen/Logo.png"
+                    <Image Source="/Image/Icon/LOGO-QTC.ico"
                        Width="150"
                        Margin="20 20 0 0"/>
                 <TextBlock Text="{Binding TENBANH}"
@@ -62,8 +62,7 @@
                 <TextBlock Text="Giá: "
                            Margin="15 0 0 0"
                            FontSize="20"
-                           FontWeight="DemiBold"
-                           />
+                           FontWeight="DemiBold"/>
                 <TextBlock Text="{Binding DONGIA, Converter={StaticResource Currency}}"
                            FontSize="20"
                            FontWeight="DemiBold"/>
@@ -76,7 +75,7 @@
                            FontSize="15" Margin="0 0 0 10"
                            FontWeight="DemiBold"/>
                 <DockPanel>
-                    <Image Source="/Image/Home/div_btn.png" Height="25"
+                    <Image Source="/Image/Home/sub.png" Height="25"
                            MouseLeftButtonDown="div_quality"/>
                     <TextBox x:Name="price" AcceptsReturn="True"
                              Margin="10 0 10 0"
@@ -86,7 +85,7 @@
                              TextChanged="txtNum_TextChanged"
                              HorizontalContentAlignment="Center"/>
 
-                    <Image Source="/Image/Home/add_btn.png" Height="25"
+                    <Image Source="/Image/Home/add.png" Height="25"
                            MouseLeftButtonDown="add_quality"/>
                 </DockPanel>
             </StackPanel>

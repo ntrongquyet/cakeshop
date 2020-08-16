@@ -179,7 +179,7 @@
                                 <DropShadowEffect ShadowDepth="2" Opacity=".2" Color="#000000"/>
                             </Ellipse.Effect>
                             <Ellipse.Fill>
-                                <SolidColorBrush Color="#F9C8BD"/>
+                                <ImageBrush ImageSource="/Image/Icon/LOGO-QTC.ico"/>
                             </Ellipse.Fill>
                         </Ellipse>
                     </Grid>
