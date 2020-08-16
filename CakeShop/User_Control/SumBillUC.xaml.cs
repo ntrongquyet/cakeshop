@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CakeShop.SQL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace CakeShop.User_Control
         public SumBillUC()
         {
             InitializeComponent();
+        }
+        List<DONHANG> list_donhang = new List<DONHANG>();
+        private void SumBill_Loaded(object sender, RoutedEventArgs e)
+        {
+            list_donhang = DataProvider.Ins.DB.DONHANGs.ToList();
+            Show_SumBill.ItemsSource = list_donhang;
         }
     }
 }

@@ -4,10 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CakeShop.User_Control"
+             xmlns:local1="clr-namespace:CakeShop"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              RenderOptions.BitmapScalingMode="HighQuality"
              mc:Ignorable="d" 
-             Foreground="#570101"
+             Foreground="#261D56"
+             Loaded="SumBill_Loaded"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -21,16 +23,41 @@
             </BeginStoryboard>
         </EventTrigger>
     </UserControl.Triggers>
+    <UserControl.Resources>
+        <local1:CurrencyConveter x:Key="CurrencyConveter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Danh sách đơn hàng"
-                       VerticalAlignment="Center"
-                       Margin="10 0 10 0"
-                       HorizontalAlignment="Left"
-                       FontFamily="/Font/#SVN-HEMI HEAD"
-                       FontSize="50"/>
+                   VerticalAlignment="Bottom"
+                   Margin="40 0 10 0"
+                   HorizontalAlignment="Left"
+                   FontSize="30" FontWeight="Bold"/>
+        <DataGrid Margin="40 10 40 40" Grid.Row="1"
+                  ItemsSource="{Binding Items3}"
+                  CanUserSortColumns="True"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False"
+                  materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+                  materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                  Name="Show_SumBill">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}"
+                                    Header="STT" 
+                                    Foreground="#261D56"/>
+                <DataGridTextColumn Binding="{Binding MA_DONHANG}"
+                                    Header="Mã đơn hàng" 
+                                    Foreground="#261D56"/>
+                <DataGridTextColumn Binding="{Binding NG_DATHANG, StringFormat={}{0:dd/MM/yyyy}}"
+                                    Header="Ngày mua hàng" 
+                                    Foreground="#261D56"/>
+                <DataGridTextColumn Binding="{Binding TONG_GTDH, Converter={StaticResource CurrencyConveter}}"
+                                    Header="Tổng hoá đơn" 
+                                    Foreground="#261D56"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
