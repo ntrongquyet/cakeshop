@@ -105,13 +105,28 @@
                         BorderBrush="Transparent"
                         BorderThickness="0"
                         CornerRadius="15">
-                    <ListView HorizontalAlignment="Center" Grid.Row="2" Name="table_Inventory"
-                          Foreground="#0133CD" MaxHeight="300">
+                    <ListView HorizontalAlignment="Center"
+                              Grid.Row="2" 
+                              Name="table_Inventory"
+                              Foreground="#0133CD">
                         <ListView.View>
                             <GridView >
-                                <GridViewColumn Header="Tên bánh" DisplayMemberBinding="{Binding TENBANH}"/>
-                                <GridViewColumn Header="Số lượng"
-                                                DisplayMemberBinding="{Binding SL_TON}"/>
+                                <GridViewColumn Header="Tên bánh">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding TENBANH}"
+                                                       Margin="0 0 80 0 "/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Số lượng">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding SL_TON}"
+                                                       Margin="80 0 0 0 "/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
