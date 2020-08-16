@@ -44,6 +44,11 @@ namespace CakeShop
             price.Text = _numValue.ToString();
         }
 
+        public DetailCake(string mABANH, int amount) : this(mABANH)
+        {
+            this.amount = amount;
+        }
+
         private void Out_Button(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -52,6 +57,10 @@ namespace CakeShop
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = DataProvider.Ins.DB.BANHs.Find(mABANH);
+            if (amount != 0)
+            {
+                price.Text = amount.ToString();
+            }
             
         }
 
