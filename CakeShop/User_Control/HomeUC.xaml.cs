@@ -44,7 +44,7 @@ namespace CakeShop.User_Control
             if (data != null)
             {
                 DetailCake dt = new DetailCake(data.MABANH);
-                dt.Show();
+                dt.ShowDialog();
             }
         }
 

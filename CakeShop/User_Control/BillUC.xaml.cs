@@ -23,6 +23,19 @@ namespace CakeShop.User_Control
     /// </summary>
     public partial class BillUC : UserControl
     {
+        public class tempDetailCake
+        {
+            private string tenbanh;
+            private string mabanh;
+            private int soluong;
+            private double thanhtien;
+
+            public string Tenbanh { get => tenbanh; set => tenbanh = value; }
+            public string Mabanh { get => mabanh; set => mabanh = value; }
+            public int Soluong { get => soluong; set => soluong = value; }
+            public double Thanhtien { get => thanhtien; set => thanhtien = value; }
+        }
+        List<tempDetailCake> listCake = new List<tempDetailCake>();
         public BillUC()
         {
             InitializeComponent();
@@ -38,17 +51,46 @@ namespace CakeShop.User_Control
             tempList = DataProvider.Ins.DB.BANHs.ToList();
             Listbox_Cake.ItemsSource = tempList;
         }
-
+        int amount = 0;
+        double total = 0;
         private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
+
             var data = Listbox_Cake.SelectedItem as BANH;
             if (data != null)
             {
                 DetailCake dt = new DetailCake(data.MABANH);
-                dt.Show();
+                if (dt.ShowDialog() == true)
+                {
+                    amount = dt.amount;
+
+                }
+                if (amount > 0)
+                {
+                    BANH cake = DataProvider.Ins.DB.BANHs.ToList().Find(x => x.MABANH == data.MABANH);
+                    tempDetailCake temp = new tempDetailCake()
+                    {
+
+                        Mabanh = cake.MABANH,
+                        Soluong = amount,
+                        Thanhtien = amount * (double)cake.DONGIA,
+                        Tenbanh = cake.TENBANH,
+                    };
+                    if (checkCakeExsit(temp.Mabanh))
+                    {
+                        cart.Items.Add(temp);
+                        listCake.Add(temp);
+                        total += temp.Thanhtien;
+                        totalMoney.Text = $"{total}";
+                    }
+                    
+                }
             }
         }
-
+        bool checkCakeExsit(string idCake)
+        {
+            return !(listCake.Any(x => x.Mabanh == idCake));
+        }
         private void Button_CupCake(object sender, MouseButtonEventArgs e)
         {
             tempList = DataProvider.Ins.DB.LOAIBANHs.Find("LB001").BANHs.ToList();
@@ -98,6 +140,20 @@ namespace CakeShop.User_Control
         {
             DataContext = new HomeUC();
             this.Content = new HomeUC();
+        }
+
+        private void payClick(object sender, RoutedEventArgs e)
+        {
+            foreach(tempDetailCake item in listCake)
+            {
+                CT_DONHANG cT = new CT_DONHANG()
+                {
+                    ID = DataProvider.Ins.DB.CT_DONHANG.Count() + 1,
+                    SL_MUA = item.Soluong,
+                    MABANH = item.Mabanh,
+                    MA_DONHANG = $"LB{DataProvider.Ins.DB.CT_DONHANG.Count()+1.ToString()}",
+                };
+            }
         }
     }
 }
