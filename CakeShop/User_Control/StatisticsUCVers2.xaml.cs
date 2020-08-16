@@ -124,14 +124,25 @@ namespace CakeShop.User_Control
         {
             // Hiện thị đơn hàng bán được trong ngày
             var dateNow = DateTime.Now.ToString("d");
-            DateTime dateTime = Convert.ToDateTime(dateNow);
-            totalBillInDay.Text = (from dh in DataProvider.Ins.DB.DONHANGs
-                                      where dh.NG_DATHANG == dateTime
-                                      select dh).Count().ToString();
-            // Hiện thị số tiền trong 1 ngày
-            var total = (from dh in DataProvider.Ins.DB.DONHANGs
-                         where dh.NG_DATHANG == dateTime
-                         select dh.TONG_GTDH).Sum();
+            var dateTime = Convert.ToDateTime(dateNow);
+            var dateTime1 = Convert.ToDateTime(dateNow).ToShortDateString();
+            var listOrder = DataProvider.Ins.DB.DONHANGs.ToList();
+            List<DONHANG> list = new List<DONHANG>();
+            foreach(DONHANG item in listOrder)
+            {
+                if (item.NG_DATHANG.Value.ToShortDateString().Equals(dateTime1))
+                {
+                    list.Add(item);
+                }
+            }
+
+
+
+
+
+            totalBillInDay.Text = list.Count().ToString();
+            //Hiện thị số tiền trong 1 ngày
+            var total = list.Select(dh => dh.TONG_GTDH).Sum();
             totalMoneyInDay.Text = $"{string.Format("{0:n0}", total)} VNĐ";
             if (totalMoneyInDay.Text == null)
             {

@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CakeShop.User_Control"
              mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Foreground="#261D56"
              Loaded="UserControl_Loaded"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Triggers>
@@ -24,12 +26,59 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Cập nhật"
+        <DockPanel>
+            <TextBlock Text="Cập nhật"
                        VerticalAlignment="Center"
                        Margin="10 0 10 0"
                        HorizontalAlignment="Left"
                        FontFamily="/Font/#SVN-HEMI HEAD"
                        FontSize="50"/>
+            <DockPanel Name="Search_Food" HorizontalAlignment="Right"
+                       Margin="0 0 10 0">
+                <materialDesign:ColorZone Mode="Standard"  
+                                      Grid.Row="1"
+                                      CornerRadius="20"
+                                      Width="300"
+                                      Padding="8 4 8 4" 
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      materialDesign:ShadowAssist.ShadowDepth="Depth1" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="19*"/>
+                            <RowDefinition Height="13*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button Style="{DynamicResource MaterialDesignToolButton}"
+                                            Grid.RowSpan="2"
+                                            Click="Search_button"
+                                            IsDefault="True">
+                            <materialDesign:PackIcon 
+                                            Kind="Magnify" 
+                                            Opacity=".8" 
+                                            Foreground="#261D56"
+                                            Height="22" 
+                                            Width="22"/>
+                        </Button>
+                        <TextBox Grid.Column="1"
+                                         Margin="8,4,0,4"
+                                         Name="Search"
+                                         materialDesign:HintAssist.Hint="Nhập để tìm kiếm"
+                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                         BorderThickness="0" 
+                                         MinWidth="200"
+                                         VerticalAlignment="Center"
+                                         Grid.RowSpan="2"
+                                         Foreground="#261D56"/>
+                    </Grid>
+                </materialDesign:ColorZone>
+            </DockPanel>
+        </DockPanel>
         <ListBox Name ="Listbox_Cake" 
                  Grid.Row="1"
                  BorderThickness="0" 
@@ -43,19 +92,30 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel VerticalAlignment="Center"
-                                Orientation="Vertical"
-                                Width="175"
-                                Height="auto"
-                                HorizontalAlignment="Center">
-                        <Image Source="/Image/PlashScreen/Logo.png" Width="150" />
-                        <TextBlock Margin="0 10 0 0"
-                                   Text= "{Binding TENBANH}" 
-                                   FontWeight="Light"
-                                   Foreground="#AA381F" 
-                                   FontSize="15"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="175" Height="175">
+                        <Border Height="120" VerticalAlignment="Bottom"
+                                CornerRadius="10" Background="#F8FAFF">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="3" Opacity="1" Color="#DEE8FF"/>
+                            </Border.Effect>
+                            <StackPanel>
+                                <TextBlock Text="{Binding TENBANH}" FontWeight="Bold" 
+                                           Foreground="#8080A7"
+                                           Margin="10 50 0 0"/>
+                                <TextBlock Text="{Binding DONGIA}" FontWeight="Light" 
+                                           Foreground="#8080A7"
+                                           Margin="10 3 0 0"/>
+                            </StackPanel>
+                        </Border>
+                        <Ellipse VerticalAlignment="Top" Height="100" Width="100">
+                            <Ellipse.Effect>
+                                <DropShadowEffect ShadowDepth="2" Opacity=".2" Color="#000000"/>
+                            </Ellipse.Effect>
+                            <Ellipse.Fill>
+                                <SolidColorBrush Color="#F9C8BD"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

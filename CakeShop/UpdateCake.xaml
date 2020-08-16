@@ -8,9 +8,9 @@
         RenderOptions.BitmapScalingMode="HighQuality"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Background="#FEDEB4"
+        Background="#DEE8FF"
         WindowStyle="None"
-        Foreground="#570101"
+        Foreground="#261D56"
         Title="UpdateCake" Height="500" Width="450">
     <Grid>
         <Grid.RowDefinitions>

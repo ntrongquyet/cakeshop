@@ -27,7 +27,7 @@ namespace CakeShop.User_Control
             InitializeComponent();
         }
 
-        public IEnumerable tempList { get; private set; }
+        List<BANH> tempList = new List<BANH>();
 
         private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -44,6 +44,22 @@ namespace CakeShop.User_Control
         {
             UpdateCake up = new UpdateCake();
             up.Show();
+        }
+
+        private void Search_button(object sender, RoutedEventArgs e)
+        {
+            var text = Search.Text.Trim();
+            if (text == "")
+            {
+                Listbox_Cake.ItemsSource = DataProvider.Ins.DB.BANHs.ToList();
+            }
+            else
+            {
+                var dbBanh = DataProvider.Ins.DB.BANHs; // List sử dụng để lưu tạm các loại bánh
+                Listbox_Cake.ItemsSource = tempList.Where(q => (q.MABANH + q.TENBANH)
+                        .ToLower()
+                        .Contains(text.ToLower()));
+            }
         }
     }
 }

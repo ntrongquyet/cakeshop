@@ -67,29 +67,76 @@ namespace CakeShop.User_Control
                 }
                 if (amount > 0)
                 {
-                    BANH cake = DataProvider.Ins.DB.BANHs.ToList().Find(x => x.MABANH == data.MABANH);
-                    tempDetailCake temp = new tempDetailCake()
-                    {
-
-                        Mabanh = cake.MABANH,
-                        Soluong = amount,
-                        Thanhtien = amount * (double)cake.DONGIA,
-                        Tenbanh = cake.TENBANH,
-                    };
-                    if (checkCakeExsit(temp.Mabanh))
-                    {
-                        cart.Items.Add(temp);
-                        listCake.Add(temp);
-                        total += temp.Thanhtien;
-                        totalMoney.Text = $"{total}";
-                    }
-                    
+                    addCakeToBill(data.MABANH);
                 }
             }
         }
-        bool checkCakeExsit(string idCake)
+        // Thêm bánh vào danh sách mua
+        void addCakeToBill(string idCake)
         {
-            return !(listCake.Any(x => x.Mabanh == idCake));
+            BANH cake = DataProvider.Ins.DB.BANHs.ToList().Find(x => x.MABANH == idCake);
+            if (amount > cake.SL_TON)
+            {
+                MessageBox.Show($"Không đủ số lượng yêu cầu \nSố lượng trong kho còn: {cake.SL_TON}");
+            }
+            else
+            {
+                tempDetailCake temp = new tempDetailCake()
+                {
+
+                    Mabanh = cake.MABANH,
+                    Soluong = amount,
+                    Thanhtien = amount * (double)cake.DONGIA,
+                    Tenbanh = cake.TENBANH,
+                };
+
+                var exist = checkCakeExsit(temp.Mabanh);
+                // Nếu chưa tồn tại thì add vào list
+                if (exist == null)
+                {
+                    cart.Items.Add(temp);
+                    listCake.Add(temp);
+                    displayMoney(listCake);
+                }
+                // Ngược lại đã tồn tại
+                else
+                {
+                    var result = MessageBox.Show($"{cake.TENBANH} đã tồn tại bạn muốn sửa số lượng hay không", "Thông báo", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+                    if (result == MessageBoxResult.OK)
+                    {
+                        cart.Items.Remove(exist);
+                        listCake.Remove(exist);
+                        displayMoney(listCake);
+                        DetailCake dt = new DetailCake(idCake, amount);
+                        if (dt.ShowDialog() == true)
+                        {
+                            amount = dt.amount;
+
+                        }
+                        if (amount > 0)
+                        {
+                            addCakeToBill(idCake);
+                        }
+                    }
+                }
+            }
+
+        }
+        // Tính tổng tiền và hiện thị số tiền
+        void displayMoney(List<tempDetailCake> ls)
+        {
+            total = ls.Select(x => x.Thanhtien).Sum();
+            totalMoney.Text = $"{total}";
+        }
+        // Kiểm tra sự tồn tại của sản phẩm trong giỏ hàng
+        tempDetailCake checkCakeExsit(string idCake)
+        {
+            bool exsit = listCake.Any(x => x.Mabanh == idCake);
+            if (exsit == true)
+            {
+                return listCake.Find(x => x.Mabanh == idCake);
+            }
+            return null;
         }
         private void Button_CupCake(object sender, MouseButtonEventArgs e)
         {
@@ -144,16 +191,56 @@ namespace CakeShop.User_Control
 
         private void payClick(object sender, RoutedEventArgs e)
         {
-            foreach(tempDetailCake item in listCake)
+            string maDonHang = $"DH{DataProvider.Ins.DB.DONHANGs.Count() + 1}";
+
+            //Tạo đơn hàng
+            DONHANG dh = new DONHANG()
             {
+                ID = DataProvider.Ins.DB.DONHANGs.Count() + 1,
+                MA_DONHANG = maDonHang,
+                NG_DATHANG = DateTime.Now,
+                TONG_GTDH = total,
+
+
+            };
+            int i = 0;
+            foreach (tempDetailCake item in listCake)
+            {
+                i++; // Lấy stt cho danh sách món hàng
+                BANH banh = DataProvider.Ins.DB.BANHs.ToList().Find(x => x.MABANH == item.Mabanh);
+                banh.SL_TON -= amount;
                 CT_DONHANG cT = new CT_DONHANG()
                 {
+                    MA_DONHANG = dh.MA_DONHANG,
                     ID = DataProvider.Ins.DB.CT_DONHANG.Count() + 1,
                     SL_MUA = item.Soluong,
                     MABANH = item.Mabanh,
-                    MA_DONHANG = $"LB{DataProvider.Ins.DB.CT_DONHANG.Count()+1.ToString()}",
+                    STT = i,
+                    DONHANG = dh,
+                    BANH = banh,
+
                 };
+                dh.CT_DONHANG.Add(cT);
             }
+
+            DataProvider.Ins.DB.DONHANGs.Add(dh);
+            DataProvider.Ins.DB.SaveChanges();
+            MessageBox.Show($"Thanh toán thành công đơn hàng {dh.MA_DONHANG} với tổng đơn hàng là {dh.TONG_GTDH}", "Thành công", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            reset();
+        }
+        // Hàm reset giá trị 
+        void reset()
+        {
+            cart.Items.Clear();
+            listCake.Clear();
+            displayMoney(listCake);
+        }
+        private void deleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            var item = cart.SelectedItem as tempDetailCake;
+            cart.Items.Remove(item);
+            listCake.Remove(item);
+            displayMoney(listCake);
         }
     }
 }
