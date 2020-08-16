@@ -22,15 +22,21 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="5*"/>
-        </Grid.RowDefinitions>
-        <TextBlock Text="Danh sách đơn hàng"
-                       VerticalAlignment="Center"
-                       Margin="10 0 10 0"
-                       HorizontalAlignment="Left"
-                       FontFamily="/Font/#SVN-HEMI HEAD"
-                       FontSize="50"/>
+        <Grid Margin="40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Grid Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+                <DataGrid Grid.Row="1">
+                <DataGrid.Columns/>
+            </DataGrid>
+        </Grid>
     </Grid>
 </UserControl>
