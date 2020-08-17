@@ -72,7 +72,7 @@ namespace CakeShop
         protected LOAIBANH temp;
         private void Add_Button(object sender, RoutedEventArgs e)
         {
-            
+
             double money = 0; // Lưu giá tiền
             int amount = 0; // Lưu số lượng bánh
             int.TryParse(count.Text.Trim(), out amount);
@@ -115,18 +115,19 @@ namespace CakeShop
             {
                 var info = new FileInfo(pathImage);
                 string baseFolder = AppDomain.CurrentDomain.BaseDirectory;
-                baseFolder += $"Image\\{temp.TENLOAI.Replace(" ","")}\\";
+                baseFolder += $"Image\\{temp.TENLOAI.Replace(" ", "")}\\";
                 string nameImage = Guid.NewGuid().ToString();
                 File.Copy(pathImage, baseFolder + nameImage + info.Extension);
+
                 var newCake = new BANH
                 {
                     ID = DataProvider.Ins.DB.BANHs.Count() + 1,
-                    MABANH = $"BA{DataProvider.Ins.DB.BANHs.Count() + 1}",
+                    MABANH = $"BA{createID(DataProvider.Ins.DB.BANHs.Count() + 1)}",
                     TENBANH = name.Text.Trim(),
                     SL_TON = amount,
                     DONGIA = money,
                     DVT = unit.Text.Trim(),
-                    HA_BANH = $"{temp.TENLOAI.Replace(" ", "")}\\{nameImage+info.Extension}",
+                    HA_BANH = $"{temp.TENLOAI.Replace(" ", "")}\\{nameImage + info.Extension}",
                     LOAIBANH = temp.MALOAI,
                     THONGTIN = ingredients.Text.Trim()
                 };
@@ -135,6 +136,21 @@ namespace CakeShop
                 resetTextBox();
                 MessageBox.Show($"Thêm thành công món {newCake.TENBANH}", "Thành công", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
+            }
+        }
+        string createID(int n)
+        {
+            if (n < 10)
+            {
+                return $"00{n}";
+            }
+            else if (n >= 10 && n < 100)
+            {
+                return $"0{n}";
+            }
+            else
+            {
+                return $"{n}";
             }
         }
         private void resetTextBox()
@@ -166,7 +182,7 @@ namespace CakeShop
                 RadioButton rb = (RadioButton)sender;
                 name = rb.Content.ToString();
             }
-            temp = DataProvider.Ins.DB.LOAIBANHs.ToList().Find(x=>x.TENLOAI == name);
+            temp = DataProvider.Ins.DB.LOAIBANHs.ToList().Find(x => x.TENLOAI == name);
         }
 
     }

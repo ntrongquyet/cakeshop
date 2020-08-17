@@ -37,6 +37,22 @@ namespace CakeShop.User_Control
             public string Hinhanh { get => hinhanh; set => hinhanh = value; }
         }
         List<tempDetailCake> listCake = new List<tempDetailCake>();
+        string createID(int n)
+        {
+            if (n < 10)
+            {
+                return $"00{n}";
+            }
+            else if (n >= 10 && n < 100)
+            {
+                return $"0{n}";
+            }
+            else
+            {
+                return $"{n}";
+            }
+        }
+
         public BillUC()
         {
             InitializeComponent();
@@ -187,7 +203,7 @@ namespace CakeShop.User_Control
 
         private void payClick(object sender, RoutedEventArgs e)
         {
-            string maDonHang = $"DH{DataProvider.Ins.DB.DONHANGs.Count() + 1}";
+            string maDonHang = $"DH{createID(DataProvider.Ins.DB.DONHANGs.Count() + 1)}";
 
             //Tạo đơn hàng
             DONHANG dh = new DONHANG()
