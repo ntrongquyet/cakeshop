@@ -154,7 +154,7 @@
                     MouseLeftButtonDown="Button_IceCream">
                 <DockPanel>
                     <Image Source="/Image/Home/IceCream.png" Margin="5"/>
-                    <Label Content="Biscuit" FontWeight="Light" FontSize="15"
+                    <Label Content="IceCream" FontWeight="Light" FontSize="15"
                            HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
                 </DockPanel>
             </Border>
@@ -213,7 +213,7 @@
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
             <StackPanel>
-                <TextBlock Text="ĐƠN HÀNG HÔM NAY"
+                <TextBlock Text="ĐƠN HÀNG HIỆN TẠI"
                            HorizontalAlignment="Center" Margin="12 20"
                            FontWeight="Bold" Foreground="#261D56"
                            FontSize="17"/>
@@ -248,7 +248,7 @@
                                                      VerticalAlignment="Center" HorizontalAlignment="Left"
                                                      Margin="10 0 0 0">
                                                 <Ellipse.Fill>
-                                                    <ImageBrush ImageSource="/Image/Icon/LOGO-QTC.ico"/>
+                                                    <ImageBrush ImageSource="{Binding Hinhanh,Converter={StaticResource pathConverter}}"/>
                                                 </Ellipse.Fill>
                                             </Ellipse>
                                             <Label Content="{Binding Tenbanh}" Foreground="#261D56"

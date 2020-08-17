@@ -23,15 +23,17 @@ namespace CakeShop
     public partial class UpdateCake : Window
     {
         private BANH cake;
+        BANH temp;
 
-        public UpdateCake()
-        {
-            InitializeComponent();
-        }
+        //public UpdateCake()
+        //{
+        //    InitializeComponent();
+        //}
 
-        public UpdateCake(BANH cake)
+        public UpdateCake(BANH _cake)
         {
-            this.cake = cake;
+            cake = _cake;
+
             InitializeComponent();
 
         }
@@ -45,12 +47,13 @@ namespace CakeShop
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = cake;
+            temp = DataProvider.Ins.DB.BANHs.ToList().Find(x => x.MABANH.Equals(cake.MABANH));
         }
-
 
 
         private void updateClick(object sender, RoutedEventArgs e)
         {
+
             cake.TENBANH = name.Text.Trim();
             cake.THONGTIN = mota.Text.Trim();
             cake.SL_TON = Convert.ToDouble(count.Text.Trim());
@@ -60,7 +63,5 @@ namespace CakeShop
             this.Close();
 
         }
-
-
     }
 }

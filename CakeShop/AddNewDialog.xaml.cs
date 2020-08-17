@@ -91,7 +91,6 @@ namespace CakeShop
                 MessageBox.Show("Chưa nhập thông tin cho bánh", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
 
             }
-
             else if (amount == 0)
             {
                 MessageBox.Show("Sai định dạng số lượng bánh", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -130,9 +129,6 @@ namespace CakeShop
                     HA_BANH = $"{temp.TENLOAI.Replace(" ", "")}\\{nameImage+info.Extension}",
                     LOAIBANH = temp.MALOAI,
                     THONGTIN = ingredients.Text.Trim()
-
-
-
                 };
                 DataProvider.Ins.DB.BANHs.Add(newCake);
                 DataProvider.Ins.DB.SaveChanges();

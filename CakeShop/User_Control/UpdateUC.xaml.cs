@@ -30,14 +30,9 @@ namespace CakeShop.User_Control
         }
 
         List<BANH> tempList = new List<BANH>();
-        private List<String> Grabage = new List<string>(); // Chứa những hình ảnh cần xoá
 
-        public List<string> _grabage { get => Grabage; set => Grabage = value; }
 
-        private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
-        {
 
-        }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {

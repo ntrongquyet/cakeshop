@@ -29,11 +29,12 @@ namespace CakeShop.User_Control
             private string mabanh;
             private int soluong;
             private double thanhtien;
-
+            private string hinhanh;
             public string Tenbanh { get => tenbanh; set => tenbanh = value; }
             public string Mabanh { get => mabanh; set => mabanh = value; }
             public int Soluong { get => soluong; set => soluong = value; }
             public double Thanhtien { get => thanhtien; set => thanhtien = value; }
+            public string Hinhanh { get => hinhanh; set => hinhanh = value; }
         }
         List<tempDetailCake> listCake = new List<tempDetailCake>();
         public BillUC()
@@ -88,6 +89,7 @@ namespace CakeShop.User_Control
                     Soluong = amount,
                     Thanhtien = amount * (double)cake.DONGIA,
                     Tenbanh = cake.TENBANH,
+                    Hinhanh = cake.HA_BANH,
                 };
 
                 var exist = checkCakeExsit(temp.Mabanh);
