@@ -11,7 +11,7 @@
         Closed="Window_Closed"
         RenderOptions.BitmapScalingMode="HighQuality"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="900">
+        Title="CakeShop" Height="550" Width="900">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
