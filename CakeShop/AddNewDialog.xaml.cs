@@ -34,10 +34,7 @@ namespace CakeShop
         }
         string pathImage = ""; // Lưu đường dẫn bánh
 
-        //private void Drag_Window(object sender, MouseButtonEventArgs e)
-        //{
-        //    this.DragMove();
-        //}
+
 
         private void Image_Button(object sender, MouseButtonEventArgs e)
         {
@@ -119,7 +116,7 @@ namespace CakeShop
             {
                 var info = new FileInfo(pathImage);
                 string baseFolder = AppDomain.CurrentDomain.BaseDirectory;
-                baseFolder += "Image\\Cakes\\";
+                baseFolder += $"Image\\{temp.TENLOAI.Replace(" ","")}\\";
                 string nameImage = Guid.NewGuid().ToString();
                 File.Copy(pathImage, baseFolder + nameImage + info.Extension);
                 var newCake = new BANH
@@ -130,7 +127,7 @@ namespace CakeShop
                     SL_TON = amount,
                     DONGIA = money,
                     DVT = unit.Text.Trim(),
-                    HA_BANH = $"Cakes\\{nameImage}",
+                    HA_BANH = $"{temp.TENLOAI.Replace(" ", "")}\\{nameImage+info.Extension}",
                     LOAIBANH = temp.MALOAI,
                     THONGTIN = ingredients.Text.Trim()
 

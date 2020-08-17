@@ -42,10 +42,14 @@ namespace CakeShop.User_Control
 
         private void update_Click(object sender, MouseButtonEventArgs e)
         {
-            UpdateCake up = new UpdateCake();
-            up.Show();
+            var cake = Listbox_Cake.SelectedItem as BANH;
+            if (cake != null)
+            {
+                UpdateCake up = new UpdateCake(cake);
+                up.ShowDialog();
+            }
         }
-
+        
         private void Search_button(object sender, RoutedEventArgs e)
         {
             var text = Search.Text.Trim();

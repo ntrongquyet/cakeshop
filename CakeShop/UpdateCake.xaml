@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CakeShop"
+        xmlns:cvt="clr-namespace:CakeShop.Converter"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         RenderOptions.BitmapScalingMode="HighQuality"
         mc:Ignorable="d"
@@ -11,7 +12,11 @@
         Background="#DEE8FF"
         WindowStyle="None"
         Foreground="#261D56"
+        Loaded="Window_Loaded"
         Title="UpdateCake" Height="500" Width="450">
+    <Window.Resources>
+        <cvt:RelativeToAbsoluteConverter x:Key="pathConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.5*"/>
@@ -30,6 +35,7 @@
                        Margin="25 10 0 10"
                        FontWeight="DemiBold"/>
             <TextBox Name="name"
+                     Text="{Binding TENBANH}"
                      TextWrapping="Wrap"
                      BorderThickness="1"
                      Margin="25 0 40 0"/>
@@ -38,6 +44,7 @@
                        Margin="25 10 0 10"
                        FontWeight="DemiBold"/>
             <TextBox Name="mota"
+                     Text="{Binding THONGTIN}"
                      MinHeight="80"
                      MaxHeight="120"
                      TextWrapping="Wrap"
@@ -45,12 +52,15 @@
                      Margin="25 0 40 10"/>
             <DockPanel>
                 <DockPanel HorizontalAlignment="Left">
-                    <Image Source="/Image/Icon/LOGO-QTC.ico"
-                       Width="130"
-                       Margin="25 0 0 0"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Left"/>
+                    <Image
+                        Name="cakeImage"
+                        Source="{Binding HA_BANH,Converter={StaticResource pathConverter}}"
+                        Width="130"
+                        Margin="25 0 0 0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"/>
                     <Button Content="Sửa ảnh"
+                            Click="editImage_Click"
                             Margin="25 15 0 0 "
                             Width="100"
                             HorizontalAlignment="Center"/>
@@ -60,11 +70,12 @@
                     <TextBlock Text="Số lượng"
                            FontSize="15"
                            FontWeight="DemiBold"/>
-                    <TextBox x:Name="price"
-                         Margin="10 0 10 0"
-                         Width="70"
-                         HorizontalAlignment="Left"
-                         BorderThickness="1"/>
+                    <TextBox Name="price"
+                             Text="{Binding SL_TON}"
+                             Margin="10 0 10 0"
+                             Width="70"
+                             HorizontalAlignment="Left"
+                             BorderThickness="1"/>
                 </DockPanel>
             </DockPanel>
         </StackPanel>
@@ -75,6 +86,7 @@
                     HorizontalAlignment="Left"
                     Margin="25 0 0 0"/>
             <Button Content="Cập nhật"
+                    Click="updateClick"
                     Width="100"
                     HorizontalAlignment="Right"
                     Margin="0 0 25 0"/>
