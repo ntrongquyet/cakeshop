@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CakeShop"
+        xmlns:local1="clr-namespace:CakeShop.Converter"
         Background="#DEE8FF"
         WindowStyle="None"
         ResizeMode="NoResize"
@@ -28,6 +29,7 @@
     </Window.Triggers>
     <Window.Resources>
         <local:CurrencyConveter x:Key="Currency"/>
+        <local1:RelativeToAbsoluteConverter x:Key="RelativeToAbsoluteConverter"/>
     </Window.Resources>
     <Border BorderBrush="#261D56" BorderThickness="1">
     <Grid>
@@ -37,9 +39,9 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <DockPanel>
-                    <Image Source="/Image/Icon/LOGO-QTC.ico"
-                       Width="150"
-                       Margin="20 20 0 0"/>
+                    <Image Source="{Binding HA_BANH, Converter={StaticResource RelativeToAbsoluteConverter}}"
+                           Width="150"
+                           Margin="20 20 0 0"/>
                 <TextBlock Text="{Binding TENBANH}"
                            FontSize="30"
                            FontWeight="DemiBold"

@@ -63,7 +63,7 @@
                          Text="{Binding DONGIA}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                          Width="100"
-                         Margin="25 0 0 0 ">
+                         Margin="25 0 0 0">
                 </TextBox>
                 <TextBox materialDesign:HintAssist.Hint="Đơn vị tính"
                          Text="{Binding DVT}"

@@ -109,7 +109,6 @@
     <Compile Include="DetailCake.xaml.cs">
       <DependentUpon>DetailCake.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DialogResult.cs" />
     <Compile Include="PlashScreen.xaml.cs">
       <DependentUpon>PlashScreen.xaml</DependentUpon>
     </Compile>
@@ -160,7 +159,6 @@
     <Compile Include="User_Control\UpdateUC.xaml.cs">
       <DependentUpon>UpdateUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User_Control\usercontrol.cs" />
     <Page Include="AddNewDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

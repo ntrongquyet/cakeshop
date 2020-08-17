@@ -13,6 +13,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <cvt:RelativeToAbsoluteConverter x:Key="pathConverter"/>
+        <local1:CurrencyConveter x:Key="CurrencyConveter"/>
     </UserControl.Resources>
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -106,7 +107,7 @@
                                 <TextBlock Text="{Binding TENBANH}" FontWeight="Bold" 
                                            Foreground="#8080A7"
                                            Margin="10 50 0 0"/>
-                                <TextBlock Text="{Binding DONGIA}" FontWeight="Light" 
+                                <TextBlock Text="{Binding DONGIA, Converter={StaticResource CurrencyConveter}}" FontWeight="Light" 
                                            Foreground="#8080A7"
                                            Margin="10 3 0 0"/>
                             </StackPanel>
