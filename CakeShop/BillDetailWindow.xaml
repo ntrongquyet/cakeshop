@@ -43,6 +43,9 @@
                 <DataGridTextColumn Binding="{Binding TENBANH}"
                                     Header="Tên bánh" 
                                     Foreground="#261D56"/>
+                <DataGridTextColumn Binding="{Binding DONGIA, Converter={StaticResource CurrencyConveter}}"
+                                    Header="Đơn giá" 
+                                    Foreground="#261D56"/>
                 <DataGridTextColumn Binding="{Binding SL_MUA}"
                                     Header="Số lượng" 
                                     Foreground="#261D56"/>
