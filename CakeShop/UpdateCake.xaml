@@ -11,13 +11,16 @@
         WindowStartupLocation="CenterScreen"
         Background="#DEE8FF"
         WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseLeftButtonDown="Drag_Move"
         Foreground="#261D56"
         Loaded="Window_Loaded"
-        Title="UpdateCake" Height="500" Width="450">
+        Title="UpdateCake" Height="600" Width="450">
     <Window.Resources>
         <cvt:RelativeToAbsoluteConverter x:Key="pathConverter"/>
     </Window.Resources>
-    <Grid>
+    <Border BorderBrush="#261D56" BorderThickness="1">
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="6*"/>
@@ -51,7 +54,7 @@
                      BorderThickness="1"
                      Margin="25 0 40 10"/>
             <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
-                <TextBox materialDesign:HintAssist.Hint="Số lượng"
+                <TextBox materialDesign:HintAssist.Hint="Số lượng tồn"
                          Text="{Binding SL_TON}"
                          Name="count"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -87,4 +90,5 @@
                     Margin="0 0 25 0"/>
         </DockPanel>
     </Grid>
+    </Border>
 </Window>

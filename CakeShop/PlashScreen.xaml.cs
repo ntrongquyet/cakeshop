@@ -68,5 +68,10 @@ namespace CakeShop
                 File.WriteAllText(dataFile, newData);
             }
         }
+
+        private void Drag_Move(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

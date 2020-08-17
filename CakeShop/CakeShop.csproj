@@ -365,6 +365,7 @@
     <Resource Include="Image\Icon\trash.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Image\PlashScreen\LOGO-QTC.png" />
     <Content Include="SQL\dbCakeShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbCakeShop.Context.cs</LastGenOutput>

@@ -64,5 +64,10 @@ namespace CakeShop
             this.Close();
 
         }
+
+        private void Drag_Move(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

@@ -4,12 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CakeShop"
-        Background="#FEDEB4"
+        Background="#DEE8FF"
         RenderOptions.BitmapScalingMode="HighQuality"
         mc:Ignorable="d"
         WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseLeftButtonDown="Drag_Move"
         WindowStartupLocation="CenterScreen"
-        Title="PlashScreen" Height="400" Width="300">
+        Title="PlashScreen" Height="600" Width="400">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
@@ -22,39 +24,40 @@
             </BeginStoryboard>
         </EventTrigger>
     </Window.Triggers>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="0.3*"/>
-        </Grid.RowDefinitions>
-        <Image Source="/Image/PlashScreen/Logo.png"
-               Margin="15"/>
-        <ToggleButton VerticalAlignment="Top"
+    <Border BorderBrush="#261D56" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.3*"/>
+            </Grid.RowDefinitions>
+            <Image Source="/Image/PlashScreen/LOGO-QTC.png"
+                   Margin="50"/>
+            <ToggleButton VerticalAlignment="Top"
                       Name="check"
                       HorizontalAlignment="Right"
-                      Margin="5 "
+                      Margin="15"
                       Click="Check"
                       Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
                       ToolTip="Tắt cửa này sổ vĩnh viễn!"
                       IsChecked="False"/>
-        <TextBlock Grid.Row="1" 
-                   Text="CupCake Socola"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="20"
-                   FontWeight="DemiBold"/>
-        <TextBlock TextWrapping="Wrap" 
-                   Grid.Row="2"
-                   Text="CupCake Socola mang đậm hương vị Châu Âu, mang đến cho người ăn một vị ngọt thơm của đường, vị béo của Cacao hòa quyện với sữa và  socola. Mang đến cho chúng ta một cảm giác khó tả. "
-                   Margin="5 10"
-                   TextAlignment="Center"/>
-        <Grid Grid.Row="3">
-            <Rectangle x:Name="rectangle1" Fill="#FFF4F4F5"  HorizontalAlignment="Left" VerticalAlignment="Bottom" 
-                   Height="5" Width="400" />
-            <Rectangle x:Name="rectangle2" Fill="#570101"  HorizontalAlignment="Left" VerticalAlignment="Bottom" 
-                   Height="5" Width="0"/>
+            <TextBlock Grid.Row="1" Foreground="#261D56"
+                       Text="CupCake Socola"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20" FontWeight="Bold"/>
+            <TextBlock TextWrapping="Wrap" 
+                       Grid.Row="2"
+                       Text="CupCake Socola mang đậm hương vị Châu Âu, mang đến cho người ăn một vị ngọt thơm của đường, vị béo của Cacao hòa quyện với sữa và  socola. Mang đến cho chúng ta một cảm giác khó tả. "
+                       Margin="30 10" Foreground="#261D56"
+                       TextAlignment="Justify"/>
+            <Grid Grid.Row="3">
+                <Rectangle x:Name="rectangle1" Fill="#FFF4F4F5"  HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                           Height="5" Width="400" />
+                <Rectangle x:Name="rectangle2" Fill="#261D56"  HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                           Height="5" Width="0"/>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>
