@@ -50,34 +50,29 @@
                      TextWrapping="Wrap"
                      BorderThickness="1"
                      Margin="25 0 40 10"/>
-            <DockPanel>
-                <DockPanel HorizontalAlignment="Left">
-                    <Image
-                        Name="cakeImage"
-                        Source="{Binding HA_BANH,Converter={StaticResource pathConverter}}"
-                        Width="130"
-                        Margin="25 0 0 0"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Left"/>
-                    <Button Content="Sửa ảnh"
-                            Click="editImage_Click"
-                            Margin="25 15 0 0 "
-                            Width="100"
-                            HorizontalAlignment="Center"/>
-                </DockPanel>
-                <DockPanel VerticalAlignment="Bottom"
-                           HorizontalAlignment="Right">
-                    <TextBlock Text="Số lượng"
-                           FontSize="15"
-                           FontWeight="DemiBold"/>
-                    <TextBox Name="price"
-                             Text="{Binding SL_TON}"
-                             Margin="10 0 10 0"
-                             Width="70"
-                             HorizontalAlignment="Left"
-                             BorderThickness="1"/>
-                </DockPanel>
-            </DockPanel>
+            <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
+                <TextBox materialDesign:HintAssist.Hint="Số lượng"
+                         Text="{Binding SL_TON}"
+                         Name="count"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         Width="100"
+                         Margin="25 0 0 0 ">
+                </TextBox>
+                <TextBox materialDesign:HintAssist.Hint="Đơn giá"
+                         Name="price"
+                         Text="{Binding DONGIA}"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         Width="100"
+                         Margin="25 0 0 0 ">
+                </TextBox>
+                <TextBox materialDesign:HintAssist.Hint="Đơn vị tính"
+                         Text="{Binding DVT}"
+                         Name="unit"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         Width="100"
+                         Margin="25 0 0 0 ">
+                </TextBox>
+            </StackPanel>
         </StackPanel>
         <DockPanel Grid.Row="2">
             <Button Content="Thoát"

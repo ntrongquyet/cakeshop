@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,12 +23,16 @@ namespace CakeShop.User_Control
     /// </summary>
     public partial class UpdateUC : UserControl
     {
+        
         public UpdateUC()
         {
             InitializeComponent();
         }
 
         List<BANH> tempList = new List<BANH>();
+        private List<String> Grabage = new List<string>(); // Chứa những hình ảnh cần xoá
+
+        public List<string> _grabage { get => Grabage; set => Grabage = value; }
 
         private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -45,8 +50,10 @@ namespace CakeShop.User_Control
             var cake = Listbox_Cake.SelectedItem as BANH;
             if (cake != null)
             {
+                MainWindow main = new MainWindow();
                 UpdateCake up = new UpdateCake(cake);
                 up.ShowDialog();
+
             }
         }
         
@@ -65,5 +72,7 @@ namespace CakeShop.User_Control
                         .Contains(text.ToLower()));
             }
         }
+
+       
     }
 }
