@@ -1,6 +1,7 @@
 ﻿using CakeShop.User_Control;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace CakeShop
     /// </summary>
     public partial class MainWindow : Window
     {
+  
+
         public MainWindow()
         {
             InitializeComponent();
@@ -37,7 +40,7 @@ namespace CakeShop
 
         private void Bill_Button(object sender, MouseButtonEventArgs e)
         {
-            DataContext = new SumBillUC();
+            DataContext = new BillUC();
         }
 
         private void New_Button(object sender, MouseButtonEventArgs e)
@@ -59,6 +62,11 @@ namespace CakeShop
         private void Info_Button(object sender, MouseButtonEventArgs e)
         {
             DataContext = new InfoUC();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

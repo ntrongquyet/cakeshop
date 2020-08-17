@@ -31,7 +31,7 @@ namespace CakeShop
 
         public UpdateCake(BANH cake)
         {
-            this.cake = cake; 
+            this.cake = cake;
             InitializeComponent();
 
         }
@@ -40,57 +40,27 @@ namespace CakeShop
         {
             this.Close();
         }
-        string pathImage = ""; // Lưu đường dẫn bánh
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = cake;
         }
 
-        private void editImage_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Multiselect = false;
-            ofd.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            if (ofd.ShowDialog() == true)
-            {
-                pathImage = ofd.FileName;
-            }
-            if (pathImage != "")
-            {
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(pathImage);
-                logo.EndInit();
-                cakeImage.Source = logo;
-            }
-        }
-        string createLinkImage(string path)
-        {
-            var temp = cake.LOAIBANH1.TENLOAI;
-            var info = new FileInfo(pathImage);
-            string baseFolder = AppDomain.CurrentDomain.BaseDirectory;
-            baseFolder += $"Image\\{cake.LOAIBANH1.TENLOAI.Replace(" ", "")}\\";
-            string nameImage = Guid.NewGuid().ToString();
-            File.Copy(pathImage, baseFolder + nameImage + info.Extension);
-            return $"{temp.Replace(" ", "")}\\{ nameImage + info.Extension}";
-        }
+
+
         private void updateClick(object sender, RoutedEventArgs e)
         {
             cake.TENBANH = name.Text.Trim();
             cake.THONGTIN = mota.Text.Trim();
-            cake.SL_TON = Convert.ToDouble(price.Text.Trim());
-            var nameImage = createLinkImage(pathImage);
-            string oldImage = $"{AppDomain.CurrentDomain.BaseDirectory}Image\\{ cake.HA_BANH}";
-            cake.HA_BANH = nameImage;
+            cake.SL_TON = Convert.ToDouble(count.Text.Trim());
+            cake.DONGIA = Convert.ToDouble(price.Text.Trim());
+            cake.DVT = unit.Text.Trim();
             DataProvider.Ins.DB.SaveChanges();
-            //Chỗ này đang lỗi từ từ t sửa
-            //File.Delete(oldImage);
+            this.Close();
+
         }
 
-        private void Drag_Move(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
+
     }
 }

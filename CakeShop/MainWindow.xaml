@@ -8,6 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Foreground="#570101"
         Loaded="Window_Loaded"
+        Closed="Window_Closed"
         RenderOptions.BitmapScalingMode="HighQuality"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="900">
