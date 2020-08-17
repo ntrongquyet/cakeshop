@@ -44,7 +44,8 @@
                   AutoGenerateColumns="False"
                   materialDesign:DataGridAssist.CellPadding="13 8 8 8"
                   materialDesign:DataGridAssist.ColumnHeaderPadding="8"
-                  Name="Show_SumBill">
+                  Name="Show_SumBill"
+                  Background="#EDEFF4">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Xem chi tiết" Click="MenuItem_Click"/>
