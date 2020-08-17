@@ -38,7 +38,9 @@
                    FontSize="30" FontWeight="Bold"/>
         <DataGrid Margin="40 10 40 40" Grid.Row="1"
                   ItemsSource="{Binding Items3}"
-                  IsReadOnly="True" CanUserAddRows="False"
+                  CanUserSortColumns="True"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
                   AutoGenerateColumns="False"
                   materialDesign:DataGridAssist.CellPadding="13 8 8 8"
                   materialDesign:DataGridAssist.ColumnHeaderPadding="8"

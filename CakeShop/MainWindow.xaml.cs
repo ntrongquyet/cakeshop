@@ -30,12 +30,12 @@ namespace CakeShop
         }
         private void Home_Button(object sender, MouseButtonEventArgs e)
         {
-            DataContext = new HomeUC();
+            DataContext = new BillUC();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataContext = new HomeUC();
+            DataContext = new BillUC();
         }
 
         private void Bill_Button(object sender, MouseButtonEventArgs e)
