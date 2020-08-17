@@ -105,6 +105,7 @@
       <DependentUpon>BillDetailWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\RelativeToAbsoluteConverter.cs" />
+    <Compile Include="Converter\TitleDetailBillConverter.cs" />
     <Compile Include="DetailCake.xaml.cs">
       <DependentUpon>DetailCake.xaml</DependentUpon>
     </Compile>
@@ -408,6 +409,15 @@
     <None Include="Image\IceCream\05.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="Image\Icon\detail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Icon\detail.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Icon\trash.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="SQL\dbCakeShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbCakeShop.Context.cs</LastGenOutput>

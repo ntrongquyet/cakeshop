@@ -23,14 +23,14 @@
     </UserControl.Triggers>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="DOANH THU"
-                   FontSize="45"
-                   HorizontalAlignment="Center"
+        <TextBlock Text="DOANH THU CỬA HÀNG"
+                   FontSize="30" Margin="30 0 0 0"
+                   HorizontalAlignment="Left"
                    VerticalAlignment="Center"
-                   FontWeight="DemiBold"/>
+                   FontWeight="Bold"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -47,8 +47,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Border Background="#EDEFF4"
-                        Margin="10"
-                        BorderBrush="Transparent"
+                        Margin="30 10 10 10"
                         BorderThickness="0"
                         CornerRadius="15" MouseLeftButtonDown="Show_SumBill">
                     <StackPanel HorizontalAlignment="Center"
@@ -61,21 +60,16 @@
                                    FontWeight="DemiBold"/>
                         <TextBlock Text="5"
                                    Name ="totalBillInDay"
-                                   FontSize="35"
+                                   FontSize="25"
                                    HorizontalAlignment="Center"
                                    FontWeight="Bold"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
-                    <Border.Effect>
-                        <DropShadowEffect ShadowDepth="0"
-                                          BlurRadius="5"/>
-                    </Border.Effect>
                 </Border>
                 <Border Background="#EDEFF4"
-                        Margin="10"
+                        Margin="10 10 30 10"
                         Grid.Row="0"
                         Grid.Column="1"
-                        BorderBrush="Transparent"
                         BorderThickness="0"
                         CornerRadius="15">
                     <StackPanel HorizontalAlignment="Center"
@@ -87,15 +81,11 @@
                                    FontSize="15"
                                    FontWeight="DemiBold"/>
                         <TextBlock Name="totalMoneyInDay"
-                                   FontSize="35"
+                                   FontSize="25"
                                    HorizontalAlignment="Center"
                                    FontWeight="Bold"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
-                    <Border.Effect>
-                        <DropShadowEffect ShadowDepth="0"
-                                          BlurRadius="5"/>
-                    </Border.Effect>
                 </Border>
                 <Border Background="#EDEFF4"
                         Margin="10"
@@ -108,7 +98,7 @@
                     <ListView HorizontalAlignment="Center"
                               Grid.Row="2" 
                               Name="table_Inventory"
-                              Foreground="#0133CD">
+                              Foreground="#261D56">
                         <ListView.View>
                             <GridView >
                                 <GridViewColumn Header="Tên bánh">
@@ -130,10 +120,6 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <Border.Effect>
-                        <DropShadowEffect ShadowDepth="0"
-                                          BlurRadius="5"/>
-                    </Border.Effect>
                 </Border>
                 <StackPanel Grid.Row="1"
                             Grid.Column="0"

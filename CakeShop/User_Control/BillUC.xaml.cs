@@ -217,7 +217,7 @@ namespace CakeShop.User_Control
             }
             if (dh.TONG_GTDH == 0)
             {
-                MessageBox.Show("Bạn chưa thêm sản phẩm, hãy thêm sản phẩm để thanh toán!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Chưa có sản phẩm, hãy thêm sản phẩm để thanh toán!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {

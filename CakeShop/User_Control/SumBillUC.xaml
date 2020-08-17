@@ -44,13 +44,18 @@
                   AutoGenerateColumns="False"
                   materialDesign:DataGridAssist.CellPadding="13 8 8 8"
                   materialDesign:DataGridAssist.ColumnHeaderPadding="8"
-                  Name="Show_SumBill"
-                  Background="#EDEFF4">
+                  Background="#EDEFF4"
+                  Name="Show_SumBill" ToolTip="Nhấp chuột phải để xem chi tiết">
             <DataGrid.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="Xem chi tiết" Click="MenuItem_Click"/>
+                <ContextMenu FontSize="15" Foreground="#261D56">
+                    <MenuItem Header="Xem chi tiết" Click="MenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Image/Icon/detail.ico"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </ContextMenu>
             </DataGrid.ContextMenu>
+            
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}"
                                     Header="STT" 

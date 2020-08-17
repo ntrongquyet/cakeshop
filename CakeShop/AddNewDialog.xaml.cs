@@ -91,12 +91,12 @@ namespace CakeShop
                 MessageBox.Show("Chưa nhập thông tin cho bánh", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
 
             }
-            else if (amount == 0)
+            else if (amount == 0 && amount.GetType() == typeof(int))
             {
                 MessageBox.Show("Sai định dạng số lượng bánh", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
 
             }
-            else if (money == 0 && money < 1000)
+            else if (money == 0 && money < 1000 && money.GetType() == typeof(double))
             {
                 MessageBox.Show("Sai định dạng số tiền", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
 
@@ -168,5 +168,6 @@ namespace CakeShop
             }
             temp = DataProvider.Ins.DB.LOAIBANHs.ToList().Find(x=>x.TENLOAI == name);
         }
+
     }
 }
