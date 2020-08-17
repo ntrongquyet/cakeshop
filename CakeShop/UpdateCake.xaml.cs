@@ -23,8 +23,7 @@ namespace CakeShop
     public partial class UpdateCake : Window
     {
         private BANH cake;
-        private string oldImage;
-        private string nameImage; 
+
         public UpdateCake()
         {
             InitializeComponent();
@@ -32,7 +31,7 @@ namespace CakeShop
 
         public UpdateCake(BANH cake)
         {
-            this.cake = cake; 
+            this.cake = cake;
             InitializeComponent();
 
         }
@@ -48,8 +47,8 @@ namespace CakeShop
             DataContext = cake;
         }
 
-       
-      
+
+
         private void updateClick(object sender, RoutedEventArgs e)
         {
             cake.TENBANH = name.Text.Trim();
