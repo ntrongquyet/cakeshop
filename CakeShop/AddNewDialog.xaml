@@ -102,7 +102,9 @@
                              Name="count"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                              Width="100"
-                             Margin="25 0 0 0 ">
+                             Margin="25 0 0 0 "
+                             PreviewTextInput="NumberValidationTextBox">
+                       
                         <TextBox.Triggers>
                             <EventTrigger RoutedEvent="TextBox.TextChanged">
                                 <BeginStoryboard>
@@ -120,7 +122,8 @@
                              Name="price"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                              Width="100"
-                             Margin="25 0 0 0 ">
+                             Margin="25 0 0 0 "
+                             PreviewTextInput="NumberValidationTextBox">
                         <TextBox.Triggers>
                             <EventTrigger RoutedEvent="TextBox.TextChanged">
                                 <BeginStoryboard>
