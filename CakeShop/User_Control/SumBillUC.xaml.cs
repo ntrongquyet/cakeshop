@@ -31,5 +31,15 @@ namespace CakeShop.User_Control
             list_donhang = DataProvider.Ins.DB.DONHANGs.ToList();
             Show_SumBill.ItemsSource = list_donhang;
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var item = Show_SumBill.SelectedItem as DONHANG;
+            var list = (from ct in DataProvider.Ins.DB.CT_DONHANG
+                        where ct.MA_DONHANG.Equals(item.MA_DONHANG)
+                        select ct).ToList();
+            BillDetailWindow bill = new BillDetailWindow(list);
+            bill.ShowDialog();
+        }
     }
 }

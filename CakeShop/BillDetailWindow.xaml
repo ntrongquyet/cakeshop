@@ -1,0 +1,40 @@
+﻿<Window x:Class="CakeShop.BillDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CakeShop" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        ResizeMode="NoResize"
+        Title="{Binding MA_DONHANG}" Height="600" Width="400">
+    <Grid Background="#DEE8FF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Foreground="Black" Content="{Binding MA_DONHANG}"/>
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding Items3}"
+                  IsReadOnly="True" CanUserAddRows="False"
+                  AutoGenerateColumns="False"
+                  materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+                  materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                  Name="detail">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding STT}"
+                                    Header="STT" 
+                                    Foreground="#261D56"/>
+                <DataGridTextColumn Binding="{Binding TENBANH}"
+                                    Header="Tên bánh" 
+                                    Foreground="#261D56"/>
+                <DataGridTextColumn Binding="{Binding SL_MUA}"
+                                    Header="Số lượng" 
+                                    Foreground="#261D56"/>
+                <DataGridTextColumn Binding="{Binding THANHTIEN}"
+                                    Header="Thành tiền" 
+                                    Foreground="#261D56"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

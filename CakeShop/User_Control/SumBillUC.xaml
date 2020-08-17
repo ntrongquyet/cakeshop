@@ -38,12 +38,16 @@
                    FontSize="30" FontWeight="Bold"/>
         <DataGrid Margin="40 10 40 40" Grid.Row="1"
                   ItemsSource="{Binding Items3}"
-                  CanUserSortColumns="True"
-                  CanUserAddRows="False"
+                  IsReadOnly="True" CanUserAddRows="False"
                   AutoGenerateColumns="False"
                   materialDesign:DataGridAssist.CellPadding="13 8 8 8"
                   materialDesign:DataGridAssist.ColumnHeaderPadding="8"
                   Name="Show_SumBill">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Xem chi tiết" Click="MenuItem_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}"
                                     Header="STT" 
