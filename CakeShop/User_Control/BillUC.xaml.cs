@@ -101,7 +101,7 @@ namespace CakeShop.User_Control
                 // Ngược lại đã tồn tại
                 else
                 {
-                    var result = MessageBox.Show($"{cake.TENBANH} đã tồn tại bạn muốn sửa số lượng hay không", "Thông báo", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+                    var result = MessageBox.Show($"{cake.TENBANH} đã tồn tại trong đơn hàng, bạn muốn sửa số lượng?", "Thông báo", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
                     if (result == MessageBoxResult.OK)
                     {
                         cart.Items.Remove(exist);
@@ -126,7 +126,7 @@ namespace CakeShop.User_Control
         void displayMoney(List<tempDetailCake> ls)
         {
             total = ls.Select(x => x.Thanhtien).Sum();
-            totalMoney.Text = $"{total}";
+            totalMoney.Text = $"{string.Format("{0:n0}", total)} VNĐ";
         }
         // Kiểm tra sự tồn tại của sản phẩm trong giỏ hàng
         tempDetailCake checkCakeExsit(string idCake)
@@ -183,12 +183,6 @@ namespace CakeShop.User_Control
             }
         }
 
-        private void Botton_BackHome(object sender, MouseButtonEventArgs e)
-        {
-            DataContext = new HomeUC();
-            this.Content = new HomeUC();
-        }
-
         private void payClick(object sender, RoutedEventArgs e)
         {
             string maDonHang = $"DH{DataProvider.Ins.DB.DONHANGs.Count() + 1}";
@@ -200,8 +194,6 @@ namespace CakeShop.User_Control
                 MA_DONHANG = maDonHang,
                 NG_DATHANG = DateTime.Now,
                 TONG_GTDH = total,
-
-
             };
             int i = 0;
             foreach (tempDetailCake item in listCake)
@@ -218,14 +210,19 @@ namespace CakeShop.User_Control
                     STT = i,
                     DONHANG = dh,
                     BANH = banh,
-
                 };
                 dh.CT_DONHANG.Add(cT);
             }
-
-            DataProvider.Ins.DB.DONHANGs.Add(dh);
-            DataProvider.Ins.DB.SaveChanges();
-            MessageBox.Show($"Thanh toán thành công đơn hàng {dh.MA_DONHANG} với tổng đơn hàng là {dh.TONG_GTDH}", "Thành công", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            if (dh.TONG_GTDH == 0)
+            {
+                MessageBox.Show("Bạn chưa thêm sản phẩm, hãy thêm sản phẩm để thanh toán!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                DataProvider.Ins.DB.DONHANGs.Add(dh);
+                DataProvider.Ins.DB.SaveChanges();
+                MessageBox.Show($"Thanh toán đơn hàng {dh.MA_DONHANG} thành công với tổng đơn hàng là {string.Format("{0:n0}", dh.TONG_GTDH)} VNĐ", "Thanh toán thành công", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
             reset();
         }
         // Hàm reset giá trị 
