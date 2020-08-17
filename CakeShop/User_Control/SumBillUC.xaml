@@ -40,10 +40,17 @@
                   ItemsSource="{Binding Items3}"
                   CanUserSortColumns="True"
                   CanUserAddRows="False"
+                  IsReadOnly="True"
                   AutoGenerateColumns="False"
                   materialDesign:DataGridAssist.CellPadding="13 8 8 8"
                   materialDesign:DataGridAssist.ColumnHeaderPadding="8"
-                  Name="Show_SumBill">
+                  Name="Show_SumBill"
+                  Background="#EDEFF4">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Xem chi tiết" Click="MenuItem_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}"
                                     Header="STT" 

@@ -101,6 +101,9 @@
     <Compile Include="AddNewDialog.xaml.cs">
       <DependentUpon>AddNewDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BillDetailWindow.xaml.cs">
+      <DependentUpon>BillDetailWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converter\RelativeToAbsoluteConverter.cs" />
     <Compile Include="DetailCake.xaml.cs">
       <DependentUpon>DetailCake.xaml</DependentUpon>
@@ -144,9 +147,6 @@
     <Compile Include="User_Control\BillUC.xaml.cs">
       <DependentUpon>BillUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User_Control\HomeUC.xaml.cs">
-      <DependentUpon>HomeUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="User_Control\InfoUC.xaml.cs">
       <DependentUpon>InfoUC.xaml</DependentUpon>
     </Compile>
@@ -161,6 +161,10 @@
     </Compile>
     <Compile Include="User_Control\usercontrol.cs" />
     <Page Include="AddNewDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BillDetailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,10 +193,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="User_Control\BillUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="User_Control\HomeUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
