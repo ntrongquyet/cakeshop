@@ -10,7 +10,6 @@
         Foreground="#261D56"
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None"
-        MouseLeftButtonDown="Drag_Move"
         ResizeMode="NoResize"
         Loaded="Window_Loaded"
         Title="AddNewDialog" Height="600" Width="450">
