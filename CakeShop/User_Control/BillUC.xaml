@@ -253,18 +253,18 @@
                                                 </Ellipse.Fill>
                                             </Ellipse>
                                             <Label Content="{Binding Tenbanh}" Foreground="#261D56"
-                                       VerticalContentAlignment="Center"
-                                       FontWeight="Bold" FontSize="10"/>
+                                                   VerticalContentAlignment="Center"
+                                                   FontWeight="Bold" FontSize="10"/>
                                             <Label Content="x" Foreground="#261D56"
-                                       VerticalContentAlignment="Center"
-                                       FontWeight="Bold" FontSize="10"/>
+                                                   VerticalContentAlignment="Center"
+                                                   FontWeight="Bold" FontSize="10"/>
                                             <Label Content="{Binding Soluong}" Foreground="#261D56"
-                                       VerticalContentAlignment="Center"
-                                       FontWeight="Bold" FontSize="10"/>
+                                                   VerticalContentAlignment="Center"
+                                                   FontWeight="Bold" FontSize="10"/>
                                             <Label Content="{Binding Thanhtien, Converter={StaticResource CurrencyConveter}}" Foreground="#261D56"
-                                       VerticalContentAlignment="Center"
-                                       FontWeight="Light" FontSize="10"
-                                       HorizontalAlignment="Right"/>
+                                                   VerticalContentAlignment="Center"
+                                                   FontWeight="Light" FontSize="10"
+                                                   HorizontalAlignment="Right"/>
                                         </DockPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>

@@ -200,7 +200,7 @@
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.Click">
                             <BeginStoryboard>
-                                <Storyboard AutoReverse="True">
+                                <Storyboard>
                                     <ColorAnimation To="Green"
                                                 Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
                                                 FillBehavior="HoldEnd"
