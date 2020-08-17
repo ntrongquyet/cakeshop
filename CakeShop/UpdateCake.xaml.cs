@@ -46,21 +46,40 @@ namespace CakeShop
         {
             DataContext = cake;
         }
-
-
-
         private void updateClick(object sender, RoutedEventArgs e)
         {
-            cake.TENBANH = name.Text.Trim();
-            cake.THONGTIN = mota.Text.Trim();
-            cake.SL_TON = Convert.ToDouble(count.Text.Trim());
-            cake.DONGIA = Convert.ToDouble(price.Text.Trim());
-            cake.DVT = unit.Text.Trim();
-            DataProvider.Ins.DB.SaveChanges();
-            this.Close();
-
+            if (cake.TENBANH.Trim().Length == 0 || cake.THONGTIN.Trim().Length == 0 || cake.SL_TON == 0 || cake.DONGIA == 0 || cake.DVT.Trim().Length == 0  )
+            {
+                MessageBox.Show("Chưa đầy đủ thông tin", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if(name.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Chưa có tên bánh", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }    
+            else if (mota.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Chưa có thông tin bánh", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (unit.Text.Trim().Length == 0)
+            {
+                {
+                    MessageBox.Show("Chưa nhập đơn vị tính", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+            else if (cake.DONGIA <= 0) 
+            {
+                MessageBox.Show("Sai định dạng", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }    
+            else
+            {
+                cake.TENBANH = name.Text.Trim();
+                cake.THONGTIN = mota.Text.Trim();
+                cake.SL_TON = Convert.ToDouble(count.Text.Trim());
+                cake.DONGIA = Convert.ToDouble(price.Text.Trim());
+                cake.DVT = unit.Text.Trim();
+                DataProvider.Ins.DB.SaveChanges();
+                this.Close();
+            }
         }
-
-
     }
 }
