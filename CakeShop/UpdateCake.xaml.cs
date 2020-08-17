@@ -87,5 +87,10 @@ namespace CakeShop
             //Chỗ này đang lỗi từ từ t sửa
             //File.Delete(oldImage);
         }
+
+        private void Drag_Move(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

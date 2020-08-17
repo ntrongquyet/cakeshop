@@ -11,85 +11,89 @@
         WindowStartupLocation="CenterScreen"
         Background="#DEE8FF"
         WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseLeftButtonDown="Drag_Move"
         Foreground="#261D56"
         Loaded="Window_Loaded"
         Title="UpdateCake" Height="500" Width="450">
     <Window.Resources>
         <cvt:RelativeToAbsoluteConverter x:Key="pathConverter"/>
     </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <TextBlock Text="Cập nhật"
+    <Border BorderThickness="1" BorderBrush="#261D56">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Cập nhật"
                        VerticalAlignment="Center"
                        Margin="10 0 10 0"
                        HorizontalAlignment="Left"
                        FontFamily="/Font/#SVN-HEMI HEAD"
                        FontSize="50"/>
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="Tên món"
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="Tên món"
                        FontSize="15"
                        Margin="25 10 0 10"
                        FontWeight="DemiBold"/>
-            <TextBox Name="name"
+                <TextBox Name="name"
                      Text="{Binding TENBANH}"
                      TextWrapping="Wrap"
                      BorderThickness="1"
                      Margin="25 0 40 0"/>
-            <TextBlock Text="Thông tin"
+                <TextBlock Text="Thông tin"
                        FontSize="15"
                        Margin="25 10 0 10"
                        FontWeight="DemiBold"/>
-            <TextBox Name="mota"
+                <TextBox Name="mota"
                      Text="{Binding THONGTIN}"
                      MinHeight="80"
                      MaxHeight="120"
                      TextWrapping="Wrap"
                      BorderThickness="1"
                      Margin="25 0 40 10"/>
-            <DockPanel>
-                <DockPanel HorizontalAlignment="Left">
-                    <Image
+                <DockPanel>
+                    <DockPanel HorizontalAlignment="Left">
+                        <Image
                         Name="cakeImage"
                         Source="{Binding HA_BANH,Converter={StaticResource pathConverter}}"
                         Width="130"
                         Margin="25 0 0 0"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Left"/>
-                    <Button Content="Sửa ảnh"
+                        <Button Content="Sửa ảnh"
                             Click="editImage_Click"
                             Margin="25 15 0 0 "
                             Width="100"
                             HorizontalAlignment="Center"/>
-                </DockPanel>
-                <DockPanel VerticalAlignment="Bottom"
+                    </DockPanel>
+                    <DockPanel VerticalAlignment="Bottom"
                            HorizontalAlignment="Right">
-                    <TextBlock Text="Số lượng"
+                        <TextBlock Text="Số lượng"
                            FontSize="15"
                            FontWeight="DemiBold"/>
-                    <TextBox Name="price"
+                        <TextBox Name="price"
                              Text="{Binding SL_TON}"
                              Margin="10 0 10 0"
                              Width="70"
                              HorizontalAlignment="Left"
                              BorderThickness="1"/>
+                    </DockPanel>
                 </DockPanel>
-            </DockPanel>
-        </StackPanel>
-        <DockPanel Grid.Row="2">
-            <Button Content="Thoát"
+            </StackPanel>
+            <DockPanel Grid.Row="2">
+                <Button Content="Thoát"
                     Width="80"
                     Click="out_button"
                     HorizontalAlignment="Left"
                     Margin="25 0 0 0"/>
-            <Button Content="Cập nhật"
+                <Button Content="Cập nhật"
                     Click="updateClick"
                     Width="100"
                     HorizontalAlignment="Right"
                     Margin="0 0 25 0"/>
-        </DockPanel>
-    </Grid>
+            </DockPanel>
+        </Grid>
+    </Border>
 </Window>

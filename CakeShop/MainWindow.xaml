@@ -47,25 +47,25 @@
             <!--Add Cakes Button-->
             <Image Source="/Image/Home/add_cakes.png" 
                    VerticalAlignment="Center"
-                   Width="40"  MouseLeftButtonDown="New_Button"
+                   Width="32"  MouseLeftButtonDown="New_Button"
                    Margin="0 15"
                    ToolTip="Thêm bánh mới"/>
             <!--Update Button-->
             <Image Source="/Image/Home/update.png" 
                    VerticalAlignment="Center"
-                   Width="40"   MouseLeftButtonDown="Update_Button"
+                   Width="32"   MouseLeftButtonDown="Update_Button"
                    Margin="0 15"
                    ToolTip="Cập nhật bánh"/>
             <!--Revenue Button-->
             <Image Source="/Image/Home/revenue.png" 
                    VerticalAlignment="Center"
-                   Width="40" MouseLeftButtonDown="Static_Button" 
+                   Width="32" MouseLeftButtonDown="Static_Button" 
                    Margin="0 15"
                    ToolTip="Doanh thu"/>
             <!--Information Button-->
             <Image Source="/Image/Home/info.png"
                    VerticalAlignment="Center"
-                   Width="40"  MouseLeftButtonDown="Info_Button"
+                   Width="32"  MouseLeftButtonDown="Info_Button"
                    Margin="0 15"
                    ToolTip="Thông tin nhóm"/>
         </StackPanel>
