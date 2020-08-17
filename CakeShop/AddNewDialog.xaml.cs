@@ -172,5 +172,10 @@ namespace CakeShop
             }
             temp = DataProvider.Ins.DB.LOAIBANHs.ToList().Find(x=>x.TENLOAI == name);
         }
+
+        private void Drag_Move(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

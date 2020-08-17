@@ -32,12 +32,11 @@
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
         <DockPanel>
-            <TextBlock Text="Cập nhật"
+            <TextBlock Text="Cập nhật thông tin bánh"
                        VerticalAlignment="Center"
-                       Margin="10 0 10 0"
+                       Margin="40 0 10 0"
                        HorizontalAlignment="Left"
-                       FontFamily="/Font/#SVN-HEMI HEAD"
-                       FontSize="50"/>
+                       FontSize="30" FontWeight="Bold"/>
             <DockPanel Name="Search_Food" HorizontalAlignment="Right"
                        Margin="0 0 10 0">
                 <materialDesign:ColorZone Mode="Standard"  

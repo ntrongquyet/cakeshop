@@ -4,26 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CakeShop" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local1="clr-namespace:CakeShop.Converter"
+        xmlns:local2="clr-namespace:CakeShop"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
+        MouseLeftButtonDown="Drag_Move"
         ResizeMode="NoResize"
-        Title="{Binding MA_DONHANG}" Height="600" Width="400">
-    <Grid Background="#DEE8FF">
+        WindowStartupLocation="CenterScreen"
+        Background="#261D56"
+        Title="{Binding MA_DONHANG}" Height="450" Width="600">
+    <Window.Resources>
+        <local1:TitleDetailBillConverter x:Key="TitleDetailBillConverter"/>
+        <local2:CurrencyConveter x:Key="CurrencyConveter"/>
+    </Window.Resources>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Foreground="Black" Content="{Binding MA_DONHANG}"/>
-        <DataGrid Grid.Row="1"
-                  ItemsSource="{Binding Items3}"
+        <DockPanel Background="#261D56">
+            <Label Grid.Row="0" Foreground="White" Content="{Binding MA_DONHANG, Converter={StaticResource TitleDetailBillConverter}}"
+                   FontSize="30" FontWeight="Bold"
+                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </DockPanel>
+
+        <DataGrid Grid.Row="1" 
                   IsReadOnly="True" CanUserAddRows="False"
                   AutoGenerateColumns="False"
                   materialDesign:DataGridAssist.CellPadding="13 8 8 8"
                   materialDesign:DataGridAssist.ColumnHeaderPadding="8"
-                  Name="detail">
+                  Name="detail" Background="#EDEFF4" Foreground="#FBCABF"
+                  materialDesign:ScrollViewerAssist.CornerRectangleVisibility="Visible">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding STT}"
-                                    Header="STT" 
+                                    Header="STT"
                                     Foreground="#261D56"/>
                 <DataGridTextColumn Binding="{Binding TENBANH}"
                                     Header="Tên bánh" 
@@ -31,10 +46,47 @@
                 <DataGridTextColumn Binding="{Binding SL_MUA}"
                                     Header="Số lượng" 
                                     Foreground="#261D56"/>
-                <DataGridTextColumn Binding="{Binding THANHTIEN}"
+                <DataGridTextColumn Binding="{Binding DVT}"
+                                    Header="Đơn vị" 
+                                    Foreground="#261D56"/>
+                <DataGridTextColumn Binding="{Binding THANHTIEN, Converter={StaticResource CurrencyConveter}}"
                                     Header="Thành tiền" 
                                     Foreground="#261D56"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <StackPanel  Grid.Row="2" Margin="30 0 0 0" VerticalAlignment="Center">
+            <DockPanel>
+                <Label Content="Tổng giá trị đơn hàng: "
+                   VerticalContentAlignment="Center"
+                   FontSize="15" FontWeight="Bold"
+                   Foreground="White"/>
+                <Label Name="Sum_Bill"
+                   VerticalContentAlignment="Center"
+                   FontSize="15" FontWeight="Light"
+                   Foreground="White"/>
+
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Ngày thanh toán: "
+                   VerticalContentAlignment="Center"
+                   FontSize="15" FontWeight="Bold"
+                   Foreground="White"/>
+                <Label Name="Date_Bill"
+                   VerticalContentAlignment="Center"
+                   FontSize="15" FontWeight="Light"
+                   Foreground="White"/>
+
+            </DockPanel>
+        </StackPanel>
+
+        <Button Grid.Row="2" Height="30" Width="100"
+                materialDesign:ButtonAssist.CornerRadius="15"
+                Content="Thoát" FontSize="15"
+                Click="Exit_BillDetail"
+                Padding="0" FontWeight="Regular"
+                HorizontalAlignment="Right" Margin="0 0 30 0"
+                Background="White" Foreground="#261D56"
+                BorderThickness="0"/>
     </Grid>
 </Window>

@@ -41,5 +41,6 @@ namespace CakeShop.User_Control
             BillDetailWindow bill = new BillDetailWindow(list);
             bill.ShowDialog();
         }
+
     }
 }
